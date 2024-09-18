@@ -1,13 +1,17 @@
+import "./App.css";
+import Header from "./Header.jsx";
 
-import "../components/App.css"
+
 
 
 function App() {
   
   return (
     
-      <div>
-       hello
+      <div className = "page">
+        <div className = "page__content">
+          <Header />
+        </div>
       </div>
     
   )
