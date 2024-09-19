@@ -1,0 +1,14 @@
+.weather__card {
+    font-size: 70px;
+}
+.weather__card-temp {
+    font-size: 36px;
+    line-height: 40px;
+    color: white;
+    position: absolute;
+    margin: 0;
+
+}
+.weather__card-image {
+    margin: 0;
+}
