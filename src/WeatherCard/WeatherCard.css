@@ -1,6 +1,10 @@
 .weather__card {
-    
+    display: flex;
     position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 80px;
+    
 }
 .weather__card-temp {
     font-size: 36px;
