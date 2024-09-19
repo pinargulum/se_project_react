@@ -1,11 +1,10 @@
-import "./Header.css";
-import logo from "/src/assets/wtwr°.svg"
-import avatar from "/src/assets/Ellipse 18.svg"
-
+import logo from "./assets/Logo.png";
+import avatar from "./assets/Ellipse 18.png";
+import "/src/Header.css";
 
 function Header() {
     return(
-        <div className = "header">
+        <header className = "header">
             <img className ="header__logo" src = {logo} />
             <p className = "header__date-and-location">September 17, New York</p>
             <button className ="header__add-clothes-button">+ Add Clothes</button>
@@ -15,7 +14,7 @@ function Header() {
 
             </div>
 
-            </div>
+            </header>
 
     )
 }
