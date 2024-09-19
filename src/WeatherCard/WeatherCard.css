@@ -1,5 +1,6 @@
 .weather__card {
-    font-size: 70px;
+    
+    position: relative;
 }
 .weather__card-temp {
     font-size: 36px;
@@ -7,8 +8,12 @@
     color: white;
     position: absolute;
     margin: 0;
+    top: 20px;
+    left: 16px;
 
 }
 .weather__card-image {
-    margin: 0;
+    object-fit: cover;
+    object-position: right top;
+    width: 100%;
 }
