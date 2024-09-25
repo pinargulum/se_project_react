@@ -1,0 +1,28 @@
+.card {
+    position: relative;
+    width: 323px;
+   
+ 
+  height: 328px;
+  
+}
+.cards__image {
+  width: 100%;
+  border: 1px;
+  border-radius: 30px;
+  
+  
+}
+.image__text {
+  display: flex;
+  font-size: 16px;
+  line-height: 20px;
+  color: black;
+  position: absolute;
+  top: 15px;
+  background-color: white;
+  border-radius: 4px;
+  width: 73px;
+  justify-content: center;
+  left: 125px;
+}

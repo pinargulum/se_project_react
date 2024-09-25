@@ -1,3 +1,21 @@
-.card {
-    font-size: 90px;
+.cards {
+    max-width: 1360px;
+    height: 387px;
+    left: 40px;
+    position: absolute;
+    top: 220px;
+    
+    
+}
+.cards__list {
+  gap: 19px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  position: absolute;
+  top: 279px;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  
 }
