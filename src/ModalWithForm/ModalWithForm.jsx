@@ -1,3 +1,4 @@
+
 import "../ModalWithForm/ModalWithForm.css";
 function ModalWithForm() {
     return(
@@ -5,7 +6,9 @@ function ModalWithForm() {
             <div className="modal__content">
             <form className="modal__form">
                 <h2 className="modal__title">New garment</h2>
-                <button type="button" className="modal__close-button">CLOSE</button>
+                <button type="button" className="modal__close-button">CLOSE
+                    
+                    </button>
                 <label htmlFor="name" className="modal__label">Name
                 <input
                 type="text"
