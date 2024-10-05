@@ -24,6 +24,7 @@
 .modal__form {
   display: flex;
   flex-direction: column;
+ 
   
 }
 .modal__title {
@@ -49,9 +50,9 @@
   font-size: 16px;
   height: 24px;
   width: 440px;
-  gap: 24px;
+  margin-bottom: 24px;
   border: none;
-  border-bottom: 1px solid black 50%;
+  border-bottom: 1px solid black;
 }
 .modal__legend {
   font-size: 16px;
