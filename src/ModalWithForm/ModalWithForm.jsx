@@ -29,21 +29,21 @@ function ModalWithForm() {
                 <legend className="modal__legend">
                     Select the weather type:
                 </legend>
-                <label htmlFor="hot" className="modal__label" modal__label-type-radio>Hot
+                <label htmlFor="hot" className="modal__radio-label">Hot
                     <input
                     id="hot"
                     type="radio"
                     className="modal__radio-input"
                     />
                 </label>
-                <label htmlFor="warm" className="modal__label" modal__label-type-radio>Warm
+                <label htmlFor="warm" className="modal__radio-label">Warm
                     <input
                     id="warm"
                     type="radio"
                     className="modal__radio-input"
                     />
                 </label>
-                <label htmlFor="cold" className="modal__label" modal__label-type-radio>Cold
+                <label htmlFor="cold" className="modal__radio-label">Cold
                     <input
                     id="cold"
                     type="radio"
