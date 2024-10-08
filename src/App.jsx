@@ -29,7 +29,7 @@ function App() {
               placeholder="ImageURL"
             />
           </label>
-          <fillset className="modal__radio-buttons">
+          <fieldset className="modal__radio-buttons">
             <legend className="modal__legend">Select the weather type:</legend>
             <label htmlFor="hot" className="modal__radio-label">
               Hot
@@ -43,7 +43,7 @@ function App() {
               Cold
               <input id="cold" type="radio" className="modal__radio-input" />
             </label>
-          </fillset>
+          </fieldset>
         </ModalWithForm>
         
       </div>
