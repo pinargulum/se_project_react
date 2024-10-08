@@ -10,7 +10,7 @@ function App() {
     <div className = "page__content">
       <Header />
       <Main />
-      <ModalWithForm>
+      <ModalWithForm buttonText="Add garment" titleText="New garment">
       <label htmlFor="name" className="modal__label">
             Name
             <input
