@@ -11,6 +11,10 @@
   max-width: 496px;
   max-height: 436px;
   margin: auto;
+  visibility: hidden;
+}
+.modal__opened {
+  visibility: visible;
 }
 .modal__content {
   background-color: #ffffff;

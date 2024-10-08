@@ -2,15 +2,22 @@ import Header from "./Header.jsx";
 import './App.css'
 import Main from "./Main/Main.jsx";
 import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
+import { useState } from "react";
 
 function App() {
-
+const [activeModal, setActiveModal] = useState("");
+const handleAddClick = () => {
+  setActiveModal("add-garment");
+}
+const closeActiveModal = () => {
+  setActiveModal("");
+}
   return (
     <div className = "page">
     <div className = "page__content">
-      <Header />
+      <Header handleAddClick={handleAddClick} />
       <Main />
-      <ModalWithForm buttonText="Add garment" titleText="New garment">
+      <ModalWithForm buttonText="Add garment" titleText="New garment" activeModal={activeModal} handleCloseClick={closeActiveModal}>
       <label htmlFor="name" className="modal__label">
             Name
             <input
