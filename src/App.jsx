@@ -7,7 +7,14 @@ import ItemModal from "./ItemModal/ItemModal.jsx";
 //import ItemCard from "./ItemCard/ItemCard.jsx";
 
 function App() {
+  const [weatherData, setWeatherData] = useState({ type: "cold" }); 
 const [activeModal, setActiveModal] = useState("");
+const [selectedCard, setSlectedCard] = useState({});
+
+const handleCardClick = (card) => {
+  setActiveModal("preview");
+  setSlectedCard(card)
+}
 const handleAddClick = () => {
   setActiveModal("add-garment");
 }
@@ -18,9 +25,9 @@ const closeActiveModal = () => {
     <div className = "page">
     <div className = "page__content">
       <Header handleAddClick={handleAddClick} />
-      <Main />
-      
-      <ModalWithForm buttonText="Add garment" titleText="New garment" activeModal={activeModal} handleCloseClick={closeActiveModal}>
+      <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+      </div>
+      <ModalWithForm buttonText="Add garment" titleText="New garment" activeModal={activeModal} onClose={closeActiveModal}>
       <label htmlFor="name" className="modal__label">
             Name
             <input
@@ -58,7 +65,7 @@ const closeActiveModal = () => {
         <ItemModal />
         
       </div>
-      </div>
+      
   )
 }
 
