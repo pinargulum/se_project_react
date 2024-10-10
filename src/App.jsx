@@ -3,6 +3,8 @@ import './App.css'
 import Main from "./Main/Main.jsx";
 import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import { useState } from "react";
+import ItemModal from "./ItemModal/ItemModal.jsx";
+//import ItemCard from "./ItemCard/ItemCard.jsx";
 
 function App() {
 const [activeModal, setActiveModal] = useState("");
@@ -17,6 +19,7 @@ const closeActiveModal = () => {
     <div className = "page__content">
       <Header handleAddClick={handleAddClick} />
       <Main />
+      
       <ModalWithForm buttonText="Add garment" titleText="New garment" activeModal={activeModal} handleCloseClick={closeActiveModal}>
       <label htmlFor="name" className="modal__label">
             Name
@@ -52,6 +55,7 @@ const closeActiveModal = () => {
             </label>
           </fieldset>
         </ModalWithForm>
+        <ItemModal />
         
       </div>
       </div>

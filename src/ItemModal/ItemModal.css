@@ -1,0 +1,29 @@
+.preview__modal-content {
+    max-width: 498px;
+    max-height: 610px;
+}
+.preview__image-fotter {
+  display: flex;
+  background-color: white;
+  position: absolute;
+  bottom: 32px;
+  gap: 12px;
+  padding: 0;
+  left: 32px;
+  flex-direction: column;
+}
+.image__title {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.image__description {
+  margin: 0;
+  padding: 0;
+  left: 32px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
