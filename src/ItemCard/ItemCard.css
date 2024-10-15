@@ -1,17 +1,13 @@
 .card {
-    position: relative;
-    width: 323px;
-   
- 
+  position: relative;
+  width: 323px;
+
   height: 328px;
-  
 }
 .cards__image {
   width: 100%;
   border: 1px;
   border-radius: 30px;
-  
-  
 }
 .image__text {
   display: flex;

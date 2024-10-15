@@ -1,8 +1,26 @@
-.preview__modal-content {
-    max-width: 498px;
-    max-height: 610px;
+.modal__content-type-image {
+  width: 498px;
+  height: 610px;
+  border: solid white;
+  border-radius: 16px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
 }
-.preview__image-fotter {
+.modal__image {
+  width: 498px;
+  height: 498px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  cursor: pointer;
+  border: none;
+  border-radius: 16px 16px 0 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.modal__footer {
   display: flex;
   background-color: white;
   position: absolute;
@@ -12,14 +30,14 @@
   left: 32px;
   flex-direction: column;
 }
-.image__title {
+.modal__caption {
   margin: 0;
   padding: 0;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
 }
-.image__description {
+.modal__weather {
   margin: 0;
   padding: 0;
   left: 32px;

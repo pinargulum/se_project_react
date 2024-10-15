@@ -62,7 +62,7 @@ const closeActiveModal = () => {
             </label>
           </fieldset>
         </ModalWithForm>
-        <ItemModal />
+        <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
         
       </div>
       
