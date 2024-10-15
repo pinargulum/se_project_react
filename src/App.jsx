@@ -68,6 +68,7 @@ const closeActiveModal = () => {
         <Footer />
       </div>
       
+      
   )
 }
 
