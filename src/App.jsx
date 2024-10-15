@@ -6,11 +6,15 @@ import { useState } from "react";
 import ItemModal from "./ItemModal/ItemModal.jsx";
 import Footer from "./Footer/Footer.jsx";
 import { useEffect } from "react";
-
-
+import { getWeather, filterWeatherData } from "./utils/weatherApi.js";
+import { coordinates, APIkey } from "./utils/constant.js";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ type: "cold" }); 
+  const [weatherData, setWeatherData] = useState({ 
+    type:"", 
+    temp: { F: 999, C: 999 },
+    city:""
+  }); 
 const [activeModal, setActiveModal] = useState("");
 const [selectedCard, setSlectedCard] = useState({});
 
@@ -23,9 +27,14 @@ const handleAddClick = () => {
 }
 useEffect(() =>
 {
+getWeather(coordinates, APIkey).then((data) => {
+  const filteredData = filterWeatherData(data);
+})
+  
 
-}
-)
+.catch(console.error)
+}, [])
+
 const closeActiveModal = () => {
   setActiveModal("");
 }
