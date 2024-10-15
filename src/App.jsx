@@ -5,6 +5,7 @@ import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import { useState } from "react";
 import ItemModal from "./ItemModal/ItemModal.jsx";
 import Footer from "./Footer/Footer.jsx";
+import { useEffect } from "react";
 
 
 
@@ -20,6 +21,11 @@ const handleCardClick = (card) => {
 const handleAddClick = () => {
   setActiveModal("add-garment");
 }
+useEffect(() =>
+{
+
+}
+)
 const closeActiveModal = () => {
   setActiveModal("");
 }
