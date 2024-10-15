@@ -1,0 +1,18 @@
+.footer {
+  position: absolute;
+  left: 40px;
+  font-size: 16px;
+  display: flex;
+  width: 1358px;
+  height: 20px;
+  bottom: 24px;
+}
+.footer__title {
+    font-size: 16px;
+    font-weight: 500;
+}
+.footer__year {
+display: flex;
+position: absolute;
+right: 42px;
+}

@@ -4,7 +4,9 @@ import Main from "./Main/Main.jsx";
 import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import { useState } from "react";
 import ItemModal from "./ItemModal/ItemModal.jsx";
-//import ItemCard from "./ItemCard/ItemCard.jsx";
+import Footer from "./Footer/Footer.jsx";
+
+
 
 function App() {
   const [weatherData, setWeatherData] = useState({ type: "cold" }); 
@@ -63,7 +65,7 @@ const closeActiveModal = () => {
           </fieldset>
         </ModalWithForm>
         <ItemModal activeModal={activeModal} card={selectedCard} onClose={closeActiveModal} />
-        
+        <Footer />
       </div>
       
   )
