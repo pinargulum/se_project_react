@@ -9,8 +9,19 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
     }
   });
 };
-const filterWeatherData = (data) => {
+export const filterWeatherData = (data) => {
     const result = {};
     result.city = data.name;
+    result.temp = { F: data.main.temp };
+    result.temp = getWeatherType(result.temp)
     return result;
+}
+const getWeatherType = (temperature) => {
+    if (temperature > 86) {
+        return 'hot';
+      } else if (temperature > 66) {
+        return 'warm';
+      } else {
+        return 'cold';
+      }
 }

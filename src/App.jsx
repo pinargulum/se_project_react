@@ -12,7 +12,7 @@ import { coordinates, APIkey } from "./utils/constant.js";
 function App() {
   const [weatherData, setWeatherData] = useState({ 
     type:"", 
-    temp: { F: 999, C: 999 },
+    temp: { F: 999 },
     city:""
   }); 
 const [activeModal, setActiveModal] = useState("");
@@ -29,6 +29,7 @@ useEffect(() =>
 {
 getWeather(coordinates, APIkey).then((data) => {
   const filteredData = filterWeatherData(data);
+  setWeatherData(filteredData);
 })
   
 
@@ -41,7 +42,7 @@ const closeActiveModal = () => {
   return (
     <div className = "page">
     <div className = "page__content">
-      <Header handleAddClick={handleAddClick} />
+      <Header handleAddClick={handleAddClick} weatherData={weatherData}/>
       <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
       <ModalWithForm buttonText="Add garment" titleText="New garment" activeModal={activeModal} onClose={closeActiveModal}>
