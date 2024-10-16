@@ -1,6 +1,7 @@
-import logo from "./assets/Logo.png";
-import avatar from "./assets/Ellipse 18.png";
-import "/src/Header.css";
+import logo from "/src/assets/Logo.png";
+import avatar from "/src/assets/Ellipse 18.png";
+import "./Header.css";
+
 
 function Header({ handleAddClick, weatherData }) {
     const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });

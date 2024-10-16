@@ -1,4 +1,4 @@
-import "../ModalWithForm/ModalWithForm.css";
+import "./ModalWithForm.css";
 function ModalWithForm({ children, buttonText, titleText, activeModal, onClose }) {
   return (
     <div className={`modal ${activeModal === "add-garment" && "modal__opened"} `}>

@@ -1,13 +1,13 @@
-import Header from "./Header.jsx";
+import Header from "../Header/Header.jsx";
 import './App.css'
-import Main from "./Main/Main.jsx";
-import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
+import Main from "../Main/Main.jsx";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import { useState } from "react";
-import ItemModal from "./ItemModal/ItemModal.jsx";
-import Footer from "./Footer/Footer.jsx";
+import ItemModal from "../ItemModal/ItemModal.jsx";
+import Footer from "../Footer/Footer.jsx";
 import { useEffect } from "react";
-import { getWeather, filterWeatherData } from "./utils/weatherApi.js";
-import { coordinates, APIkey } from "./utils/constant.js";
+import { getWeather, filterWeatherData } from "../utils/weatherApi.js";
+import { coordinates, APIkey } from "../utils/constant.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ 
