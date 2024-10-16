@@ -1,7 +1,7 @@
 .modal__content-type-image {
   width: 498px;
   height: 610px;
-  border: solid white;
+  border: none;
   border-radius: 16px;
   display: flex;
   padding: 0;
