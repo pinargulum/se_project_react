@@ -1,6 +1,6 @@
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
-import { defaultClothingItems } from "../utils/constant.js";
+import { defaultClothingItems } from "/src/utils/constant.js";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 function Main({ weatherData, handleCardClick }) {
   return (

@@ -6,8 +6,8 @@ import { useState } from "react";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import { useEffect } from "react";
-import { getWeather, filterWeatherData } from "../utils/weatherApi.js";
-import { coordinates, APIkey } from "../utils/constant.js";
+import { getWeather, filterWeatherData } from "/src/utils/weatherApi.js";
+import { coordinates, APIkey } from "/src/utils/constant.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ 
