@@ -1,4 +1,5 @@
 import "./Itemmodal.css";
+
 function ItemModal({ activeModal, card, onClose }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal__opened"} `}>
