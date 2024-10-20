@@ -6,7 +6,7 @@ function Main({ weatherData, handleCardClick }) {
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
-      <section className="cards"></section>
+      <section className="cards">
       <p className="cards__text">
         Today is {weatherData.temp.F} / You may want to wear:
       </p>
@@ -25,6 +25,7 @@ function Main({ weatherData, handleCardClick }) {
             );
           })}
       </ul>
+      </section>
     </main>
   );
 }
