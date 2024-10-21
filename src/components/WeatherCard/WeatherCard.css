@@ -1,26 +1,24 @@
 .weather__card {
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    height: 80px;
-    padding: 0;
-    margin: 0;
-    max-width: 1360px;
-    
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  max-width: 1360px;
 }
 .weather__card-temp {
-    font-size: 36px;
-    line-height: 40px;
-    color: white;
-    position: absolute;
-    margin: 0;
-    top: 20px;
-    left: 16px;
-
+  font-size: 36px;
+  line-height: 40px;
+  color: white;
+  position: absolute;
+  margin: 0;
+  top: 20px;
+  left: 16px;
 }
 .weather__card-image {
-    object-fit: cover;
-    object-position: right top;
-    width: 100%;
+  object-fit: cover;
+  object-position: right top;
+  width: 100%;
 }

@@ -5,27 +5,27 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
     if (res.ok) {
       return res.json();
     } else {
-        return Promise.reject(`error: ${res.status}`)
+      return Promise.reject(`error: ${res.status}`);
     }
   });
 };
 export const filterWeatherData = (data) => {
-    const result = {};
-    result.city = data.name;
-    result.temp = { F: data.main.temp };
-    result.type = getWeatherType(result.temp.F)
-    result.isDay = isDay(data.sys, Date.now());
-    return result;
-}
+  const result = {};
+  result.city = data.name;
+  result.temp = { F: data.main.temp };
+  result.type = getWeatherType(result.temp.F);
+  result.isDay = isDay(data.sys, Date.now());
+  return result;
+};
 const isDay = ({ sunrise, sunset }, now) => {
-    return sunrise*1000 < now && now < sunset*1000;
-}
+  return sunrise * 1000 < now && now < sunset * 1000;
+};
 const getWeatherType = (temperature) => {
-    if (temperature > 86) {
-        return 'hot';
-      } else if (temperature > 66) {
-        return 'warm';
-      } else {
-        return 'cold';
-      }
-}
+  if (temperature > 86) {
+    return "hot";
+  } else if (temperature > 66) {
+    return "warm";
+  } else {
+    return "cold";
+  }
+};
