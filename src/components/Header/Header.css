@@ -1,49 +1,48 @@
 .header {
-    display: flex;
-    align-items: center;
-    padding: 32px 0 28px;
-    margin: 0;
-   
-  }
-  .header__logo {
-    width: 89px;
-    height: 40px;
-    font-weight: 900;
-    size: 32px;
-    line-height: 39.68px;
-    margin-right: 24px;
-  }
-  .header__add-clothes-button {
-    border: none;
-    margin-left: auto;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    margin: 0 20px 0 auto;
-    background-color: #f3f3f3;
-  }
-  .header__date-and-location {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    margin: 0;
-  }
-  .header__user-container {
-    display: flex;
-    font-size: 20px;
-    font-weight: 700;
-    align-items: center;
-    gap: 12px;
-    
-  }
-  .header__username {
-    margin: 0;
-    line-height: 24.8px;
-    font-size: 24px;
-    font-weight: 700;
-  }
-  .header__avatar {
-    height: 40px;
-    width: 40px;
-    padding-left: 12px;
-  }
+  display: flex;
+  align-items: center;
+  padding: 32px 0 28px;
+  margin: 0;
+  height: 40px;
+}
+.header__logo {
+  width: 89px;
+  height: 40px;
+  font-weight: 900;
+  size: 32px;
+  line-height: 39.68px;
+  margin-right: 24px;
+}
+.header__add-clothes-button {
+  border: none;
+  margin-left: auto;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 20px 0 auto;
+  background-color: #f3f3f3;
+}
+.header__date-and-location {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+}
+.header__user-container {
+  display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  align-items: center;
+  gap: 12px;
+}
+.header__username {
+  margin: 0;
+  line-height: 24.8px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.header__avatar {
+  height: 40px;
+  width: 40px;
+  padding-left: 12px;
+}

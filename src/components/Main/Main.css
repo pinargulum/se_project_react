@@ -2,7 +2,6 @@
   max-width: 1360px;
   height: 387px;
   margin-top: 40px;
-  padding: 0;
 }
 
 .cards__list {
@@ -10,7 +9,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 34px;
-  top: 279px;
   list-style: none;
   padding: 0;
 }
