@@ -1,9 +1,8 @@
 .cards {
   max-width: 1360px;
   height: 387px;
-  left: 40px;
-  position: absolute;
-  top: 220px;
+  margin-top: 40px;
+  padding: 0;
 }
 
 .cards__list {
@@ -11,7 +10,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 34px;
-  position: absolute;
   top: 279px;
   list-style: none;
   padding: 0;

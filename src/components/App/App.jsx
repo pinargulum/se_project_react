@@ -92,6 +92,7 @@ function App() {
           />
         </Main>
         <Footer />
+        
       </div>
     </div>
   );
