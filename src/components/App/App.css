@@ -3,7 +3,7 @@
   max-height: 1080px;
   background: #f3f3f3;
   position: relative;
-  margin: 0 auto;
+  margin: auto;
   padding: 0;
   height: 100%;
   width: 100%;
@@ -15,4 +15,5 @@
   padding: 0 40px 0 40px;
   margin: 0 auto;
   position: relative;
+  background: #f3f3f3;
 }
