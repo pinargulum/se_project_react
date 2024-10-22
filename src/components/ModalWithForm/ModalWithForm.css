@@ -12,11 +12,12 @@
   max-height: 436px;
   margin: auto;
   visibility: hidden;
+  z-index: 999;
 }
 .modal_opened {
   visibility: visible;
 }
-.modal__content {
+#add-garment-content {
   background-color: #ffffff;
   position: relative;
   width: 100%;
@@ -103,4 +104,7 @@
   width: 20px;
   height: 20px;
   border: none;
+  
+  background-repeat: no-repeat;
+  
 }
