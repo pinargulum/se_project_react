@@ -4,29 +4,31 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #ffffff;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 496px;
-  max-height: 436px;
-  margin: auto;
+  background-color: transparent;
+  margin: 106px 0 0 471px ;
   visibility: hidden;
   z-index: 999;
+  opacity: 0;
+  
 }
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 #add-garment-content {
   background-color: #ffffff;
-  position: relative;
-  width: 100%;
-  padding: 28px 28px 36px;
+  height: 436px;
+  width: 496px;
+  padding: 28px 0 0 28px;
   box-sizing: border-box;
-  height: 100%;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
+  position: relative;
+  border: solid 1px;
+  border-radius: 20px;
+  border-color: #ffffff;
 }
 .modal__form {
   display: flex;
@@ -36,7 +38,7 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  margin-bottom: 24px;
+ 
 }
 
 .modal__label {
@@ -97,14 +99,13 @@
 }
 
 .modal__close-button {
-  position: absolute;
+  
   background-image: url("../assets/modalClose.png");
-  top: 20px;
-  right: 28px;
+
   width: 20px;
   height: 20px;
   border: none;
-  
+  background-color: aquamarine;
   background-repeat: no-repeat;
   
 }
