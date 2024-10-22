@@ -38,6 +38,7 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+  
   return (
     <div className="page">
       <div className="page__content">
@@ -49,6 +50,7 @@ function App() {
           titleText="New garment"
           activeModal={activeModal}
           onClose={closeActiveModal}
+        
         >
           <label htmlFor="name" className="modal__label">
             Name
