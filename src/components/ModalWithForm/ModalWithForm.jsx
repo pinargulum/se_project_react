@@ -17,6 +17,7 @@ function ModalWithForm({
           onClick={onClose}
           type="button"
           className="modal__close-button"
+          id="add-garment-close-button"
         />
         <form className="modal__form">
           {children}
