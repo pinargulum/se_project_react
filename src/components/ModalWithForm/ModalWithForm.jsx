@@ -1,13 +1,5 @@
 import "./ModalWithForm.css";
-function ModalWithForm({
-  children,
-  buttonText,
-  titleText,
-  activeModal,
-  onClose,
-  isOpen
-  
-}) {
+function ModalWithForm({ children, buttonText, titleText, onClose, isOpen }) {
   return (
     <div className={`modal ${isOpen && "modal_opened"} `}>
       <div className="modal__content" id="add-garment-content">
