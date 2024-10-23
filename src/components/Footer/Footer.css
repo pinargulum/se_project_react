@@ -7,13 +7,9 @@
   height: 20px;
   bottom: 24px;
   align-items: center;
-}
-.footer__title {
+  flex-direction: row;
+  gap: 1029px;
   font-size: 16px;
   font-weight: 500;
 }
-.footer__year {
-  display: flex;
-  position: absolute;
-  right: 42px;
-}
+

@@ -3,7 +3,7 @@
   height: 610px;
   display: flex;
   padding: 0;
-  margin: 106px 0 0 471px;
+  margin: 106px auto;
   position: relative;
 }
 .modal__image {

@@ -43,7 +43,7 @@ function App() {
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
-
+        <Footer />
         <ModalWithForm
           buttonText="Add garment"
           titleText="New garment"
@@ -72,15 +72,30 @@ function App() {
             <legend className="modal__legend">Select the weather type:</legend>
             <label htmlFor="hot" className="modal__radio-label">
               Hot
-              <input id="hot" name="radio" type="radio" className="modal__radio-input" />
+              <input
+                id="hot"
+                name="radio"
+                type="radio"
+                className="modal__radio-input"
+              />
             </label>
-            <label htmlFor="warm" name="radio"  className="modal__radio-label">
+            <label htmlFor="warm" name="radio" className="modal__radio-label">
               Warm
-              <input id="warm" name="radio" type="radio" className="modal__radio-input" />
+              <input
+                id="warm"
+                name="radio"
+                type="radio"
+                className="modal__radio-input"
+              />
             </label>
             <label htmlFor="cold" name="radio" className="modal__radio-label">
               Cold
-              <input id="cold" type="radio" name="radio" className="modal__radio-input" />
+              <input
+                id="cold"
+                type="radio"
+                name="radio"
+                className="modal__radio-input"
+              />
             </label>
           </fieldset>
         </ModalWithForm>
@@ -89,7 +104,6 @@ function App() {
           card={selectedCard}
           onClose={closeActiveModal}
         />
-        <Footer />
       </div>
     </div>
   );
