@@ -5,15 +5,15 @@
   bottom: 0;
   right: 0;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5) ;
+  background-color: rgba(0, 0, 0, 0.5);
   visibility: hidden;
-  z-index: 999; 
+  z-index: 999;
   margin: auto;
 }
 .modal_opened {
   visibility: visible;
 }
-#add-garment-content {
+.modal__content_type_form {
   margin: 193px auto;
   border: solid 1px;
   border-radius: 20px;
@@ -25,7 +25,8 @@
   box-sizing: border-box;
   font-size: 16px;
   line-height: 20px;
-  font-weight: 700; 
+  font-weight: 700;
+  position: relative;
 }
 .modal__form {
   display: flex;
@@ -81,6 +82,7 @@
 }
 .modal__submit {
   display: flex;
+  position: absolute;
   width: 126px;
   height: 36px;
   padding: 8px 16px 8px 16px;
@@ -88,11 +90,10 @@
   background-color: #0000004d;
   border: solid 1px;
   border-radius: 4px;
-  margin-bottom: 36px;
-  margin-top: 32px;
+  bottom: 20px;
 }
 
-#add-garment-close-button {
+.modal__close-button_type_form {
   position: relative;
   border: none;
   background-image: url("/src/assets/modalClose.png");

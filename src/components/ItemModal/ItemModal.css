@@ -1,4 +1,4 @@
-#preview-modal-content {
+.modal__content_type_cards {
   width: 498px;
   height: 610px;
   display: flex;
@@ -44,7 +44,7 @@
   line-height: 24px;
   font-weight: 700;
 }
-#item-modal-close {
+.modal__close-button_type_cards {
   display: flex;
   position: absolute;
   top: 24px;
