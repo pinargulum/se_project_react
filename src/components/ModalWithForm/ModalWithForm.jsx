@@ -8,7 +8,6 @@ function ModalWithForm({ children, buttonText, titleText, onClose, isOpen }) {
           onClick={onClose}
           type="button"
           className="modal__close-button modal__close-button_type_form"
-         
         />
         <form className="modal__form">
           {children}

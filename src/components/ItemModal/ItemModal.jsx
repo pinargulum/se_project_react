@@ -8,7 +8,6 @@ function ItemModal({ activeModal, card, onClose }) {
           onClick={onClose}
           type="button"
           className="modal__close-button modal__close-button_type_cards"
-          id="item-modal-close"
         />
         <img
           src={card.link}
