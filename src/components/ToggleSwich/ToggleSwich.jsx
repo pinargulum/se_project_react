@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import "./ToggleSwich.css";
-import { currentTemperatureUnitContext } from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext";
-function ToggleSwich() {
+import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext";
+const ToggleSwich = () => {
   /* const handleOnChange = (e) => {
     if (currentTemperatureUnit === "C") handleToggleSwichChange("F");
     if (currentTemperatureUnit === "F") handleToggleSwichChange("C");
   };
   */
-  const [currentTemperatureUnit, handleToggleSwichChange] = useContext(
-    currentTemperatureUnitContext
+  const {currentTemperatureUnit, handleToggleSwichChange} = useContext(
+    CurrentTemperatureUnitContext
   );
   return (
     <label className="swich">
