@@ -1,0 +1,46 @@
+.swich {
+  display: flex;
+  position: relative;
+  left: 390px;
+}
+.checkbox {
+  border-radius: 25px;
+  border: 2px solid black;
+  width: 56px;
+  height: 28px;
+  appearance: none;
+}
+.swich__slider {
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+}
+.swich__slider-F {
+  top: 3px;
+  left: 28px;
+}
+.swich__slider-C {
+  top: 3px;
+  left: 5px;
+}
+.swich__temp-F {
+  position: absolute;
+  top: -7px;
+  left: 38px;
+  color: white;
+}
+.swich__temp-C {
+  top: -7px;
+  left: 14px;
+  position: absolute;
+  color: white;
+}
+.swich__active {
+  font-size: 16px;
+  color: white;
+}
