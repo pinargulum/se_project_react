@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { getWeather, filterWeatherData } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/constant.js";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
+import { Route, Router, Routes } from "react-router-dom";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -51,7 +52,20 @@ function App() {
       >
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                />
+              }
+            />
+            <Route path="/Profile" element={<Profile />} />
+          </Routes>
+
           <Footer />
           <ModalWithForm
             buttonText="Add garment"
