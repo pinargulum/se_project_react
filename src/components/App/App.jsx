@@ -19,10 +19,10 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSlectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-const handleToggleSwichChange = () => {
-  if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-  if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
-};
+  const handleToggleSwichChange = () => {
+    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
+    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -45,13 +45,11 @@ const handleToggleSwichChange = () => {
   };
 
   return (
-    
     <div className="page">
-     <CurrentTemperatureUnitContext.Provider
-        value={(currentTemperatureUnit, handleToggleSwichChange)}
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwichChange }}
       >
         <div className="page__content">
-        
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Main weatherData={weatherData} handleCardClick={handleCardClick} />
           <Footer />
@@ -117,11 +115,9 @@ const handleToggleSwichChange = () => {
             card={selectedCard}
             onClose={closeActiveModal}
           />
-          
         </div>
-        </CurrentTemperatureUnitContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
     </div>
-    
   );
 }
 
