@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { getWeather, filterWeatherData } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/constant.js";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
-import { Route, Router, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 
 function App() {
@@ -53,7 +53,6 @@ function App() {
       >
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-         
           <Routes>
             <Route
               path="/"
