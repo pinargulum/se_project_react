@@ -1,7 +1,6 @@
 import "../ClothesSection/ClothesSection.css";
-import ItemCard from "../ItemCard/ItemCard";
+import ItemCard from "../ItemCard/ItemCard.jsx";
 import { defaultClothingItems } from "../../utils/constant";
-
 function ClothsSection() {
   return (
     <div className="your__items">
@@ -11,14 +10,21 @@ function ClothsSection() {
           + Add new
         </button>
       </section>
-      <section className="your__items-card-section">
-       <li className="your__items-card-list">
-        return(
-            
-            {defaultClothingItems}
-        )
-       </li>
-      </section>
+      
+      <ul className="cards__list">
+          {defaultClothingItems
+
+            .map((item) => {
+              return (
+                <ItemCard
+                  key={item._id}
+                  item={item}
+                  //onCardClick={handleCardClick}
+                />
+              );
+            })}
+        </ul>
+      
     </div>
   )
 }
