@@ -1,5 +1,5 @@
 .your__items {
-  display: block;
+  display: flex;
 }
 .your__items-section {
   display: flex;
@@ -8,10 +8,10 @@
   line-height: 30px;
   flex-direction: row;
   gap: 20px;
-  justify-content: center;
-  margin-left: 116px;
+  position: absolute;
+  top: 99px;
+  left: 325px;
 }
-
 .cloths__add-button {
   background-color: transparent;
   border: none;
@@ -22,6 +22,8 @@
 .your__items-card-section {
   display: flex;
 }
-.your__items-card-list {
+.your__cards-item {
   display: flex;
+  width: 1015px;
+  height: 676px;
 }

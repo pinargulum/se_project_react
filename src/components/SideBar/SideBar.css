@@ -1,8 +1,6 @@
 .profile__sidebar {
   display: flex;
-  flex-direction: row;
   gap: 16px;
-  align-items: center;
 }
 
 .profile__picture-sidebar {
@@ -10,8 +8,9 @@
   height: 56px;
 }
 .profile__username-sidebar {
+  display: flex;
   font-size: 20px;
   font-weight: 700;
   line-height: 24.8px;
-  left: 112px;
+  width: 157px;
 }
