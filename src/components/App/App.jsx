@@ -63,7 +63,10 @@ function App() {
                 />
               }
             />
-            <Route path="/Profile" element={<Profile />} />
+            <Route
+              path="/Profile"
+              element={<Profile onCardClick={handleCardClick} />}
+            />
           </Routes>
 
           <Footer />
