@@ -4,7 +4,7 @@ import { defaultClothingItems } from "../../utils/constant";
 function ClothesSection({ onCardClick }) {
   return (
     <div className="clothes-section">
-      <div>
+      <div className="your__items">
         <p className="cloths__add-items">Your items</p>
         <button className="cloths__add-button" type="button">
           + Add new

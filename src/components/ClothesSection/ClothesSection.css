@@ -1,22 +1,29 @@
 .clothes-section {
+ 
   
 }
-.cloths__add-items{
-
+.your__items {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
-  flex-direction: row;
-  gap: 20px;
 }
+
 .cloths__add-button {
   background-color: transparent;
   border: none;
   font-size: 20px;
   font-weight: 700;
+  line-height: 30px;
   color: rgba(0, 0, 0, 0.6);
 }
 .clothes-section__list {
-  
+  gap: 19px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
   
 }
