@@ -13,6 +13,11 @@
   line-height: 39.68px;
   margin-right: 24px;
 }
+.header__link {
+  text-decoration: none;
+  color: #000;
+  
+}
 .header__add-clothes-button {
   border: none;
   font-size: 20px;

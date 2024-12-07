@@ -1,3 +1,8 @@
+.clothes-section {
+  max-width: 1110px;
+  height: 700px;
+}
+
 .your__items {
   display: flex;
   flex-direction: row;
@@ -5,6 +10,8 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .cloths__add-button {
@@ -15,10 +22,16 @@
   line-height: 30px;
   color: rgba(0, 0, 0, 0.6);
 }
+.your__item-list {
+  display: flex;
+  max-width: 1015px;
+  height: 676px;
+}
 .clothes-section__list {
   gap: 19px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
+  margin: 0;
 }

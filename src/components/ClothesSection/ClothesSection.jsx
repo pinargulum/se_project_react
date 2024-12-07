@@ -10,6 +10,7 @@ function ClothesSection({ onCardClick }) {
           + Add new
         </button>
       </div>
+      <div className="your__item-list">
       <ul className="clothes-section__list">
         {defaultClothingItems.map((item) => {
           return (
@@ -17,6 +18,7 @@ function ClothesSection({ onCardClick }) {
           );
         })}
       </ul>
+    </div>
     </div>
   );
 }
