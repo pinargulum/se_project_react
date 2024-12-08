@@ -11,6 +11,7 @@ import { coordinates, APIkey } from "/src/utils/constant.js";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
 import { Routes, Route } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
+import { getItems } from "../../utils/Api.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -25,6 +26,8 @@ function App() {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
+  // work on this
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -45,7 +48,15 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log(data)
+      })
+      .catch(console.error);
+  }, []);
 
+  
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
