@@ -52,8 +52,8 @@ function App() {
 
   useEffect(() => {
     Api
-    .getItems().then((items) => {
-      setClothingItems(items);
+    .getItems().then((data) => {
+      setClothingItems(data);
     });
   }, []);
 
