@@ -2,16 +2,19 @@ import Header from "../Header/Header.jsx";
 import "./App.css";
 import Main from "../Main/Main.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
-import { useEffect } from "react";
-import { getWeather, filterWeatherData } from "/src/utils/weatherApi.js";
+
+import {
+  getWeather,
+  filterWeatherData,
+  getItems,
+} from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/constant.js";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-//import { getItems } from "../../utils/Api.js";
 import Api from "../../utils/Api.js";
 
 function App() {
@@ -49,13 +52,15 @@ function App() {
   };
 
   const [clothingItems, setClothingItems] = useState([]);
-
+  
   useEffect(() => {
-    Api
-    .getItems().then((data) => {
-      setClothingItems(data);
-    });
-  }, []);
+    Api.getItems()
+      .then((data) => {
+        const itemsData = getItems(data);
+        setClothingItems(itemsData);
+      })
+      .catch(console.error);
+  }, []) 
 
   return (
     <div className="page">
@@ -69,15 +74,15 @@ function App() {
               path="/"
               element={
                 <Main
-                  clotingitems={clothingItems}
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
                 />
               }
             />
             <Route
               path="/Profile"
-              element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}
+              element={<Profile onCardClick={handleCardClick} />}
             />
           </Routes>
 
