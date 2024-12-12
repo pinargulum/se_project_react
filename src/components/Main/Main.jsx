@@ -10,7 +10,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp.F} / You may want to wear:
+          Today is {weatherData} / You may want to wear:
         </p>
         <ul className="cards__list">
           {clothingItems
@@ -18,6 +18,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
               (item) =>
                 item.weather === weatherData.type
             )
+              
             .map((item) => (
               <ItemCard
                 key={item._id}

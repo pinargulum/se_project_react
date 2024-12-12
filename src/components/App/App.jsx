@@ -6,17 +6,13 @@ import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 
-import {
-  getWeather,
-  filterWeatherData,
-  getItems,
-} from "/src/utils/weatherApi.js";
+import { getWeather, filterWeatherData } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/constant.js";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-import Api from "../../utils/Api.js";
-
+//import Api from "../../utils/Api.js";
+import  getItems  from "../../utils/Api.js";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -52,15 +48,16 @@ function App() {
   };
 
   const [clothingItems, setClothingItems] = useState([]);
-  
+
   useEffect(() => {
-    Api.getItems()
+    getItems()
       .then((data) => {
-        const itemsData = getItems(data);
-        setClothingItems(itemsData);
+        console.log(data);
+        //const itemsData = getItems(data);
+        setClothingItems(data);
       })
       .catch(console.error);
-  }, []) 
+  }, []);
 
   return (
     <div className="page">
@@ -73,11 +70,11 @@ function App() {
             <Route
               path="/"
               element={
-                <Main
+                <Main>
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
-                />
+                </Main>
               }
             />
             <Route
