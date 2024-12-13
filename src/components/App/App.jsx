@@ -12,7 +12,7 @@ import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/Curr
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 //import Api from "../../utils/Api.js";
-import  getItems  from "../../utils/Api.js";
+import getItems from "../../utils/Api.js";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -52,8 +52,6 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        //console.log(data);
-        //const itemsData = getItems(data);
         setClothingItems(data);
       })
       .catch(console.error);
@@ -79,7 +77,7 @@ function App() {
             />
             <Route
               path="/Profile"
-              element={<Profile onCardClick={handleCardClick} />}
+              element={<Profile onCardClick={handleCardClick} clothingItems={clothingItems} />}
             />
           </Routes>
 

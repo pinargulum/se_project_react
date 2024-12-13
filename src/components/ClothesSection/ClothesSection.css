@@ -27,11 +27,11 @@
   max-width: 1015px;
   height: 676px;
 }
-.clothes-section__list {
+.your__clothes-list {
   gap: 19px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0;position: absolute;
 }
