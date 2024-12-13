@@ -1,7 +1,7 @@
 const baseUrl = "http://localhost:3001";
 
 function getItems ()  {
-  return fetch("http://localhost:3001/items").then((res) => {
+  return fetch(`${baseUrl}/items`).then((res) => {
     if (res.ok) {
       return res.json();
     } else {
