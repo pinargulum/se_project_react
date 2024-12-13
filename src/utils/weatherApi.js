@@ -29,12 +29,5 @@ const getWeatherType = (temperature) => {
     return "cold";
   }
 };
-export const getItems = () => {
-  return fetch("http://localhost:3001/items").then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  });
-};
+
+

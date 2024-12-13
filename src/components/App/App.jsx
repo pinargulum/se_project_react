@@ -52,7 +52,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         //const itemsData = getItems(data);
         setClothingItems(data);
       })
@@ -70,11 +70,11 @@ function App() {
             <Route
               path="/"
               element={
-                <Main>
+                <Main
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
-                </Main>
+                />
               }
             />
             <Route
