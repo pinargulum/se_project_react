@@ -1,15 +1,16 @@
-.cards {
+.main__cloths {
   max-width: 1360px;
   height: 387px;
   margin-top: 40px;
 }
 
-.cards__list {
+.cloths__list {
   gap: 19px;
   display: flex;
   flex-wrap: wrap;
   margin-top: 34px;
   list-style: none;
   padding: 0;
-  list-style-type: none;
+  position: absolute;
+  
 }

@@ -12,3 +12,19 @@ function getItems ()  {
 
 
 export default getItems
+/*async addNewCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({ name, link }),
+    })
+    .then(this._checkResponse);
+  }
+  async deleteCard({ cardId }) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    })
+    .then(this._checkResponse);
+  }
+    */
