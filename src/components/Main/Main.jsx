@@ -1,6 +1,6 @@
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
-//import { defaultClothingItems } from "/src/utils/constant.js";
+
 import ItemCard from "../ItemCard/ItemCard.jsx";
 
 const Main = ({ weatherData, handleCardClick, clothingItems }) => (
@@ -8,8 +8,8 @@ const Main = ({ weatherData, handleCardClick, clothingItems }) => (
     <WeatherCard weatherData={weatherData} />
     <section className="main__cloths">
       <p className="cards__text">
-        Today is {weatherData.temp.F} F and it is {weatherData.type} / You
-        may want to wear:
+        Today is {weatherData.temp.F} F and it is {weatherData.type} / You may
+        want to wear:
       </p>
       <ul className="cloths__list">
         {clothingItems
