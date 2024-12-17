@@ -96,12 +96,13 @@ function App() {
               }
             />
           </Routes>
-          <Footer />
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             onAddItem={handleAddItemSubmit}
             onCloseModal={closeActiveModal}
           />
+          <Footer />
+         
           <ItemModal
             activeModal={activeModal}
             card={selectedCard}
