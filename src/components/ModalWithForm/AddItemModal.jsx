@@ -23,7 +23,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     }
   }, [isOpen]);
 
-  function handleSubmit(e) {
+  function handleSubmit() {
     onAddItem = { name, imageUrl, weather };
     onCloseModal();
   }
