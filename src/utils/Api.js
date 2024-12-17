@@ -11,24 +11,24 @@ function getClothingItems ()  {
   });
 };
 
-function postClothingItem(item) {
-  return (
-    fetch(`${baseUrl}/items`),
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/Json" },
-      body: JSON.stringify(item),
-    }.then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`error: ${res.status}`);
-      }
-    })
-  );
+
+function addClothingItem(item) {
+  return fetch(`${this._baseUrl}/cards`, {
+    method: "POST",
+    headers: { "Content-Type": "application/Json" },
+    body: JSON.stringify(item),
+  })
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`error: ${res.status}`);
+    }
+  });
 };
+
 const Api = {
   getClothingItems,
-  postClothingItem,
+  addClothingItem,
 };
 export default Api;

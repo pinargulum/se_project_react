@@ -38,7 +38,13 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
-
+  function handleAddItemSubmit() {
+    Api.addClothingItem(item)
+      .then((item) => {
+        setClothingItems([item, ...clothingItems]);
+      })
+      .catch(console.error);
+  }
   //USEEFFECTS
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -61,13 +67,6 @@ function App() {
     setActiveModal("");
   };
 
-  function handleAddItemSubmit() {
-    Api.postClothingItem(item)
-      .then((item) => {
-        setClothingItems([item, ...clothingItems]);
-      })
-      .catch(console.error);
-  }
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider

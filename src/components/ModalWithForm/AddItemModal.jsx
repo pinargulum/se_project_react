@@ -1,36 +1,36 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
 
-
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
-  const [newItemName, setNewItemName] = useState("");
-  const [newItemImageUrl, setNewItemImageUrl] = useState("");
-  const [newItemWeather, setNewItemWeather] = useState("");
+  const [name, setName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [weather, setWeather] = useState("");
+
   function handleNameChange(e) {
-    setNewItemName(e.target.value);
+    setName(e.target.value);
   }
   function handleImageUrlChange(e) {
-    setNewItemImageUrl(e.target.value);
+    setImageUrl(e.target.value);
   }
   function handleWeatherChange(e) {
-    setNewItemWeather(e.target.value);
+    setWeather(e.target.value);
   }
   useEffect(() => {
-    setNewItemName(""), setNewItemImageUrl(""), setNewItemWeather("");
-  }, []);
+    if (isOpen) {
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    }
+  }, [isOpen]);
 
   function handleSubmit(e) {
-    onAddItem = {
-      name: newItemName,
-      imageUrl: newItemImageUrl,
-      weather: newItemWeather,
-    };
-    onCloseModal()
+    onAddItem = { name, imageUrl, weather };
+    onCloseModal();
   }
 
   return (
     <ModalWithForm
-      title="New Garment"
+      titleText="New Garment"
       buttonText="Add Garment"
       isOpen={isOpen}
       onClose={onCloseModal}
@@ -42,7 +42,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           type="text"
           className="modal__input"
           id="name"
-          value={newItemName}
+          value={name}
           onChange={handleNameChange}
           placeholder="Name"
           required
@@ -55,27 +55,27 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           className="modal__input"
           id="imageURL"
           placeholder="ImageURL"
-          value={newItemImageUrl}
+          value={imageUrl}
           onChange={handleImageUrlChange}
           required
         />
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
-        <label  className="modal__radio-label">
+        <label className="modal__radio-label">
           Hot
           <input
             id="hot"
             name="radio"
             type="radio"
             className="modal__radio-input"
-            value="hot"
-            checked={newItemWeather === "hot"}
+            //value={weather}
+            //checked={weather === "hot"}
             onChange={handleWeatherChange}
             required
           />
         </label>
-        <label  name="radio" className="modal__radio-label">
+        <label name="radio" className="modal__radio-label">
           Warm
           <input
             id="warm"
@@ -83,12 +83,12 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             type="radio"
             className="modal__radio-input"
             value="warm"
-            checked={newItemWeather === "warm"}
+            checked={weather === "warm"}
             onChange={handleWeatherChange}
             required
           />
         </label>
-        <label  name="radio" className="modal__radio-label">
+        <label name="radio" className="modal__radio-label">
           Cold
           <input
             id="cold"
@@ -96,7 +96,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             name="radio"
             className="modal__radio-input"
             value="cold"
-            checked={newItemWeather === "cold"}
+            checked={weather === "cold"}
             onChange={handleWeatherChange}
             required
           />
