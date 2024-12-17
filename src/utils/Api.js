@@ -1,30 +1,34 @@
 const baseUrl = "http://localhost:3001";
 
-function getItems ()  {
-  return fetch(`${baseUrl}/items`).then((res) => {
+function getClothingItems ()  {
+  return fetch(`${baseUrl}/items`)
+  .then((res) => {
     if (res.ok) {
       return res.json();
     } else {
       return Promise.reject(`error: ${res.status}`);
     }
-})
-  }
+  });
+};
 
-
-export default getItems
-/*async addNewCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+function postClothingItem(item) {
+  return (
+    fetch(`${baseUrl}/items`),
+    {
       method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({ name, link }),
+      headers: { "Content-Type": "application/Json" },
+      body: JSON.stringify(item),
+    }.then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`error: ${res.status}`);
+      }
     })
-    .then(this._checkResponse);
-  }
-  async deleteCard({ cardId }) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    })
-    .then(this._checkResponse);
-  }
-    */
+  );
+};
+const Api = {
+  getClothingItems,
+  postClothingItem,
+};
+export default Api;
