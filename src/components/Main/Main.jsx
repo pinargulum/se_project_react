@@ -3,10 +3,10 @@ import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 
 import ItemCard from "../ItemCard/ItemCard.jsx";
 
-const Main = ({ weatherData, handleCardClick, clothingItems }) => (
+const Main = ({ weatherData, handleCardClick, clothingItems, handleCardDelete }) => (
   <main>
     <WeatherCard weatherData={weatherData} />
-    <section className="main__cloths">
+    <section className="main__cloths" >
       <p className="cards__text">
         Today is {weatherData.temp.F} F and it is {weatherData.type} / You may
         want to wear:
@@ -19,6 +19,8 @@ const Main = ({ weatherData, handleCardClick, clothingItems }) => (
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
+              handleCardDelete={handleCardDelete}
+        
             />
           ))}
       </ul>

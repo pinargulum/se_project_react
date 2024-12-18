@@ -1,7 +1,6 @@
-import Header from "../Header/Header.jsx";
 import "./App.css";
 import Main from "../Main/Main.jsx";
-
+import Header from "../Header/Header.jsx";
 import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
@@ -45,6 +44,17 @@ function App() {
       })
       .catch(console.error);
   }
+  function handleCardDelete() {
+    Api.deleteClothingItem()
+      .then(() => {
+        setClothingItems((clothingItems) => {
+          clothingItems.filter((item) => item._id !== _id)
+      });
+       
+        closeActiveModal();
+    })
+      .catch(console.error);
+  }
   //USEEFFECTS
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -81,6 +91,7 @@ function App() {
                 <Main
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
+                  handleCardDelete={handleCardDelete}
                   clothingItems={clothingItems}
                 />
               }
@@ -105,10 +116,9 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
+           onClick={handleCardDelete}
           />
           <Footer />
-         
-          
         </div>
       </CurrentTemperatureUnitContext.Provider>
     </div>

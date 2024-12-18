@@ -44,6 +44,18 @@
   line-height: 24px;
   font-weight: 700;
 }
+.preview__delete-button {
+  color: red;
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 32px;
+}
 .modal__close-button_type_cards {
   display: flex;
   position: absolute;

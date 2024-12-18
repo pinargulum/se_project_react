@@ -101,8 +101,18 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "istanbul",
+      "imageUrl": "https://th.bing.com/th?id=OPHS.iZ0yUi0BDDMczw474C474&w=140&h=140&c=17&o=5&pid=21.1",
+      "weather": "cold",
+      "_id": 17
+    },
+    {
+      "name": "istanbul",
+      "imageUrl": "https://th.bing.com/th?id=OPHS.iZ0yUi0BDDMczw474C474&w=140&h=140&c=17&o=5&pid=21.1",
+      "weather": "cold",
+      "_id": 18
     }
-    
-    
   ]
 }
