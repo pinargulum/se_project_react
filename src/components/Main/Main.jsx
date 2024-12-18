@@ -6,13 +6,13 @@ import ItemCard from "../ItemCard/ItemCard.jsx";
 const Main = ({ weatherData, handleCardClick, clothingItems, handleCardDelete }) => (
   <main>
     <WeatherCard weatherData={weatherData} />
-    <section className="main__cloths" >
+    <section className="main__cloths">
       <p className="cards__text">
         Today is {weatherData.temp.F} F and it is {weatherData.type} / You may
         want to wear:
       </p>
       <ul className="cloths__list">
-        {clothingItems
+        {clothingItems 
           .filter((item) => item.weather === weatherData.type)
           .map((item) => (
             <ItemCard

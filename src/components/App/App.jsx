@@ -44,17 +44,24 @@ function App() {
       })
       .catch(console.error);
   }
-  function handleCardDelete() {
-    Api.deleteClothingItem()
+  const handleCardDelete = () => {
+    if(selectedCard) {
+    Api.deleteClothingItem(selectedCard._id)
+
       .then(() => {
-        setClothingItems((clothingItems) => {
-          clothingItems.filter((item) => item._id !== _id)
-      });
-       
-        closeActiveModal();
-    })
-      .catch(console.error);
-  }
+        
+        setClothingItems((prevItems) => {
+          prevItems.filter((item) => item._id !== selectedCard._id)
+        })
+      
+closeActiveModal();
+        })
+
+        .catch(console.error);
+      }
+    }
+  
+
   //USEEFFECTS
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -116,7 +123,8 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
-           onClick={handleCardDelete}
+            handleCardDelete={handleCardDelete}
+            item={selectedCard}
           />
           <Footer />
         </div>

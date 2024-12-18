@@ -23,8 +23,8 @@ function addClothingItem(item) {
     }
   });
 }
-function deleteClothingItem () {
-  return fetch ("http://localhost:3001/items/:id", {
+function deleteClothingItem (_id) {
+  return fetch (`${baseUrl}/items/${_id}`, {
     method: "DELETE",   
   }).then((res) => {
     if (res.ok) {
