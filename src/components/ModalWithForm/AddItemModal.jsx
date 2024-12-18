@@ -23,18 +23,18 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     }
   }, [isOpen]);
 
-  function handleSubmit() {
-    onAddItem = { name, imageUrl, weather };
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onAddItem({ name, imageUrl, weather });
     onCloseModal();
   }
-
   return (
     <ModalWithForm
       titleText="New Garment"
       buttonText="Add Garment"
       isOpen={isOpen}
       onClose={onCloseModal}
-      onSubmit={handleSubmit}
+      handleAddItemSubmit={handleSubmit}
     >
       <label className="modal__label">
         Name
@@ -69,8 +69,8 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             name="radio"
             type="radio"
             className="modal__radio-input"
-            //value={weather}
-            //checked={weather === "hot"}
+            value="hot"
+            checked={weather === "hot"}
             onChange={handleWeatherChange}
             required
           />

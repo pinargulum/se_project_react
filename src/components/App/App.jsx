@@ -38,8 +38,8 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
-  function handleAddItemSubmit() {
-    Api.addClothingItem(item)
+  function handleAddItemSubmit(newItem) {
+    Api.addClothingItem(newItem)
       .then((item) => {
         setClothingItems([item, ...clothingItems]);
       })
@@ -101,13 +101,14 @@ function App() {
             onAddItem={handleAddItemSubmit}
             onCloseModal={closeActiveModal}
           />
-          <Footer />
-         
           <ItemModal
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
           />
+          <Footer />
+         
+          
         </div>
       </CurrentTemperatureUnitContext.Provider>
     </div>

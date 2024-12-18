@@ -14,7 +14,6 @@ const Main = ({ weatherData, handleCardClick, clothingItems }) => (
       <ul className="cloths__list">
         {clothingItems
           .filter((item) => item.weather === weatherData.type)
-
           .map((item) => (
             <ItemCard
               key={item._id}
