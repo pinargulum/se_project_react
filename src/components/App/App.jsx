@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer.jsx";
 import AddItemModal from "../ModalWithForm/AddItemModal.jsx";
 import { getWeather, getCurrentWeather} from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
-import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
+import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
 
