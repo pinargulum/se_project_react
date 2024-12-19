@@ -23,9 +23,9 @@ function addClothingItem(item) {
     }
   });
 }
-function deleteClothingItem (_id) {
-  return fetch (`${baseUrl}/items/${_id}`, {
-    method: "DELETE",   
+function deleteClothingItem(_id) {
+  return fetch(`${baseUrl}/items/${_id}`, {
+    method: "DELETE",
   }).then((res) => {
     if (res.ok) {
       return res.json();
@@ -34,12 +34,9 @@ function deleteClothingItem (_id) {
     }
   });
 }
-  
-
-
 const Api = {
   getClothingItems,
   addClothingItem,
-  deleteClothingItem
+  deleteClothingItem,
 };
 export default Api;

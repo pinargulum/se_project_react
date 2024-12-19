@@ -3,7 +3,7 @@ import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 
 import ItemCard from "../ItemCard/ItemCard.jsx";
 
-const Main = ({ weatherData, handleCardClick, clothingItems, handleCardDelete }) => (
+const Main = ({ weatherData, handleCardClick, clothingItems }) => (
   <main>
     <WeatherCard weatherData={weatherData} />
     <section className="main__cloths">
@@ -19,8 +19,6 @@ const Main = ({ weatherData, handleCardClick, clothingItems, handleCardDelete })
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
-              handleCardDelete={handleCardDelete}
-        
             />
           ))}
       </ul>
