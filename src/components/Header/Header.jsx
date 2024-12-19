@@ -1,7 +1,7 @@
 import logo from "/src/assets/Logo.png";
 import avatar from "/src/assets/Ellipse 18.png";
 import "./Header.css";
-import ToggleSwich from "../ToggleSwich/ToggleSwich";
+import ToggleSwitch from "../ToggleSwicth/ToggleSwich";
 import { Link } from "react-router-dom";
 
 function Header({ handleAddClick, weatherData }) {
@@ -18,7 +18,7 @@ function Header({ handleAddClick, weatherData }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <ToggleSwich />
+      <ToggleSwitch/>
       <button
         onClick={handleAddClick}
         type="button"
