@@ -4,6 +4,8 @@
   padding: 32px 0 28px;
   margin: 0;
   height: 40px;
+  position: relative;
+  max-width: 1360p
 }
 .header__logo {
   width: 89px;
@@ -16,7 +18,6 @@
 .header__link {
   text-decoration: none;
   color: #000;
-  
 }
 .header__add-clothes-button {
   border: none;
@@ -38,6 +39,7 @@
   font-weight: 700;
   align-items: center;
   gap: 12px;
+  margin: 0;
 }
 .header__username {
   margin: 0;
@@ -49,13 +51,25 @@
   height: 40px;
   width: 40px;
   padding-left: 12px;
+  margin: 0;
 }
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 499px) {
   .header__logo {
-      width: 126px;
-      height: 24px;
+    width: 126px;
+    height: 24px;
   }
   .header {
-      max-width: 100%;
+    margin-top: 28px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    width: 375px
+    
+  }
+  .header__add-clothes-button {
+    
+    margin: 0 20px 0 auto;
+    
   }
 }

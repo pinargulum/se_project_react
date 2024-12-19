@@ -68,3 +68,15 @@
   border: none;
   background-image: url("/src/assets/itemModalClose.png");
 }
+@media screen and (max-width: 740px) {
+  .modal__image {
+    width: 164px;
+    height: 164px;
+  }
+  .modal__caption {
+    top:-4px;
+    left: 45px
+
+  }
+}
+

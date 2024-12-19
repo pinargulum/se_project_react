@@ -14,3 +14,10 @@
   position: absolute;
   
 }
+@media screen and (max-width: 740px) {
+  .cloths__list {
+    gap: 16px;
+    
+    margin-top: 34px;
+  }
+}

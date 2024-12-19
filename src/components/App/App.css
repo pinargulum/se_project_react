@@ -15,4 +15,10 @@
   padding: 0 40px 32px 40px;
   
 }
+@media screen and (max-width: 1010px) {
+  .page__section {
+    margin-right: calc(100% - 40px);
+  }
+}
+
 
