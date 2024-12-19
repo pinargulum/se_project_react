@@ -1,13 +1,15 @@
 .card {
   position: relative;
   width: 323px;
-  height: 328px;
+  height: 326px;
 }
 .cards__image {
   width: 100%;
   border: 1px;
   border-radius: 30px;
   list-style-type: none;
+  width: 323px;
+  height: 326px;
 }
 .image__text {
   display: flex;
@@ -18,7 +20,8 @@
   top: 15px;
   background-color: white;
   border-radius: 4px;
-  width: 73px;
+  width:fit-content;
   justify-content: center;
   left: 125px;
+  padding: 2px 12px 2px 12px;
 }

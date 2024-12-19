@@ -1,21 +1,26 @@
 import { useContext, useState } from "react";
 import "./ToggleSwich.css";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext";
+
+
 const ToggleSwich = () => {
-  /* const handleOnChange = (e) => {
-    if (currentTemperatureUnit === "C") handleToggleSwichChange("F");
-    if (currentTemperatureUnit === "F") handleToggleSwichChange("C");
-  };
-  */
-  const {currentTemperatureUnit, handleToggleSwichChange} = useContext(
+  
+  
+  
+  //const handleTemperatureUnit = () => {
+    //weather.temperature.F = data.main.temp;
+    //weather.temperature.C = Math.round(((data.main.temp - 32) * 5) / 9);
+ // };
+  const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
     CurrentTemperatureUnitContext
   );
+  
   return (
     <label className="swich">
       <input
         className="checkbox"
         type="checkbox"
-        onChange={handleToggleSwichChange}
+        onChange={handleToggleSwitchChange}
       />
       <span
         className={
@@ -40,5 +45,5 @@ const ToggleSwich = () => {
       </p>
     </label>
   );
-}
+};
 export default ToggleSwich;

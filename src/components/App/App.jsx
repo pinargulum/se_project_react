@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import AddItemModal from "../ModalWithForm/AddItemModal.jsx";
-import { getWeather, filterWeatherData } from "/src/utils/weatherApi.js";
-import { coordinates, APIkey } from "/src/utils/constant.js";
+import { getWeather, getCurrentWeather} from "/src/utils/weatherApi.js";
+import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import CurrentTemperatureUnitContext from "../CurrentTemperatureUnitContext/CurrentTemperatureUnitContext.jsx";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
@@ -26,9 +26,15 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   //HANDLE EVENTS
-  const handleToggleSwichChange = () => {
-    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  //const handleToggleSwichChange = () => {
+    //if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
+    //if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+    
+  //};
+  const handleToggleSwitchChange = () => {
+    currentTemperatureUnit === 'F'
+      ? setCurrentTemperatureUnit('C')
+      : setCurrentTemperatureUnit('F');
   };
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -59,8 +65,8 @@ function App() {
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
-        const filteredData = filterWeatherData(data);
-        setWeatherData(filteredData);
+        const locationWeather = getCurrentWeather(data);
+        setWeatherData(locationWeather);
       })
       .catch(console.error);
   }, []);
@@ -80,7 +86,7 @@ function App() {
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleToggleSwichChange }}
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />

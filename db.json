@@ -101,6 +101,18 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "winter coat",
+      "imageUrl": "https://th.bing.com/th/id/OIP.Q1m9vQC4KKE3QQ7Q02AD8AHaNK?w=187&h=333&c=7&r=0&o=5&pid=1.7",
+      "weather": "cold",
+      "_id": 17
+    },
+    {
+      "name": "white ceket",
+      "imageUrl": "https://www.bing.com/th?id=OPHS.pOzn5cC%2bbj0nAw474C474&o=5&pid=21.1&w=148&h=223&qlt=100&dpr=1&bw=6&bc=FFFFFF",
+      "weather": "cold",
+      "_id": 18
     }
   ]
 }
