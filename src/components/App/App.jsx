@@ -25,12 +25,6 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
-  //HANDLE EVENTS
-  //const handleToggleSwichChange = () => {
-    //if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-    //if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
-    
-  //};
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
