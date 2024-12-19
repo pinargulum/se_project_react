@@ -10,7 +10,6 @@ import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Profile from "../Profile/Profile.jsx";
-
 import Api from "../../utils/Api.js";
 
 function App() {
