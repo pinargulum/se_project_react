@@ -3,12 +3,12 @@ import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
 
-function ClothesSection({ onCardClick, profileItems }) {
+function ClothesSection({ onCardClick, profileItems, handleProfileAddItem }) {
   return (
     <div className="clothes-section">
       <div className="profile__items">
         <p className="add__items">Your items</p>
-        <button className="profile__add-button" type="button">
+        <button className="profile__add-button" type="button" onClick={handleProfileAddItem}>
           + Add new
         </button>
       </div>
