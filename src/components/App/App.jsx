@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import AddItemModal from "../ModalWithForm/AddItemModal.jsx";
-import { getWeather, getCurrentWeather} from "/src/utils/weatherApi.js";
+import { getWeather, getCurrentWeather } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
@@ -25,9 +25,9 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === 'F'
-      ? setCurrentTemperatureUnit('C')
-      : setCurrentTemperatureUnit('F');
+    currentTemperatureUnit === "F"
+      ? setCurrentTemperatureUnit("C")
+      : setCurrentTemperatureUnit("F");
   };
   const handleCardClick = (card) => {
     setActiveModal("preview");
