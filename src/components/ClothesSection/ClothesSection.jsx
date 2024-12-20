@@ -1,4 +1,4 @@
-import WeatherCard from "../WeatherCard/WeatherCard.jsx";
+
 import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
