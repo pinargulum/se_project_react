@@ -2,3 +2,13 @@
   display: flex;
   gap: 116px;
 }
+
+@media screen and (max-width: 740px) {
+  .profile {
+    gap: 20px
+  }
+  .profile__clothing-items {
+    max-width: 600px;
+  }
+  
+}

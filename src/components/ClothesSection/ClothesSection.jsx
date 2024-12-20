@@ -3,22 +3,20 @@ import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
 
-function ClothesSection({ onCardClick, profileItems, weatherData }) {
+function ClothesSection({ onCardClick, profileItems }) {
   return (
     <div className="clothes-section">
-      <div className="your__items">
+      <div className="profile__items">
         <p className="add__items">Your items</p>
-        <button className="cloths__add-button" type="button">
+        <button className="profile__add-button" type="button">
           + Add new
         </button>
       </div>
-      <div className="your__list">
+      <div className="profile__clothes-list">
         <ul className="your__clothes-list">
-          {profileItems
-            .filter((item) => item.weather === weatherData.type)
-            .map((item) => (
-              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
-            ))}
+          {profileItems.map((item) => (
+            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+          ))}
         </ul>
       </div>
     </div>

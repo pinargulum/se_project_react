@@ -107,6 +107,18 @@
       "imageUrl": "https://www.bing.com/th?id=OPHS.pOzn5cC%2bbj0nAw474C474&o=5&pid=21.1&w=148&h=223&qlt=100&dpr=1&bw=6&bc=FFFFFF",
       "weather": "cold",
       "_id": 18
+    },
+    {
+      "name": "light ceket",
+      "imageUrl": "https://cdni.llbean.net/is/image/wim/505453_56256_41?hei=764&wid=665&resMode=sharp2&defaultImage=llbprod/505453_56256_41",
+      "weather": "cold",
+      "_id": 19
+    },
+    {
+      "name": "kazak",
+      "imageUrl": "https://www.bing.com/th?id=OPHS.cFY7O8xHZ6FZ6g474C474&o=5&pid=21.1&w=165&h=224&qlt=100&dpr=1&c=8&pcl=f5f5f5",
+      "weather": "cold",
+      "_id": 20
     }
   ]
 }
