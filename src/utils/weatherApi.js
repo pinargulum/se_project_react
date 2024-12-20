@@ -1,46 +1,33 @@
-
-
+import { checkResponse } from "./Api.js";
 export const coordinates = {
   latitude: 40.766891,
   longitude: -73.921387,
 };
 export const APIkey = "5d5495ef10baef6e2867bbcd431a6dbf";
 
-
-
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  ).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`error: ${res.status}`);
-    }
-  });
+  ).then(checkResponse);
 };
 export const getCurrentWeather = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = {  F: Math.round(data.main.temp),
-    C: Math.round(((data.main.temp - 32) * 5) / 9) };
+  result.temp = {
+    F: Math.round(data.main.temp),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
+  };
   result.type = getWeatherType(result.temp.F);
   result.isDay = isDay(data.sys, Date.now());
   return result;
 };
-
-  
-
-
-
-
 
 export const getWeatherType = (temperature) => {
   if (temperature > 75) {
     return "hot";
   } else if (temperature > 65) {
     return "warm";
-  } else {  
+  } else {
     return "cold";
   }
 };
@@ -48,10 +35,6 @@ export const defaultWeatherOptions = {
   day: { url: new URL("../assets/day/default.png", import.meta.url).href },
   night: { url: new URL("../assets/night/default.png", import.meta.url).href },
 };
-//export const CurrentTemperatureUnit = (data ) => {
-  //weather.temperature.F = data.main.temp;
- // weather.temperature.C = Math.round(((data.main.temp - 32) * 5) / 9);
-//}
 
 export const filterWeatherData = (data) => {
   const result = {};

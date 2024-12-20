@@ -1,13 +1,13 @@
 const baseUrl = "http://localhost:3001";
 
+export function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
 function getClothingItems() {
-  return fetch(`${baseUrl}/items`).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`error: ${res.status}`);
-    }
-  });
+  return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
 function addClothingItem(item) {
@@ -15,24 +15,12 @@ function addClothingItem(item) {
     method: "POST",
     headers: { "Content-Type": "application/Json" },
     body: JSON.stringify(item),
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`error: ${res.status}`);
-    }
-  });
+  }).then(checkResponse);
 }
 function deleteClothingItem(_id) {
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`error: ${res.status}`);
-    }
-  });
+  }).then(checkResponse);
 }
 const Api = {
   getClothingItems,
