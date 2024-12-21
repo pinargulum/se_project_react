@@ -51,6 +51,7 @@ function App() {
       .then((item) => {
         setClothingItems([item, ...clothingItems]);
         setIsLoading(true)
+        closeActiveModal();
       })
       .catch(console.error);
   }
