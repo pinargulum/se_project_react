@@ -23,6 +23,7 @@ function App() {
   const [selectedCard, setSlectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
@@ -34,12 +35,22 @@ function App() {
     setSlectedCard(card);
   };
   const handleAddClick = () => {
-    setActiveModal("add-garment");
-  };
+    setActiveModal("add-garment"); 
+    }
+  
+  
   function handleAddItemSubmit(newItem) {
+    /*const [isLoading, setIsLoading] = useState(false);
+    if(isLoading === true) {
+      buttonText='Saving...' 
+    }else{
+      buttonText='Save' 
+    }
+      */ 
     Api.addClothingItem(newItem)
       .then((item) => {
         setClothingItems([item, ...clothingItems]);
+        setIsLoading(true)
       })
       .catch(console.error);
   }
@@ -109,6 +120,7 @@ function App() {
             isOpen={activeModal === "add-garment"}
             onAddItem={handleAddItemSubmit}
             onCloseModal={closeActiveModal}
+            
           />
           <ItemModal
             activeModal={activeModal}

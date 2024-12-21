@@ -31,10 +31,10 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
   return (
     <ModalWithForm
       titleText="New Garment"
-      buttonText="Add Garment"
+      buttonText="Add garment"
       isOpen={isOpen}
       onClose={onCloseModal}
-      handleAddItemSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <label className="modal__label">
         Name
