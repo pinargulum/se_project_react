@@ -6,8 +6,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
   
- // const {values, handleChange, setValues} = useForm({})
-
   function handleNameChange(e) {
     setName(e.target.value);
   }
