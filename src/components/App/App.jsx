@@ -35,26 +35,20 @@ function App() {
     setSlectedCard(card);
   };
   const handleAddClick = () => {
-    setActiveModal("add-garment"); 
-    }
-  
-  
+    setActiveModal("add-garment");
+  };
+ 
   function handleAddItemSubmit(newItem) {
-    /*const [isLoading, setIsLoading] = useState(false);
-    if(isLoading === true) {
-      buttonText='Saving...' 
-    }else{
-      buttonText='Save' 
-    }
-      */ 
+    setIsLoading(true);
     Api.addClothingItem(newItem)
       .then((item) => {
         setClothingItems([item, ...clothingItems]);
-        setIsLoading(true)
+        setIsLoading(false);
         closeActiveModal();
       })
       .catch(console.error);
   }
+
   function handleCardDelete(cardData) {
     cardData = selectedCard._id;
     Api.deleteClothingItem(cardData)
@@ -121,7 +115,7 @@ function App() {
             isOpen={activeModal === "add-garment"}
             onAddItem={handleAddItemSubmit}
             onCloseModal={closeActiveModal}
-            
+            isLoading={isLoading}
           />
           <ItemModal
             activeModal={activeModal}

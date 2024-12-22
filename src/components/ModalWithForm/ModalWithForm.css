@@ -83,14 +83,14 @@
 .modal__submit {
   display: flex;
   position: absolute;
-  width: 126px;
-  height: 36px;
+  width: 130px;
+  height: 40px;
   padding: 8px 16px 8px 16px;
   color: #ffffff;
   background-color: #0000004d;
   border: solid 1px;
   border-radius: 4px;
-  bottom: 20px;
+  bottom: 20px; 
 }
 
 .modal__close-button_type_form {

@@ -21,7 +21,7 @@ function ModalWithForm({
         <form className="modal__form" onSubmit={onSubmit}>
           {children} {}
           <button className="modal__submit" type="submit">
-          {buttonText}
+            {buttonText}
           </button>
         </form>
       </div>
