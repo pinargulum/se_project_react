@@ -6,6 +6,7 @@ export function checkResponse(res) {
   }
   return Promise.reject(`Error: ${res.status}`);
 }
+
 function getClothingItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }

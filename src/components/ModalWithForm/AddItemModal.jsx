@@ -1,10 +1,12 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
-
+//import { useForm } from "../../Hooks/useForm.js"; 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
+  
+ // const {values, handleChange, setValues} = useForm({})
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -37,6 +39,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       onClose={onCloseModal}
       onSubmit={handleSubmit}
     >
+    
       <label className="modal__label">
         Name
         <input
