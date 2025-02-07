@@ -19,12 +19,14 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {clothingItems
             .filter((item) => item.weather === weatherData.type)
             .map((item) => (
+             
               <ItemCard
                 key={item._id}
                 item={item}
                 onCardClick={handleCardClick}
               />
             ))}
+          
         </ul>
       </section>
     </main>
