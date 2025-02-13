@@ -143,7 +143,7 @@ function App() {
     auth
       .registerUser(email, password, name, avatar)
       .then((userData) => {
-        login({ email, password });
+        handleLogin({ email, password });
         closeActiveModal("signup");
       })
 
