@@ -132,7 +132,6 @@ function App() {
       .registerUser(email, password, name, avatar)
       .then((userData) => {
         setCurrentUser(userData);
-
         closeActiveModal("signup");
       })
       .catch(console.error);
@@ -146,8 +145,9 @@ function App() {
       .loginUser(email, password)
       .then((data) => {
         localStorage.setItem("jwt", data.jwt);
-        setCurrentUser(currentUser);
         setIsLoggedIn(true);
+        setCurrentUser(currentUser);
+        
         closeActiveModal();
       })
 
