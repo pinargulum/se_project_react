@@ -100,20 +100,6 @@ function App() {
     setActiveModal("edit-profile");
   };
 
-  useEffect((jwt) => {
-    if (jwt) {
-      auth.getCurrentUser(jwt);
-      const jwt = localStorage
-        .getItem("jwt")
-        .then((data) => {
-          setIsLoggedIn(true);
-          const user = data._id;
-          setCurrentUser(data.user);
-        })
-        .catch(console.error);
-    }
-  });
-
   const handleUpdateProfile = ({ name, avatar }) => {
     const jwt = localStorage.getItem("jwt");
     auth
@@ -134,6 +120,7 @@ function App() {
         setCurrentUser(userData);
         closeActiveModal("signup");
       })
+
       .catch(console.error);
   };
 
@@ -146,13 +133,26 @@ function App() {
       .then((data) => {
         localStorage.setItem("jwt", data.jwt);
         setIsLoggedIn(true);
+        setUserData(data.jwt);
         setCurrentUser(currentUser);
-        
+        //setCurrentUser(data.jwt);
         closeActiveModal();
       })
-
       .catch(console.error);
   };
+  useEffect((jwt) => {
+    if (jwt) {
+      auth.getCurrentUser(jwt);
+      const jwt = localStorage
+        .getItem("jwt")
+        .then((data) => {
+          setIsLoggedIn(true);
+         
+          setCurrentUser(data.jwt);
+        })
+        .catch(console.error);
+    }
+  });
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
