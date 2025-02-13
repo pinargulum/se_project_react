@@ -120,7 +120,10 @@ function App() {
       setCurrentUser(userData);
     });
   }
-
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) getUserData(jwt);
+}, []);
   // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
