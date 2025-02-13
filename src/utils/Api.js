@@ -11,16 +11,23 @@ function getClothingItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
-function addClothingItem(item) {
+function addClothingItem(item, token) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: { "Content-Type": "application/Json" },
+    headers: {
+      "Content-Type": "application/Json",
+      authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify(item),
   }).then(checkResponse);
 }
 function deleteClothingItem(_id) {
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/Json",
+      authorization: `Bearer ${token}`,
+    },
   }).then(checkResponse);
 }
 const Api = {

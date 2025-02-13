@@ -14,3 +14,26 @@
   line-height: 24.8px;
   width: 157px;
 }
+.profile__signout-button {
+  display: flex;
+  position: absolute;
+ 
+  top: 210px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 20px 0 auto;
+  background-color: #f3f3f3;
+}
+.profile__change-button {
+  display: flex;
+  position: absolute;
+  top: 170px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 20px 0 auto;
+  background-color: #f3f3f3;
+}

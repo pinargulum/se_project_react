@@ -1,11 +1,11 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
-//import { useForm } from "../../Hooks/useForm.js"; 
+//import { useForm } from "../../Hooks/useForm.js";
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
-  
+
   function handleNameChange(e) {
     setName(e.target.value);
   }
@@ -37,7 +37,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       onClose={onCloseModal}
       onSubmit={handleSubmit}
     >
-    
       <label className="modal__label">
         Name
         <input
@@ -77,7 +76,10 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
             required
           />
         </label>
-        <label name="radio" className="modal__radio-label">
+        <label
+          name="radio"
+          className="modal__radio-label"
+        >
           Warm
           <input
             id="warm"
@@ -90,7 +92,10 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
             required
           />
         </label>
-        <label name="radio" className="modal__radio-label">
+        <label
+          name="radio"
+          className="modal__radio-label"
+        >
           Cold
           <input
             id="cold"
