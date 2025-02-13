@@ -2,7 +2,7 @@ import { checkResponse } from "./Api";
 
 const baseUrl = "http://localhost:3001";
 
-export const getCurrentUser = (id, token) => {
+export const getCurrentUser = ({ token }) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
@@ -15,7 +15,7 @@ export const getCurrentUser = (id, token) => {
 
 
 
-export const updateProfile = (name, avatar) => {
+export const updateProfile = (token, name, avatar) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {

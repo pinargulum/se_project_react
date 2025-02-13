@@ -113,17 +113,15 @@ function App() {
       .catch(console.error);
   };
 
-  const handleCreateUser = ({ email, password, name, avatar }) => {
-    auth
-      .registerUser(email, password, name, avatar)
-      .then((userData) => {
-        setCurrentUser(userData);
-        closeActiveModal("signup");
-      })
+  // function to get the user data
+  function getUserData(token) {
+    auth.getCurrentUser(token).then((userData) => {
+      setIsLoggedIn(true);
+      setCurrentUser(userData);
+    });
+  }
 
-      .catch(console.error);
-  };
-
+  // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
       return;
@@ -132,28 +130,22 @@ function App() {
       .loginUser(email, password)
       .then((data) => {
         localStorage.setItem("jwt", data.jwt);
-        setIsLoggedIn(true);
-        setUserData(data.jwt);
-        setCurrentUser(currentUser);
-        //setCurrentUser(data.jwt);
+        getUserData(data.jwt);
         closeActiveModal();
       })
       .catch(console.error);
   };
-  useEffect((jwt) => {
-    if (jwt) {
-      auth.getCurrentUser(jwt);
-      const jwt = localStorage
-        .getItem("jwt")
-        .then((data) => {
-          setIsLoggedIn(true);
-         
-          setCurrentUser(data.jwt);
-        })
-        .catch(console.error);
-    }
-  });
 
+  const handleCreateUser = ({ email, password, name, avatar }) => {
+    auth
+      .registerUser(email, password, name, avatar)
+      .then((userData) => {
+        login({ email, password });
+        closeActiveModal("signup");
+      })
+
+      .catch(console.error);
+  };
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
