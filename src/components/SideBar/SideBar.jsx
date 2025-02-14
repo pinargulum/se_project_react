@@ -3,12 +3,13 @@ import { useContext } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import { Link } from "react-router-dom";
 import EditProfileModel from "../EditProfileModal/EditProfileModal.jsx";
+import { setToken, getToken, removeToken } from "../../utils/token.js";
 
 function SideBar(EditProfileModal) {
   const currentUser = useContext(CurrentUserContext);
-  function handleLogout(token) {
-    token = localStorage.removeItem("jwt");
-  }
+  const handleLogout = () => removeToken()
+   
+  
   return (
     <div className="profile__sidebar">
       <img
@@ -26,7 +27,7 @@ function SideBar(EditProfileModal) {
           Change profile data
         </button>
         <button
-          onClick={handleLogout}
+          //onClick={handleLogout}
           type="button"
           className="profile__signout-button"
         >

@@ -16,6 +16,7 @@ import { getWeather, getCurrentWeather } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import * as auth from "../../utils/auth.js";
 import { useState, useEffect } from "react";
+import { setToken, getToken, removeToken } from "../../utils/token.js";
 import {
   Routes,
   Route,
@@ -123,10 +124,9 @@ function App() {
   }
   useEffect(() => {
     
-    const token = localStorage.getItem("jwt");
-    if ("jwt")
-    getUserData(token);
+    getUserData(getToken);
   }, []);
+
   // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
