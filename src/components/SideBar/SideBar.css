@@ -2,7 +2,13 @@
   display: flex;
   gap: 16px;
 }
-
+.header__avatar {
+  height: 40px;
+  width: 40px;
+  padding-left: 12px;
+  margin: 0;
+  border-radius: 60%;
+}
 .profile__picture-sidebar {
   width: 56px;
   height: 56px;
@@ -17,7 +23,7 @@
 .profile__signout-button {
   display: flex;
   position: absolute;
- 
+
   top: 210px;
   border: none;
   font-size: 20px;

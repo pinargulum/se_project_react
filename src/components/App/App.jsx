@@ -189,6 +189,7 @@ function App() {
                     profileItems={clothingItems}
                     handleProfileAddItem={handleAddClick}
                     profileEditModal={profileEditModal}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />

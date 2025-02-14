@@ -4,9 +4,10 @@ import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
 import { Link } from "react-router-dom";
 //import UserContext  from "../contexts/UserContext.jsx";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import * as auth from "../../utils/auth.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import { useState } from "react";
 
 const Header = ({
   handleAddClick,
@@ -21,9 +22,16 @@ const Header = ({
   });
 
   const currentUser = useContext(CurrentUserContext);
-
+ const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
+ //const [defaultAvatarSrc, setDefaultAvatarsrc] = useState(defaultAvatar);
+ useEffect(() => {
+ if (isLoggedIn && currentUser.avatar) {
+  setAvatarsrc(currentUser.avatar)
+}
+setAvatarsrc(defaultAvatar)
+ }, [isLoggedIn, currentUser])
   
-  return (
+ return (
     <header className="header">
       <Link to="/">
         <img
@@ -48,22 +56,18 @@ const Header = ({
           </button>
 
           <p className="header__username">{currentUser.name}</p>
+          <div>
+            <Link to="/profile">
+              <img
+                src={avatarSrc}
+                alt="" 
+                className="header__avatar"
+                onError={()=> setAvatarsrc={defaultAvatar}}
+              />
 
-          <Link to="/profile">
-            {currentUser.avatar ? (
-              <img
-                src={currentUser.avatar}
-                alt="profile-picture"
-                className="header__avatar"
-              />
-            ) : (
-              <img
-                src={defaultAvatar}
-                alt="profile-picture"
-                className="header__avatar"
-              />
-            )}
-          </Link>
+              
+            </Link>
+          </div>
         </div>
       ) : (
         <div className="header__buttons">
