@@ -4,10 +4,11 @@ import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import defaultAvatar from "/src/assets/defaultAvatar.png";
 import EditProfileModel from "../EditProfileModal/ProfileEditModal.jsx";
 import { setToken, getToken, removeToken } from "../../utils/token.js";
+import { Link } from "react-router-dom";
 
 function SideBar(isLoggedIn) {
   const currentUser = useContext(CurrentUserContext);
-  const handleLogout = () => removeToken();
+  
   const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
   useEffect(() => {
     if (isLoggedIn && currentUser.avatar) {
@@ -15,9 +16,13 @@ function SideBar(isLoggedIn) {
     }
     setAvatarsrc(defaultAvatar);
   }, [isLoggedIn, currentUser]);
-
+  const handleLogout = () => {
+    removeToken();
+    const {isLoggedIn} = false
+  }
   return (
     <div className="profile__sidebar">
+      <div className="sidebar__user-container">
       <img
         src={avatarSrc}
         alt=""
@@ -25,7 +30,8 @@ function SideBar(isLoggedIn) {
         onError={() => (setAvatarsrc = { defaultAvatar })}
       />
       <p className="profile__username-sidebar">{currentUser.name}</p>
-      <div className="profile__sidebar-buttons">
+      </div>
+      <div className="sidebar__buttons">
       <button
         //onClick={ProfileEditModal}
         type="button"
@@ -33,15 +39,18 @@ function SideBar(isLoggedIn) {
       >
         Change profile data
       </button>
+      <Link to="/">
       <button
-        //onClick={handleLogout}
+        onClick={handleLogout}
         type="button"
-       className="sideBar__-button"
+       className="sidebar__button"
       >
         Sign Out
       </button>
+      </Link>
       </div>
     </div>
+    
   );
 }
 export default SideBar;

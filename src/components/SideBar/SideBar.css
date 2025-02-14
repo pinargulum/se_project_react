@@ -9,28 +9,27 @@
   margin: 0;
   border-radius: 60%;
 }
-.profile__picture-sidebar {
-  width: 56px;
-  height: 56px;
-}
-.profile__username-sidebar {
+.sidebar__user-container {
   display: flex;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24.8px;
-  width: 157px;
+  flex-direction: row;
+  gap: 16px;
+  margin: 0;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
 }
-.profile__sidebar-buttons {
+
+.sidebar__buttons {
   display: flex;
   position: absolute;
   flex-direction: column;
-  column-gap: 16px;
+
+  color: #f3f3f3;
   gap: 16px;
-  top: 210px;
-  border: none;
+  top: 165px;
+  border-color:  #f3f3f3;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
   margin: 0 20px 0 auto;
-  background-color: #f3f3f3;
 }
