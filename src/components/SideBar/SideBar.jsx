@@ -33,7 +33,7 @@ function SideBar(isLoggedIn, ProfileModal) {
       </div>
       <div className="sidebar__buttons">
       <button
-        onClick={ProfileModal}
+        //onClick={ProfileModal}
         type="button"
         className="sidebar__button"
       >

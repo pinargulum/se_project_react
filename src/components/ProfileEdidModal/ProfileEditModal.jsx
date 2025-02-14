@@ -5,8 +5,7 @@ import "../LoginModal/LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
-const ProfileEditModal = ({ isOpen, onClose, handleUpdateProfile }) => {
-  
+const ProfileEditModal = ({ isOpen, onCloseModal, handleUpdateProfile }) => {
   const [userName, setUserName] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
 
@@ -16,12 +15,10 @@ const ProfileEditModal = ({ isOpen, onClose, handleUpdateProfile }) => {
   function handleUserAvatarChange(e) {
     setUserAvatar(e.target.value);
   }
- useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
-      set("");
-      setPassword("");
-      setName("");
-      setAvatar("");
+      setUserName("");
+      setUserAvatar("");
     }
   }, [isOpen]);
   function handleSubmit(evt) {
@@ -33,7 +30,7 @@ const ProfileEditModal = ({ isOpen, onClose, handleUpdateProfile }) => {
       titleText="pr"
       //buttonText={Save ? "Saving..." }
       isOpen={isOpen}
-      onClose={onClose}
+      onCloseModal={onCloseModal}
       onSubmit={handleSubmit}
     >
       <label className="modal__label">Name:</label>

@@ -9,7 +9,7 @@ function Profile({ onCardClick, profileItems, handleProfileAddItem, isLoggedIn, 
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar isLoggedIn={isLoggedIn} profileEdidModal={profileModal} />
+        <SideBar isLoggedIn={isLoggedIn} profileModal={profileModal} />
       </section>
       <section className="profile__clothing-items">
         <ClothesSection onCardClick={onCardClick} profileItems={profileItems} handleProfileAddItem={handleProfileAddItem} />

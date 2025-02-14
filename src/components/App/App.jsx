@@ -206,7 +206,7 @@ function App() {
             />
             <ProfileEditModel
               isOpen={activeModal === "profile"}
-              onClose={closeActiveModal}
+              onCloseModal={closeActiveModal}
               handleUpdateProfile={handleUpdateProfile}
               
              
