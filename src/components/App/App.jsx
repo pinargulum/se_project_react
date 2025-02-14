@@ -101,7 +101,7 @@ function App() {
   };
 
   const handleUpdateProfile = ({ name, avatar }) => {
-    const jwt = localStorage.getItem("jwt");
+    const token = localStorage.getItem("jwt");
     auth
       .updateProfile(name, avatar)
       .then((data) => {
@@ -114,16 +114,19 @@ function App() {
   };
 
   // function to get the user data
-  function getUserData(token) {
-    auth.getCurrentUser(token).then((userData) => {
-      setIsLoggedIn(true);
-      setCurrentUser(userData);
-    });
+  function getUserData(token){
+    auth.getCurrentUser(token)
+      .then((userData) => {
+        setIsLoggedIn(true);  
+        setCurrentUser(userData);
+      })
   }
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) getUserData(jwt);
-}, []);
+    
+    const token = localStorage.getItem("jwt");
+    if ("jwt")
+    getUserData(token);
+  }, []);
   // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
@@ -132,8 +135,9 @@ function App() {
     auth
       .loginUser(email, password)
       .then((data) => {
-        localStorage.setItem("jwt", data.jwt);
-        getUserData(data.jwt);
+        localStorage.setItem("jwt", data.token);
+        getUserData(data.token);
+
         closeActiveModal();
       })
       .catch(console.error);

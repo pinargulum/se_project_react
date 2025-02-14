@@ -23,8 +23,8 @@ const Header = ({
 
   
   const currentUser = useContext(CurrentUserContext);
-  const userName = currentUser?.name;
-  const userAvatar = currentUser?.avatar;
+  //const userName = currentUser?.name;
+  //const userAvatar = currentUser?.avatar;
   return (
     <header className="header">
       <Link to="/">
@@ -39,7 +39,7 @@ const Header = ({
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      {isLoggedIn ?  (
+      {isLoggedIn ? (
         <div className="header__user-container">
           <button
             onClick={handleAddClick}
@@ -48,10 +48,10 @@ const Header = ({
           >
             + Add Clothes
           </button>
-              <p className="header__username">{userName}</p>
+              <p className="header__username">{currentUser.name}</p>
               <Link to="/profile">
               <img
-                src={userAvatar}
+                src={currentUser.avatar}
                 alt="profile-picture"
                 className="header__avatar"
               />
