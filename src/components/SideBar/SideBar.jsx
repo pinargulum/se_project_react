@@ -1,9 +1,14 @@
 import "../SideBar/SideBar.css";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import { Link } from "react-router-dom";
+import EditProfileModel from "../EditProfileModal/EditProfileModal.jsx";
 
-function SideBar() {
+function SideBar(EditProfileModal) {
   const currentUser = useContext(CurrentUserContext);
+  function handleLogout(token) {
+    token = localStorage.removeItem("jwt");
+  }
   return (
     <div className="profile__sidebar">
       <img
@@ -12,53 +17,16 @@ function SideBar() {
         alt="profile-picture"
       />
       <p className="profile__username-sidebar">{currentUser.name}</p>
-    </div>
-  );
-}
-export default SideBar;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import "../SideBar/SideBar.css";
-import avatar from "/src/assets/Ellipse 18.png";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-
-const SideBar = ({ profileEditModal}) => {
-  
-  const currentUser = useContext(CurrentUserContext);
-  
-  return (
-    <div className="profile__sidebar">
-      <img
-        className="profile__picture-sidebar"
-        src={avatar}
-        alt="profile-picture"
-      />
-      <p className="profile__username-sidebar">{currentUser.name}</p>
-      
-        <button
-          onClick={profileEditModal}
+      <button
+          onClick={EditProfileModal}
           type="button"
           className="profile__change-button"
         >
           Change profile data
         </button>
         <button
-          //onClick={}
+          onClick={handleLogout}
           type="button"
           className="profile__signout-button"
         >
@@ -69,4 +37,5 @@ const SideBar = ({ profileEditModal}) => {
   );
 }
 export default SideBar;
-*/
+
+
