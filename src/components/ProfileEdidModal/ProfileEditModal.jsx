@@ -2,9 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../LoginModal/LoginModal.css";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-const ProfileEditModel = ({ isOpen, onClose, handleUpdateProfile }) => {
+
+const ProfileEditModal = ({ isOpen, onClose, handleUpdateProfile }) => {
   
   const [userName, setUserName] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
@@ -29,7 +30,7 @@ const ProfileEditModel = ({ isOpen, onClose, handleUpdateProfile }) => {
   }
   return (
     <ModalWithForm
-      titleText=""
+      titleText="pr"
       //buttonText={Save ? "Saving..." }
       isOpen={isOpen}
       onClose={onClose}
@@ -65,4 +66,4 @@ const ProfileEditModel = ({ isOpen, onClose, handleUpdateProfile }) => {
   );
 };
 
-export default ProfileEditModel;
+export default ProfileEditModal;

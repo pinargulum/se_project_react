@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer.jsx";
 import Api from "../../utils/Api.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-import ProtectedRoute from "../ProtectedRoute.jsx";
+
 import { getWeather, getCurrentWeather } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import * as auth from "../../utils/auth.js";
@@ -24,7 +24,7 @@ import {
   useLocation,
   BrowserRouter as Router,
 } from "react-router-dom";
-import EditProfileModel from "../EditProfileModal/ProfileEditModal.jsx";
+import ProfileEditModel from "../ProfileEdidModal/ProfileEditModal.jsx";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -97,8 +97,8 @@ function App() {
   const registerModal = () => {
     setActiveModal("signup");
   };
-  const profileEditModal = () => {
-    setActiveModal("edit-profile");
+  const profileModal = () => {
+    setActiveModal("profile");
   };
 
   const handleUpdateProfile = ({ name, avatar }) => {
@@ -188,7 +188,7 @@ function App() {
                     onClick={handleCardClick}
                     profileItems={clothingItems}
                     handleProfileAddItem={handleAddClick}
-                    profileEditModal={profileEditModal}
+                    profileModal={profileModal}
                     isLoggedIn={isLoggedIn}
                   />
                 }
@@ -204,11 +204,12 @@ function App() {
               onClose={closeActiveModal}
               handleLogin={handleLogin}
             />
-            <EditProfileModel
-              isOpen={activeModal === "edit-profile"}
+            <ProfileEditModel
+              isOpen={activeModal === "profile"}
               onClose={closeActiveModal}
               handleUpdateProfile={handleUpdateProfile}
-              userData={userData}
+              
+             
             />
             <AddItemModal
               isOpen={activeModal === "add-garment"}

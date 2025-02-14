@@ -2,11 +2,11 @@ import "../SideBar/SideBar.css";
 import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import defaultAvatar from "/src/assets/defaultAvatar.png";
-import EditProfileModel from "../EditProfileModal/ProfileEditModal.jsx";
+import EditProfileModel from "../ProfileEdidModal/ProfileEditModal.jsx";
 import { setToken, getToken, removeToken } from "../../utils/token.js";
 import { Link } from "react-router-dom";
 
-function SideBar(isLoggedIn) {
+function SideBar(isLoggedIn, ProfileModal) {
   const currentUser = useContext(CurrentUserContext);
   
   const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
@@ -33,7 +33,7 @@ function SideBar(isLoggedIn) {
       </div>
       <div className="sidebar__buttons">
       <button
-        //onClick={ProfileEditModal}
+        onClick={ProfileModal}
         type="button"
         className="sidebar__button"
       >
