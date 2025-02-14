@@ -24,23 +24,23 @@ function SideBar(isLoggedIn) {
         className="header__avatar"
         onError={() => (setAvatarsrc = { defaultAvatar })}
       />
-
       <p className="profile__username-sidebar">{currentUser.name}</p>
-
+      <div className="profile__sidebar-buttons">
       <button
         //onClick={ProfileEditModal}
         type="button"
-        className="profile__change-button"
+        className="sidebar__button"
       >
         Change profile data
       </button>
       <button
         //onClick={handleLogout}
         type="button"
-        className="profile__signout-button"
+       className="sideBar__-button"
       >
         Sign Out
       </button>
+      </div>
     </div>
   );
 }

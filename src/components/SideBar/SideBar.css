@@ -3,8 +3,8 @@
   gap: 16px;
 }
 .header__avatar {
-  height: 40px;
-  width: 40px;
+  height: 56px;
+  width: 56px;
   padding-left: 12px;
   margin: 0;
   border-radius: 60%;
@@ -20,22 +20,13 @@
   line-height: 24.8px;
   width: 157px;
 }
-.profile__signout-button {
+.profile__sidebar-buttons {
   display: flex;
   position: absolute;
-
+  flex-direction: column;
+  column-gap: 16px;
+  gap: 16px;
   top: 210px;
-  border: none;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  margin: 0 20px 0 auto;
-  background-color: #f3f3f3;
-}
-.profile__change-button {
-  display: flex;
-  position: absolute;
-  top: 170px;
   border: none;
   font-size: 20px;
   font-weight: 700;
