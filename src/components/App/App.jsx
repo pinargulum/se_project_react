@@ -24,7 +24,7 @@ import {
   useLocation,
   BrowserRouter as Router,
 } from "react-router-dom";
-import EditProfileModel from "../EditProfileModal/EditProfileModal.jsx";
+import EditProfileModel from "../EditProfileModal/ProfileEditModal.jsx";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -123,8 +123,9 @@ function App() {
       })
   }
   useEffect(() => {
-    
-    getUserData(getToken);
+    getToken();
+    if((token) =>
+    getUserData(token));
   }, []);
 
   // updated login function
@@ -135,7 +136,7 @@ function App() {
     auth
       .loginUser(email, password)
       .then((data) => {
-        localStorage.setItem("jwt", data.token);
+        setToken(data);
         getUserData(data.token);
 
         closeActiveModal();

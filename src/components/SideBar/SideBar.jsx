@@ -2,10 +2,10 @@ import "../SideBar/SideBar.css";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import { Link } from "react-router-dom";
-import EditProfileModel from "../EditProfileModal/EditProfileModal.jsx";
+import EditProfileModel from "../EditProfileModal/ProfileEditModal.jsx";
 import { setToken, getToken, removeToken } from "../../utils/token.js";
 
-function SideBar(EditProfileModal) {
+function SideBar() {
   const currentUser = useContext(CurrentUserContext);
   const handleLogout = () => removeToken()
    
@@ -20,7 +20,7 @@ function SideBar(EditProfileModal) {
       <p className="profile__username-sidebar">{currentUser.name}</p>
 
       <button
-          onClick={EditProfileModal}
+          //onClick={ProfileEditModal}
           type="button"
           className="profile__change-button"
         >
@@ -31,7 +31,7 @@ function SideBar(EditProfileModal) {
           type="button"
           className="profile__signout-button"
         >
-          Log Out
+          Sign Out
         </button>
     
     </div>
