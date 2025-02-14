@@ -1,5 +1,5 @@
 import logo from "/src/assets/Logo.png";
-
+import defaultAvatar from "/src/assets/defaultAvatar.png";
 import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
 import { Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import * as auth from "../../utils/auth.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-
 
 const Header = ({
   handleAddClick,
@@ -21,10 +20,9 @@ const Header = ({
     day: "numeric",
   });
 
-  
   const currentUser = useContext(CurrentUserContext);
-  //const userName = currentUser?.name;
-  //const userAvatar = currentUser?.avatar;
+
+  
   return (
     <header className="header">
       <Link to="/">
@@ -48,16 +46,25 @@ const Header = ({
           >
             + Add Clothes
           </button>
-              <p className="header__username">{currentUser.name}</p>
-              <Link to="/profile">
+
+          <p className="header__username">{currentUser.name}</p>
+
+          <Link to="/profile">
+            {currentUser.avatar ? (
               <img
                 src={currentUser.avatar}
                 alt="profile-picture"
                 className="header__avatar"
               />
-              </Link>
-            </div> 
-        
+            ) : (
+              <img
+                src={defaultAvatar}
+                alt="profile-picture"
+                className="header__avatar"
+              />
+            )}
+          </Link>
+        </div>
       ) : (
         <div className="header__buttons">
           <button
