@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function SideBar(isLoggedIn, ProfileModal) {
   const currentUser = useContext(CurrentUserContext);
   
-  const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
+  const [avatarSrc, setAvatarsrc] = useState();
   useEffect(() => {
     if (isLoggedIn && currentUser.avatar) {
       setAvatarsrc(currentUser.avatar);
@@ -18,7 +18,7 @@ function SideBar(isLoggedIn, ProfileModal) {
   }, [isLoggedIn, currentUser]);
   const handleLogout = () => {
     removeToken();
-    const {isLoggedIn} = false
+    
   }
   return (
     <div className="profile__sidebar">

@@ -22,7 +22,7 @@ const Header = ({
   });
 
   const currentUser = useContext(CurrentUserContext);
- const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
+ const [avatarSrc, setAvatarsrc] = useState();
  //const [defaultAvatarSrc, setDefaultAvatarsrc] = useState(defaultAvatar);
  useEffect(() => {
  if (isLoggedIn && currentUser.avatar) {
