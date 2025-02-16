@@ -114,7 +114,9 @@ function App() {
     auth
       .updateProfile(token, name, avatar)
       .then((data) => {
-        getToken(token)
+        //getToken(data.token)
+        getUserData(data.token);
+  
         setCurrentUser(data);
         //setUserData(data);
         //setIsLoggedIn(true);

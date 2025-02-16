@@ -29,9 +29,9 @@ const ProfileEditModal = ({
   
   function handleSubmit(evt) {
     evt.preventDefault();
-    const name = currentUser.name;
-    const avatar = currentUser.avatar;
-    handleProfileChange({ name, avatar });
+    currentUser.name  = currentName;
+    currentUser.avatar = currentAvatar;
+    handleProfileChange({ currentName, currentAvatar });
   }
     
   return (
