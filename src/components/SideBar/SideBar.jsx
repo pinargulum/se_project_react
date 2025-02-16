@@ -17,14 +17,7 @@ const currentUser = useContext(CurrentUserContext);
     setAvatarsrc(defaultAvatar);
   }, [isLoggedIn, currentUser]);
  
-*/
-  const onClick = () => {
-    
-  if(currentUser) {
-handleEditClick
-  }
-  }
-    
+*/   
   const handleLogout = () => {
     removeToken();  
   }
@@ -42,7 +35,7 @@ handleEditClick
       <p className="sidebar__username">{currentUser.name}</p>
      
       <div className="change__profile">
-      {currentUser && (
+     
       <button
         onClick={handleEditClick}
         type="button"
@@ -50,7 +43,7 @@ handleEditClick
       >
       Change profile data
       </button>
-      )}
+      
       <button
         onClick={handleLogout}
         type="button"
