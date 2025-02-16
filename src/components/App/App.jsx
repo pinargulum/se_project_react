@@ -118,9 +118,9 @@ function App() {
         getUserData(data.token);
   
         setCurrentUser(data);
-        //setUserData(data);
+        setUserData(userData);
         //setIsLoggedIn(true);
-        closeActiveModal();
+        closeActiveModal("profile");
       })
       .catch(console.error);
   };
