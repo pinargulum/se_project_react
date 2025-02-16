@@ -31,7 +31,8 @@ const ProfileEditModal = ({
     evt.preventDefault();
     currentUser.name  = currentName;
     currentUser.avatar = currentAvatar;
-    handleProfileChange({ currentName, currentAvatar });
+    //handleProfileChange({ currentName, currentAvatar });
+    handleProfileChange({ name: currentName, avatar:currentAvatar });
   }
     
   return (

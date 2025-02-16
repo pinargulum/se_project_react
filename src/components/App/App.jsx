@@ -109,20 +109,25 @@ function App() {
 
     // function to update profiledata 
     
-  const handleProfileChange = ({ token, name, avatar }) => {
+  const handleProfileChange = ({ name, avatar }) => {
+    if(data.token)  {
+      setIsLoggedIn(true)
+      getToken(data.token)
+      getUserData(data.token)
     
     auth
-      .updateProfile(token, name, avatar)
-      .then((data) => {
-        //getToken(data.token)
-        getUserData(data.token);
-  
-        setCurrentUser(data);
-        setUserData(userData);
+      .updateProfile(name, avatar)
+      .then((userData) => {
+        //getToken(data);
+        //getUserData(data.token);
+        setUserData({ data: userData });
         //setIsLoggedIn(true);
-        closeActiveModal("profile");
+        closeActiveModal()
       })
+       
+    
       .catch(console.error);
+    } 
   };
 
   // function to get the user data

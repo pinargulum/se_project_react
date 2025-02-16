@@ -15,7 +15,7 @@ export const getCurrentUser = (token) => {
 
 
 
-export const updateProfile = (token, name, avatar) => {
+export const updateProfile = (name, avatar) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
