@@ -111,6 +111,7 @@ function App() {
     
   const handleProfileChange = ({ name, avatar }) => {
     if(data.token)  {
+      
       setIsLoggedIn(true)
       getToken(data.token)
       getUserData(data.token)
@@ -120,7 +121,7 @@ function App() {
       .then((userData) => {
         //getToken(data);
         //getUserData(data.token);
-        setUserData({ data: userData });
+        setUserData(data.name, data.avatar);
         //setIsLoggedIn(true);
         closeActiveModal()
       })
