@@ -27,8 +27,6 @@ import {
 import ProfileEditModal from "../ProfileEditModal/ProfileEditModal.jsx";
 
 function App() {
-  
-
   ///////////////////////////////// HEADER /////////////////////////////////
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [selectedCard, setSlectedCard] = useState({});
@@ -52,7 +50,6 @@ function App() {
       .catch(console.error);
   }, []);
 
-  
   ///////////////////////////MODALS////////////////////////////
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -65,21 +62,21 @@ function App() {
   const registerModal = () => {
     setActiveModal("signup");
   };
-  const  handleEditClick = () => {
+  const handleEditClick = () => {
     setActiveModal("profile");
   };
-  
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
   const [clothingItems, setClothingItems] = useState([]);
-  
+
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSlectedCard(card);
   };
-  
+
   function handleCardDelete(cardData) {
     cardData = selectedCard._id;
     Api.deleteClothingItem(cardData)
@@ -102,34 +99,10 @@ function App() {
       .catch(console.error);
   }
   //////////////////////   USER    //////////////////////////
-  
+
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
-
-    // function to update profiledata 
-    
-  const handleProfileChange = ({ name, avatar }) => {
-    if(data.token)  {
-      
-      setIsLoggedIn(true)
-      getToken(data.token)
-      getUserData(data.token)
-    
-    auth
-      .updateProfile(name, avatar)
-      .then((userData) => {
-        //getToken(data);
-        //getUserData(data.token);
-        setUserData(data.name, data.avatar);
-        //setIsLoggedIn(true);
-        closeActiveModal()
-      })
-       
-    
-      .catch(console.error);
-    } 
-  };
 
   // function to get the user data
   function getUserData(token) {
@@ -139,10 +112,27 @@ function App() {
     });
   }
   useEffect(() => {
-    getToken();
-    if ((token) => getUserData(token));
+    localStorage.getItem("token");
+    if ((data) => getUserData(data));
   }, []);
 
+  const handleProfileChange = ({ token, name, avatar }) => {
+    const storeToken = token || localStorage.getItem("token");
+    if (!storeToken) {
+      console.error("no token");
+      return;
+    }
+    //const userData =
+    auth.updateProfile(storeToken, name, avatar)
+    .then(data);
+    getUserData(storeToken);
+    const newName = data.name;
+    const newavatar = data.avatar
+    const userData = {newName, newavatar};
+    setCurrentUser(userData);
+
+    closeActiveModal("profile").catch(console.error);
+  };
   // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
@@ -151,7 +141,7 @@ function App() {
     auth
       .loginUser(email, password)
       .then((data) => {
-        setToken(data);
+        localStorage.setItem("token", data.token);
         getUserData(data.token);
 
         closeActiveModal();
@@ -182,7 +172,6 @@ function App() {
               loginModal={loginModal}
               weatherData={weatherData}
               isLoggedIn={isLoggedIn}
-              
             />
             <Routes>
               <Route
@@ -220,7 +209,7 @@ function App() {
               handleLogin={handleLogin}
             />
             <ProfileEditModal
-             isOpen={activeModal === "profile"}
+              isOpen={activeModal === "profile"}
               onCloseModal={closeActiveModal}
               handleProfileChange={handleProfileChange}
             />

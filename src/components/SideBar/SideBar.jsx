@@ -27,12 +27,12 @@ const currentUser = useContext(CurrentUserContext);
       <div className="sidebar__user-container">
     
       <img
-        src={currentUser.avatar}
+        src={currentUser?.avatar}
         alt=""
         className="sidebar__avatar"
         //onError={() => (setAvatarsrc = {defaultAvatar})}
       />
-      <p className="sidebar__username">{currentUser.name}</p>
+      <p className="sidebar__username">{currentUser?.name}</p>
      
       <div className="change__profile">
      

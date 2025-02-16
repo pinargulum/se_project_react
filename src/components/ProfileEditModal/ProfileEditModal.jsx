@@ -4,37 +4,37 @@ import { Link } from "react-router-dom";
 import "../LoginModal/LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import { getToken } from "../../utils/token.js";
 
-const ProfileEditModal = ({
-  isOpen,
-  onCloseModal,
-  handleProfileChange,
-}) => {
+const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
   const currentUser = useContext(CurrentUserContext);
-  const [currentName, setCurrentName] = useState("");
- const [currentAvatar, setCurrentAvatar] = useState("");
-  
-  function handleCurrentNameChange(e) {
-    setCurrentName(e.target.value);
+  const [changeName, setChangeName] = useState("");
+  const [changeAvatar, setChangeAvatar] = useState("");
+
+  function handleChangeName(e) {
+    setChangeName(e.target.value);
   }
-  function handleCurrentAvatarChange(e) {
-    setCurrentAvatar(e.target.value);
+  function handleChangeAvatar(e) {
+    setChangeAvatar(e.target.value);
   }
+
   useEffect(() => {
     if (isOpen) {
-      setCurrentName("");
-      setCurrentAvatar("");
+      setChangeName(currentUser?.name || "");
+      setChangeAvatar(currentUser?.avatar || "");
     }
   }, [isOpen]);
-  
+
   function handleSubmit(evt) {
     evt.preventDefault();
-    currentUser.name  = currentName;
-    currentUser.avatar = currentAvatar;
-    //handleProfileChange({ currentName, currentAvatar });
-    handleProfileChange({ name: currentName, avatar:currentAvatar });
+
+    const token = localStorage.getItem("token")
+    const name = changeName;
+    const avatar = changeAvatar;
+
+  handleProfileChange({ token, name, avatar });
   }
-    
+
   return (
     <ModalWithForm
       titleText="Save changes"
@@ -49,17 +49,17 @@ const ProfileEditModal = ({
         type="text"
         className="modal__input"
         placeholder="Name"
-        value={currentName}
-        onChange={handleCurrentNameChange}
+        value={changeName}
+        onChange={handleChangeName}
         required
       />
       <label className="modal__label">Avatar*</label>
       <input
         type="url"
         className="modal__input"
-        value={currentAvatar}
+        value={changeAvatar}
         name="avatar"
-        onChange={handleCurrentAvatarChange}
+        onChange={handleChangeAvatar}
         placeholder="Avatar URL"
       />
     </ModalWithForm>

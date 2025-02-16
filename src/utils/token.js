@@ -1,14 +1,21 @@
 
-//const jwt = "jwt";
+//const token = "token";
 
 
-export const setToken = (token) =>
-  localStorage.setItem("jwt", token);
+export const setToken = (data) => {
+  const token = "token";
+  localStorage.setItem("token", "token");
 
 
-export const getToken = () => {
-  return localStorage.getItem("jwt");
+}
+  
+
+export const getToken = (data) => {
+  const token = "token";
+  //return localStorage.getItem("token")
+
 };
 export const removeToken = () => {
-    localStorage.removeItem("jwt");
+  const token = "token";
+    localStorage.removeItem("token");
   };

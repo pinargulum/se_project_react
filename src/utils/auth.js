@@ -15,14 +15,14 @@ export const getCurrentUser = (token) => {
 
 
 
-export const updateProfile = (name, avatar) => {
+export const updateProfile = ({ token, name, avatar }) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, avatar }),
+    body: JSON.stringify({ token, name, avatar }),
   }).then(checkResponse);
 };
 
