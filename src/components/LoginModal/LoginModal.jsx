@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../LoginModal/LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ isOpen, onClose, handleLogin }) => {
+const LoginModal = ({ isOpen, onCloseModal, handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleEmailChange(e) {
@@ -28,7 +28,7 @@ const LoginModal = ({ isOpen, onClose, handleLogin }) => {
     <ModalWithForm
       titleText="signin"
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={onCloseModal}
       onSubmit={handleSubmit}
     >
       <label className="modal__label">Email:</label>

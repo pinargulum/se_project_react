@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
 
-function ItemModal({ activeModal, card, onClose, handleCardDelete }) {
+function ItemModal({ activeModal, card, onCloseModal, handleCardDelete }) {
   
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
@@ -12,7 +12,7 @@ function ItemModal({ activeModal, card, onClose, handleCardDelete }) {
     <div className={`modal ${activeModal === "preview" && "modal_opened"} `}>
       <div className="modal__content modal__content_type_cards">
         <button
-          onClick={onClose}
+          onClick={onCloseModal}
           type="button"
           className="modal__close-button modal__close-button_type_cards"
         />

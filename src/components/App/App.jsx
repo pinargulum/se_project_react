@@ -24,11 +24,10 @@ import {
   useLocation,
   BrowserRouter as Router,
 } from "react-router-dom";
-import ProfileEditModel from "../ProfileEdidModal/ProfileEditModal.jsx";
+import ProfileEditModal from "../ProfileEditModal/ProfileEditModal.jsx";
 
 function App() {
-  const [activeModal, setActiveModal] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  
 
   ///////////////////////////////// HEADER /////////////////////////////////
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -53,18 +52,34 @@ function App() {
       .catch(console.error);
   }, []);
 
+  
+  ///////////////////////////MODALS////////////////////////////
+  const [activeModal, setActiveModal] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const handleAddClick = () => {
+    setActiveModal("add-garment");
+  };
+  const loginModal = () => {
+    setActiveModal("signin");
+  };
+  const registerModal = () => {
+    setActiveModal("signup");
+  };
+  const  handleEditClick = () => {
+    setActiveModal("profile");
+  };
+  
   const closeActiveModal = () => {
     setActiveModal("");
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
   const [clothingItems, setClothingItems] = useState([]);
+  
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSlectedCard(card);
   };
-  const handleAddClick = () => {
-    setActiveModal("add-garment");
-  };
+  
   function handleCardDelete(cardData) {
     cardData = selectedCard._id;
     Api.deleteClothingItem(cardData)
@@ -87,45 +102,37 @@ function App() {
       .catch(console.error);
   }
   //////////////////////   USER    //////////////////////////
+  
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
 
-  const loginModal = () => {
-    setActiveModal("signin");
-  };
-  const registerModal = () => {
-    setActiveModal("signup");
-  };
-  const profileModal = () => {
-    setActiveModal("profile");
-  };
-
-  const handleUpdateProfile = ({ name, avatar }) => {
-    const token = localStorage.getItem("jwt");
+    // function to update profiledata 
+    
+  const handleProfileChange = ({ token, name, avatar }) => {
+    
     auth
-      .updateProfile(name, avatar)
+      .updateProfile(token, name, avatar)
       .then((data) => {
+        getToken(token)
         setCurrentUser(data);
-        setUserData(data);
-        setIsLoggedIn(true);
-        closeActiveModal("edit-profile");
+        //setUserData(data);
+        //setIsLoggedIn(true);
+        closeActiveModal();
       })
       .catch(console.error);
   };
 
   // function to get the user data
-  function getUserData(token){
-    auth.getCurrentUser(token)
-      .then((userData) => {
-        setIsLoggedIn(true);  
-        setCurrentUser(userData);
-      })
+  function getUserData(token) {
+    auth.getCurrentUser(token).then((userData) => {
+      setIsLoggedIn(true);
+      setCurrentUser(userData);
+    });
   }
   useEffect(() => {
     getToken();
-    if((token) =>
-    getUserData(token));
+    if ((token) => getUserData(token));
   }, []);
 
   // updated login function
@@ -143,7 +150,7 @@ function App() {
       })
       .catch(console.error);
   };
-
+  // updated reate function
   const handleCreateUser = ({ email, password, name, avatar }) => {
     auth
       .registerUser(email, password, name, avatar)
@@ -167,7 +174,7 @@ function App() {
               loginModal={loginModal}
               weatherData={weatherData}
               isLoggedIn={isLoggedIn}
-              userData={userData}
+              
             />
             <Routes>
               <Route
@@ -184,11 +191,11 @@ function App() {
                 path="/profile"
                 element={
                   <Profile
-                    userData={userData}
+                    isOpen={activeModal === "profile"}
                     onClick={handleCardClick}
                     profileItems={clothingItems}
                     handleProfileAddItem={handleAddClick}
-                    profileModal={profileModal}
+                    handleEditClick={handleEditClick}
                     isLoggedIn={isLoggedIn}
                   />
                 }
@@ -196,20 +203,18 @@ function App() {
             </Routes>
             <RegisterModal
               isOpen={activeModal === "signup"}
-              onClose={closeActiveModal}
+              onCloseModal={closeActiveModal}
               handleCreateUser={handleCreateUser}
             />
             <LoginModal
               isOpen={activeModal === "signin"}
-              onClose={closeActiveModal}
+              onCloseModal={closeActiveModal}
               handleLogin={handleLogin}
             />
-            <ProfileEditModel
-              isOpen={activeModal === "profile"}
+            <ProfileEditModal
+             isOpen={activeModal === "profile"}
               onCloseModal={closeActiveModal}
-              handleUpdateProfile={handleUpdateProfile}
-              
-             
+              handleProfileChange={handleProfileChange}
             />
             <AddItemModal
               isOpen={activeModal === "add-garment"}
@@ -221,7 +226,7 @@ function App() {
             <ItemModal
               activeModal={activeModal}
               card={selectedCard}
-              onClose={closeActiveModal}
+              onCloseModal={closeActiveModal}
               handleCardDelete={handleCardDelete}
             />
             <Footer />

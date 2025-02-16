@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../RegisterModal/RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-const RegisterModal = ({ isOpen, onClose, handleCreateUser }) => {
+const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -43,10 +43,10 @@ const RegisterModal = ({ isOpen, onClose, handleCreateUser }) => {
 
   return (
     <ModalWithForm
-      titleText="signup"
-      //buttonText={Save ? "Saving..." }
+      titleText="sign up"
+      buttonText="Save"
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={onCloseModal}
       onSubmit={handleSubmit}
     >
       <label className="modal__label">Email:</label>

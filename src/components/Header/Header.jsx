@@ -22,16 +22,16 @@ const Header = ({
   });
 
   const currentUser = useContext(CurrentUserContext);
- const [avatarSrc, setAvatarsrc] = useState();
- //const [defaultAvatarSrc, setDefaultAvatarsrc] = useState(defaultAvatar);
- useEffect(() => {
- if (isLoggedIn && currentUser.avatar) {
-  setAvatarsrc(currentUser.avatar)
-}
-setAvatarsrc(defaultAvatar)
- }, [isLoggedIn, currentUser])
-  
- return (
+
+  const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
+  useEffect(() => {
+    if (isLoggedIn && currentUser.avatar) {
+      setAvatarsrc(currentUser.avatar);
+    }
+    setAvatarsrc(defaultAvatar);
+  }, [isLoggedIn, currentUser]);
+
+  return (
     <header className="header">
       <Link to="/">
         <img
@@ -57,16 +57,12 @@ setAvatarsrc(defaultAvatar)
 
           <p className="header__username">{currentUser.name}</p>
           <div>
-            <Link to="/profile">
-              <img
-                src={avatarSrc}
-                alt="" 
-                className="header__avatar"
-                onError={()=> setAvatarsrc={defaultAvatar}}
-              />
-
-              
-            </Link>
+            <img
+              src={currentUser.avatar}
+              alt=""
+              className="header__avatar"
+              onError={() => (setAvatarsrc = { defaultAvatar })}
+            />
           </div>
         </div>
       ) : (
