@@ -43,13 +43,13 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
     >
       <label className="modal__label">Name*</label>
       <input
-        name="user"
+        name="name"
         type="text"
         className="modal__input"
         placeholder="Name"
         value={data.name}
         onChange={handleChange}
-        required
+        
       />
       <label className="modal__label">Avatar*</label>
       <input

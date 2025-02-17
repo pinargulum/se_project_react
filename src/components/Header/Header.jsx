@@ -47,10 +47,10 @@ const Header = ({
             + Add Clothes
           </button>
 
-          <p className="header__username">{currentUser?.name}</p>
+          <p className="header__username">{currentUser.name}</p>
           <div>
             <img
-              src={currentUser?.avatar}
+              src={currentUser.avatar}
               alt="profile picture"
               className="header__avatar"
             />
