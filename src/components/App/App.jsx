@@ -126,9 +126,9 @@ function App() {
        console.error("no token");
        return;
      }
-     
-     setCurrentUser([data, ...userData]);
-     closeActiveModal()
+    
+     setCurrentUser(data.user);
+     closeActiveModal("profile")
      .catch(console.error);
     })
    }
