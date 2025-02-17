@@ -117,19 +117,23 @@ function App() {
   }, []);
 
   const handleProfileChange = ({ name, avatar }) => { 
-   const token = localStorage.getItem("token");
-    auth.updateProfile(token, { name, avatar })
-    .then(data);
-    localStorage.getItem("token");
-    if (!token) {
-      console.error("no token");
-      return;
-    }
-    getUserData(data.token)
-    setCurrentUser(data.name, data.avatar);
-
-    closeActiveModal("profile").catch(console.error);
-  };
+    const token = localStorage.getItem("token");
+     auth.updateProfile(token, {name, avatar })
+     .then((data) => {
+     localStorage.getItem("token");
+     getUserData(data.token)
+     if (!token) {
+       console.error("no token");
+       return;
+     }
+     
+     setCurrentUser([data, ...userData]);
+ 
+     closeActiveModal("profile")
+     .catch(console.error);
+    })
+   }
+  
   // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {

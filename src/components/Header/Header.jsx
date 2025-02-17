@@ -23,14 +23,6 @@ const Header = ({
 
   const currentUser = useContext(CurrentUserContext);
 
-  const [avatarSrc, setAvatarsrc] = useState(defaultAvatar);
-  useEffect(() => {
-    if (isLoggedIn && currentUser.avatar) {
-      setAvatarsrc(currentUser.avatar);
-    }
-    setAvatarsrc(defaultAvatar);
-  }, [isLoggedIn, currentUser]);
-
   return (
     <header className="header">
       <Link to="/">
@@ -55,13 +47,12 @@ const Header = ({
             + Add Clothes
           </button>
 
-          <p className="header__username">{currentUser.name}</p>
+          <p className="header__username">{currentUser?.name}</p>
           <div>
             <img
-              src={currentUser.avatar}
-              alt=""
+              src={currentUser?.avatar}
+              alt="profile picture"
               className="header__avatar"
-              onError={() => (setAvatarsrc = { defaultAvatar })}
             />
           </div>
         </div>

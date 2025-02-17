@@ -11,8 +11,8 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
     const currentUser = useContext(CurrentUserContext);
 
     const [data, setData] = useState({
-      name: currentUser ? currentUser.name : '',
-      avatar: currentUser ? currentUser.avatar : '',
+      newName: currentUser ? currentUser.name : '',
+      newAvatar: currentUser ? currentUser.avatar : '',
     });
   
     if (!currentUser || !currentUser._id) {
@@ -21,6 +21,8 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
   
     const handleChange = (e) => {
       const { name, value } = e.target;
+      
+      
       setData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -29,7 +31,6 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      
       return handleProfileChange(data);
     };
   return (
@@ -42,22 +43,22 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
     >
       <label className="modal__label">Name*</label>
       <input
-        name="name"
+        name="user"
         type="text"
         className="modal__input"
         placeholder="Name"
-        value={data.name}
+        value={data.newName}
         onChange={handleChange}
         required
       />
       <label className="modal__label">Avatar*</label>
       <input
+        name="avatar"
         type="url"
         className="modal__input"
-        value={data.avatar}
-        name="avatar"
+        value={data.newAvatar}
         onChange={handleChange}
-        placeholder="Avatar URL"
+        placeholder="Avatar"
       />
     </ModalWithForm>
   );

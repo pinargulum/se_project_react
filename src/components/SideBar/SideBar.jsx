@@ -8,16 +8,7 @@ import { removeToken } from "../../utils/token.js";
 
 function SideBar({ isLoggedIn,  handleEditClick }) {
 const currentUser = useContext(CurrentUserContext);
-/*
-  const [avatarSrc, setAvatarsrc] = useState();
-  useEffect(() => {
-    if (isLoggedIn && currentUser.avatar) {
-      setAvatarsrc(currentUser.avatar);
-    }
-    setAvatarsrc(defaultAvatar);
-  }, [isLoggedIn, currentUser]);
- 
-*/   
+
   const handleLogout = () => {
     removeToken();  
   }
@@ -28,9 +19,9 @@ const currentUser = useContext(CurrentUserContext);
     
       <img
         src={currentUser?.avatar}
-        alt=""
+        alt="profile-picture"
         className="sidebar__avatar"
-        //onError={() => (setAvatarsrc = {defaultAvatar})}
+        
       />
       <p className="sidebar__username">{currentUser?.name}</p>
      
