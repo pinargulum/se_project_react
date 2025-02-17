@@ -118,7 +118,7 @@ function App() {
 
   const handleProfileChange = (name, avatar) => { 
     const token = localStorage.getItem("token");
-     auth.updateProfile(token, {name, avatar })
+     auth.updateProfile(token, { name, avatar })
      .then((data) => {
      localStorage.getItem("token");
      getUserData(data.token)
@@ -128,8 +128,7 @@ function App() {
      }
      
      setCurrentUser([data, ...userData]);
- 
-     closeActiveModal("profile")
+     closeActiveModal()
      .catch(console.error);
     })
    }
