@@ -123,10 +123,7 @@ function App() {
      localStorage.getItem("token");
      getUserData(data.token)
      setCurrentUser(data);
-     if (!token) {
-       console.error("no token");
-       return;
-     }
+    
     
     
      closeActiveModal("profile")
