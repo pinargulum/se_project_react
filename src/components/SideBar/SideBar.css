@@ -19,19 +19,26 @@
   margin-left: 40px;
   border-radius: 60%;
 }
-.change__profile {
+.sidebar__username {
+
+}
+.sidebar__change-profile {
   display: flex;
   position: absolute;
+  top:150px;
+
   flex-direction: column;
- margin-left: 40px;
-  top: 165px;
+  gap: 16px;
+  margin: 0;
   
+ 
 }
 .sidebar__button {
   border: none;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  margin-left: 0;
  
   
  
