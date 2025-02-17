@@ -116,20 +116,17 @@ function App() {
     if ((data) => getUserData(data));
   }, []);
 
-  const handleProfileChange = ({ token, name, avatar }) => {
-    const storeToken = token || localStorage.getItem("token");
-    if (!storeToken) {
+  const handleProfileChange = ({ name, avatar }) => { 
+   const token = localStorage.getItem("token");
+    auth.updateProfile(token, { name, avatar })
+    .then(data);
+    localStorage.getItem("token");
+    if (!token) {
       console.error("no token");
       return;
     }
-    //const userData =
-    auth.updateProfile(storeToken, name, avatar)
-    .then(data);
-    getUserData(storeToken);
-    const newName = data.name;
-    const newavatar = data.avatar
-    const userData = {newName, newavatar};
-    setCurrentUser(userData);
+    getUserData(data.token)
+    setCurrentUser(data.name, data.avatar);
 
     closeActiveModal("profile").catch(console.error);
   };

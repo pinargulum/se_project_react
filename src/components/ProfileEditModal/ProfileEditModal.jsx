@@ -7,34 +7,31 @@ import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import { getToken } from "../../utils/token.js";
 
 const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
-  const currentUser = useContext(CurrentUserContext);
-  const [changeName, setChangeName] = useState("");
-  const [changeAvatar, setChangeAvatar] = useState("");
+  
+    const currentUser = useContext(CurrentUserContext);
 
-  function handleChangeName(e) {
-    setChangeName(e.target.value);
-  }
-  function handleChangeAvatar(e) {
-    setChangeAvatar(e.target.value);
-  }
-
-  useEffect(() => {
-    if (isOpen) {
-      setChangeName(currentUser?.name || "");
-      setChangeAvatar(currentUser?.avatar || "");
+    const [data, setData] = useState({
+      name: currentUser ? currentUser.name : '',
+      avatar: currentUser ? currentUser.avatar : '',
+    });
+  
+    if (!currentUser || !currentUser._id) {
+      return null; 
     }
-  }, [isOpen]);
-
-  function handleSubmit(evt) {
-    evt.preventDefault();
-
-    const token = localStorage.getItem("token")
-    const name = changeName;
-    const avatar = changeAvatar;
-
-  handleProfileChange({ token, name, avatar });
-  }
-
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      
+      return handleProfileChange(data);
+    };
   return (
     <ModalWithForm
       titleText="Save changes"
@@ -49,17 +46,17 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
         type="text"
         className="modal__input"
         placeholder="Name"
-        value={changeName}
-        onChange={handleChangeName}
+        value={data.name}
+        onChange={handleChange}
         required
       />
       <label className="modal__label">Avatar*</label>
       <input
         type="url"
         className="modal__input"
-        value={changeAvatar}
+        value={data.avatar}
         name="avatar"
-        onChange={handleChangeAvatar}
+        onChange={handleChange}
         placeholder="Avatar URL"
       />
     </ModalWithForm>
