@@ -15,6 +15,7 @@ function SideBar({ isLoggedIn, handleEditClick }) {
 
   return (
     <div className="profile__sidebar">
+      <div className="profile__user-info">
       <div className="sidebar__user-container">
         <img
           src={currentUser.avatar}
@@ -40,6 +41,7 @@ function SideBar({ isLoggedIn, handleEditClick }) {
           Log out
         </button>
       </div>
+    </div>
     </div>
   );
 }
