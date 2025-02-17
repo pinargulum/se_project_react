@@ -11,8 +11,8 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
     const currentUser = useContext(CurrentUserContext);
 
     const [data, setData] = useState({
-      name: currentUser ? currentUser.name : '',
-      avatar: currentUser ? currentUser.avatar : '',
+      name: currentUser.name || '',
+      avatar: currentUser.avatar || '',
     });
   
     if (!currentUser || !currentUser._id) {
