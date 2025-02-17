@@ -122,12 +122,13 @@ function App() {
      .then((data) => {
      localStorage.getItem("token");
      getUserData(data.token)
+     setCurrentUser(data);
      if (!token) {
        console.error("no token");
        return;
      }
     
-     setCurrentUser(data.user);
+    
      closeActiveModal("profile")
      .catch(console.error);
     })
