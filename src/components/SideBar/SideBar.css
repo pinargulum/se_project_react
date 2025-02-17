@@ -6,30 +6,30 @@
 .sidebar__user-container {
   display: flex;
   width: 229px;
+  height: 56px;
   flex-direction: row;
   gap: 16px;
   padding: 0;
- margin-bottom: 24px;
+  margin-right: 116px;
   font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  
+  align-items: center;
 }
 .sidebar__avatar {
   height: 56px;
   width: 56px;
-  padding-left: 12px;
   border-radius: 60%;
 }
 .sidebar__change-profile {
   display: flex;
   position: absolute;
-  top:150px;
+  top: 150px;
 
   flex-direction: column;
   gap: 16px;
-  margin: 0;
-  
- 
+  margin-top: 120px;
 }
 .sidebar__button {
   border: none;
@@ -37,7 +37,4 @@
   font-weight: 700;
   line-height: 24px;
   margin-left: 0;
- 
-  
- 
 }
