@@ -10,15 +10,15 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 function SideBar({ isLoggedIn, handleEditClick }) {
   const location = useLocation();
   const from = location.state?.from || "/";
-
+  const navigate = useNavigate();
   
   const currentUser = useContext(CurrentUserContext);
   
   const handleLogout = () => {
-    localStorage.remove("token");
-    //if (!anonymous && !isLoggedIn) {
-     useNavigate( "/login") 
-  
+     removeToken()
+     if (!isLoggedIn) {
+     navigate("/signin")
+     }
   }
   return (
     <div className="profile__sidebar">
