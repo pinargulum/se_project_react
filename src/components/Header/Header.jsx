@@ -48,30 +48,35 @@ const Header = ({
           </button>
 
           <p className="header__username">{currentUser.name}</p>
-          <div>
+          <Link to="/profile">
             <img
               src={currentUser.avatar}
               alt="profile picture"
               className="header__avatar"
             />
+            </Link>
           </div>
-        </div>
+        
       ) : (
+        <div className="signed__buttons">
+          
         <div className="header__buttons">
           <button
             onClick={registerModal}
             type="button"
-            className="header__add-clothes-button"
+            className="header__button"
           >
             Sign up
           </button>
           <button
             onClick={loginModal}
             type="button"
-            className="header__add-clothes-button"
+            className="header__button"
           >
             or Login
           </button>
+        </div>
+
         </div>
       )}
     </header>
