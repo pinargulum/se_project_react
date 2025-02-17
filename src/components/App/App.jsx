@@ -122,9 +122,9 @@ function App() {
      auth.updateProfile(token, name, avatar)
      .then((data) => {
      localStorage.getItem("token");
-     getUserData(data.token)
+     getUserData(data)
      setCurrentUser(data);
-     closeActiveModal("profile")
+     closeActiveModal()
      .catch(console.error);
     })
    }
