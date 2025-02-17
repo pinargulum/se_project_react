@@ -10,7 +10,7 @@ function SideBar({ isLoggedIn, handleEditClick }) {
   const currentUser = useContext(CurrentUserContext);
 
   const handleLogout = () => {
-    removeToken();
+    localStorage.remove("token");
   };
 
   return (
