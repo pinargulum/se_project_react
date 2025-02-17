@@ -105,10 +105,11 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   // function to get the user data
-  function getUserData(token) {
-    auth.getCurrentUser(token).then((userData) => {
+  function getUserData(token)  {
+    token = localStorage.getItem("token");
+    auth.getCurrentUser(token).then((data) => {
       setIsLoggedIn(true);
-      setCurrentUser(userData);
+      setCurrentUser(data);
     });
   }
   useEffect(() => {
@@ -123,9 +124,6 @@ function App() {
      localStorage.getItem("token");
      getUserData(data.token)
      setCurrentUser(data);
-    
-    
-    
      closeActiveModal("profile")
      .catch(console.error);
     })
