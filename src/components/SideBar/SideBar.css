@@ -34,9 +34,12 @@
 }
 .sidebar__button {
   border: none;
-  
-  
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
+}
+.logout {
+  padding-left: 0;
+  margin-left: 0;
+  width: 95px;
 }

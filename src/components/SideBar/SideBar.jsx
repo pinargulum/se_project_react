@@ -32,11 +32,10 @@ function SideBar({ isLoggedIn, handleEditClick }) {
         >
           Change profile data
         </button>
-
         <button
           onClick={handleLogout}
           type="button"
-          className="sidebar__button"
+          className="sidebar__button logout"
         >
           Log out
         </button>
