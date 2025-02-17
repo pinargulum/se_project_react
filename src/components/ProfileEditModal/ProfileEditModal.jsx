@@ -11,8 +11,8 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
     const currentUser = useContext(CurrentUserContext);
 
     const [data, setData] = useState({
-      newName: currentUser ? currentUser.name : '',
-      newAvatar: currentUser ? currentUser.avatar : '',
+      name: currentUser ? currentUser.name : '',
+      avatar: currentUser ? currentUser.avatar : '',
     });
   
     if (!currentUser || !currentUser._id) {
@@ -47,7 +47,7 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
         type="text"
         className="modal__input"
         placeholder="Name"
-        value={data.newName}
+        value={data.name}
         onChange={handleChange}
         required
       />
@@ -56,7 +56,7 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
         name="avatar"
         type="url"
         className="modal__input"
-        value={data.newAvatar}
+        value={data.avatar}
         onChange={handleChange}
         placeholder="Avatar"
       />

@@ -116,7 +116,7 @@ function App() {
     if ((data) => getUserData(data));
   }, []);
 
-  const handleProfileChange = ({ name, avatar }) => { 
+  const handleProfileChange = (name, avatar) => { 
     const token = localStorage.getItem("token");
      auth.updateProfile(token, {name, avatar })
      .then((data) => {
