@@ -26,9 +26,9 @@ const Header = ({
   const navigate = useNavigate();
   const onClick = () => {
     if (isLoggedIn && currentUser) {
-  navigate("/profile")
+      navigate("/profile");
     }
-  }
+  };
   return (
     <header className="header">
       <Link to="/">
@@ -43,7 +43,7 @@ const Header = ({
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      {currentUser?  (
+      {isLoggedIn ? (
         <div className="header__user-container">
           <button
             onClick={handleAddClick}
@@ -54,17 +54,13 @@ const Header = ({
           </button>
 
           <p className="header__username">{currentUser.name}</p>
-       
-      
-          <img 
-          onClick={onClick}
+
+          <img
+            onClick={onClick}
             src={currentUser.avatar}
             alt="profile picture"
             className="header__avatar"
           />
-         
-      
-          
         </div>
       ) : (
         <div className="signed__buttons">
