@@ -28,7 +28,7 @@ import {
 import ProfileEditModal from "../ProfileEditModal/ProfileEditModal.jsx";
 
 function App() {
-  ///////////////////////////////// HEADER /////////////////////////////////
+  ////////////////////////////STATES///////////////////////////////////////
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [selectedCard, setSlectedCard] = useState({});
   const [weatherData, setWeatherData] = useState({
@@ -36,6 +36,13 @@ function App() {
     temp: { F: 999 },
     city: "",
   });
+  const [clothingItems, setClothingItems] = useState([]);
+  const [activeModal, setActiveModal] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [userData, setUserData] = useState();
+  const [currentUser, setCurrentUser] = useState({});
+  ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
@@ -52,8 +59,7 @@ function App() {
   }, []);
 
   ///////////////////////////MODALS////////////////////////////
-  const [activeModal, setActiveModal] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
@@ -71,7 +77,7 @@ function App() {
     setActiveModal("");
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
-  const [clothingItems, setClothingItems] = useState([]);
+  
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -89,10 +95,13 @@ function App() {
       })
       .catch(console.error);
   }
-  function handleAddItemSubmit(newItem) {
+  function handleAddItemSubmit({ newItem, token }) {
+    token = localStorage.getItem("token");
     setIsLoading(true);
-    Api.addClothingItem(newItem)
+    Api.addClothingItem(newItem, token)
       .then((item) => {
+        getUserData(token);
+        setIsLoggedIn(true)
         setClothingItems([item, ...clothingItems]);
         setIsLoading(false);
         closeActiveModal();
@@ -101,12 +110,8 @@ function App() {
   }
   //////////////////////   USER    //////////////////////////
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [userData, setUserData] = useState();
-  const [currentUser, setCurrentUser] = useState({});
-
   // function to get the user data
-  function getUserData(token)  {
+  function getUserData(token) {
     token = localStorage.getItem("token");
     auth.getCurrentUser(token).then((data) => {
       setIsLoggedIn(true);
@@ -118,18 +123,16 @@ function App() {
     if ((data) => getUserData(data));
   }, []);
 
-  const handleProfileChange = (name, avatar) => { 
+  const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
-     auth.updateProfile(token, name, avatar)
-     .then((data) => {
-     localStorage.getItem("token");
-     getUserData(data)
-     setCurrentUser(data);
-     closeActiveModal()
-     .catch(console.error);
-    })
-   }
-  
+    auth.updateProfile(token, name, avatar).then((data) => {
+      localStorage.getItem("token");
+      getUserData(data);
+      setCurrentUser(data);
+      closeActiveModal().catch(console.error);
+    });
+  };
+
   // updated login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
@@ -184,20 +187,18 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn} >
-                  <Profile
-                    isOpen={activeModal === "profile"}
-                    onClick={handleCardClick}
-                    profileItems={clothingItems}
-                    handleProfileAddItem={handleAddClick}
-                    handleEditClick={handleEditClick}
-                    isLoggedIn={isLoggedIn}
-                  />
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <Profile
+                      isOpen={activeModal === "profile"}
+                      onClick={handleCardClick}
+                      profileItems={clothingItems}
+                      handleProfileAddItem={handleAddClick}
+                      handleEditClick={handleEditClick}
+                      isLoggedIn={isLoggedIn}
+                    />
                   </ProtectedRoute>
                 }
               />
-              
-             
             </Routes>
             <RegisterModal
               isOpen={activeModal === "signup"}
