@@ -24,8 +24,7 @@ const Header = ({
   });
   const currentUser = useContext(CurrentUserContext);
   
- 
- 
+  
   return (
     <header className="header">
       <Link to="/">
@@ -52,12 +51,14 @@ const Header = ({
 
           <p className="header__username">{currentUser.name}</p>
         <Link to="/profile">
-          <img
-          
+        {isOwn && (
+          <img 
+          //onClick={onClick}
             src={currentUser.avatar}
             alt="profile picture"
             className="header__avatar"
           />
+        )}
           </Link>
         </div>
       ) : (
