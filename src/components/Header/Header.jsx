@@ -51,7 +51,7 @@ const Header = ({
 
           <p className="header__username">{currentUser.name}</p>
         <Link to="/profile">
-        {isOwn && (
+        {isLoggedIn && (
           <img 
           //onClick={onClick}
             src={currentUser.avatar}
