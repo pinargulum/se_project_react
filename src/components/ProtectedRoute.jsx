@@ -1,20 +1,25 @@
 import React from "react";
 import { useContext, createContext } from "react";
 
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 import CurrentUserContext from "./contexts/CurrentUserContext";
 
-export default function ProtectedRoute({ isLoggedIn, children }) {
+function ProtectedRoute({ isLoggedIn, children }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const from = location.state?.from || "/";
 
   const currentUser = useContext(CurrentUserContext);
-
+  
+  const goToProfile = () => {
+    if (isLoggedIn && currentUser ) {
+    navigate("/profile");  
+};
   if (currentUser && isLoggedIn) {
     return <Navigate to={from} />;
   }
-  if (isLoggedIn) {
+  if (isLoggedIn && currentUser ) {
     <Navigate to="/profile"
     state={{ from: location }}
     />;
@@ -30,3 +35,5 @@ export default function ProtectedRoute({ isLoggedIn, children }) {
 
   return children;
 }
+}
+export default ProtectedRoute 
