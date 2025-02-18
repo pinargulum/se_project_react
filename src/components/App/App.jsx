@@ -86,10 +86,10 @@ function App() {
 
   useEffect(() => {
     Api.getClothingItems()
-      .then((data) => {
-        const item = data._id
-        setClothingItems((items) =>
-          items.filter((item) => item.weather)
+      .then((cardData) => {
+        //const item = cardData._id 
+        setClothingItems((cardData)
+         
         );
       })
       .catch(console.error);
