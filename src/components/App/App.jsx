@@ -78,10 +78,10 @@ function App() {
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
   
-  const handleCardClick = (cardData) => {
-    cardData = selectedCard._id === currentUser._id;
+  const handleCardClick = (card) => {
+    //cardData = selectedCard._id === currentUser._id;
     setActiveModal("preview");
-    setSlectedCard(cardData);
+    setSlectedCard(card);
   };
 
   useEffect(() => {

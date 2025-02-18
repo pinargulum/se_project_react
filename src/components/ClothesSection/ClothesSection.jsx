@@ -24,20 +24,20 @@ function ClothesSection({ onCardClick, profileItems, handleProfileAddItem }) {
           + Add new
         </button>
       </div>
-      {isOwn && (
+      
         <div className="profile__clothes-list">
           <ul className="your__clothes-list">
             {profileItems.map((item) => (
               <ItemCard
-              isOwn={isOwn}
                 key={item._id}
                 item={item}
+                isOwn={isOwn}
                 onCardClick={onCardClick}
               />
             ))}
           </ul>
         </div>
-      )}
+      
     </div>
   );
 }
