@@ -7,7 +7,7 @@ import "/src/utils/weatherApi.js";
 import { getCurrentUser } from "../../utils/auth.js";
 
 
-function ClothesSection({ onCardClick, profileItems, handleProfileAddItem }) {
+function ClothesSection({ handleCardClick, profileItems, handleProfileAddItem }) {
   
   const currentUser = useContext(CurrentUserContext);
   const isOwn = currentUser.owner === currentUser._id;
@@ -31,8 +31,8 @@ function ClothesSection({ onCardClick, profileItems, handleProfileAddItem }) {
               <ItemCard
                 key={item._id}
                 item={item}
-                isOwn={isOwn}
-                onCardClick={onCardClick}
+               handleCardClick={handleCardClick}
+                
               />
             ))}
           </ul>

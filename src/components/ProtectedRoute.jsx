@@ -31,9 +31,7 @@ function ProtectedRoute({ children }) {
       />
     );
   }
-  if (isLoggedIn && currentUser) {
-    currentUser.owner === currentUser._id;
-  }
+  
   if (isLoggedIn && currentUser) {
     return (
       <div>

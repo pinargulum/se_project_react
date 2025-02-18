@@ -79,7 +79,6 @@ function App() {
   /////////////////////////// CLOTHING ITEMS //////////////////
   
   const handleCardClick = (card) => {
-    //cardData = selectedCard._id === currentUser._id;
     setActiveModal("preview");
     setSlectedCard(card);
   };
@@ -207,7 +206,7 @@ setIsLoggedIn(true)
                   <ProtectedRoute>
                     <Profile
                       isOpen={activeModal === "profile"}
-                      onClick={handleCardClick}
+                      handleCardClick={handleCardClick}
                       profileItems={clothingItems}
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
