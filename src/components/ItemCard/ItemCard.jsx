@@ -12,7 +12,7 @@ function ItemCard({ item, handleCardClik }) {
       <img
         src={item.imageUrl}
         alt={item.name}
-        //isOwn={isOwn}
+        
         onClick={handleCardClik}
         className="cards__image"
       />

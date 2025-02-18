@@ -17,7 +17,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {currentTemperatureUnit} and it is {weatherData.type} / You may want
           to wear:
         </p>
-        {currentUser && (
+        
         <ul className="cloths__list">
           {clothingItems
             .filter((item) => item.weather === weatherData.type)
@@ -31,7 +31,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
             ))}
           
         </ul>
-        )}
+       
       </section>
     </main>
   );

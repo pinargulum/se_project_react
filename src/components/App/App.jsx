@@ -87,7 +87,7 @@ function App() {
   useEffect(() => {
     Api.getClothingItems()
       .then((cardData) => {
-        //const item = cardData._id 
+        
         setClothingItems((cardData)
          
         );
@@ -192,13 +192,13 @@ setIsLoggedIn(true)
               <Route
                 path="/"
                 element={
-                  <ProtectedRoute>
+                  
                   <Main
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                   />
-                  </ProtectedRoute>
+                 
                 }
               />
               <Route
