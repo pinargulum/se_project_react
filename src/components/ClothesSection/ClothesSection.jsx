@@ -12,7 +12,7 @@ function ClothesSection({ onCardClick, profileItems, handleProfileAddItem }) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = currentUser.owner === currentUser._id;
   return (
-    <div className="clothes-section">
+    <div className="clothes-section" >
       <div className="profile__items">
         <p className="add__items">Your items</p>
 
@@ -29,6 +29,7 @@ function ClothesSection({ onCardClick, profileItems, handleProfileAddItem }) {
           <ul className="your__clothes-list">
             {profileItems.map((item) => (
               <ItemCard
+              isOwn={isOwn}
                 key={item._id}
                 item={item}
                 onCardClick={onCardClick}
