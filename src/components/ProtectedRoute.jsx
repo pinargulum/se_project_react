@@ -11,28 +11,36 @@ function ProtectedRoute({ isLoggedIn, children }) {
   const from = location.state?.from || "/";
 
   const currentUser = useContext(CurrentUserContext);
-  
-  const goToProfile = () => {
-    if (isLoggedIn && currentUser ) {
-    navigate("/profile");  
-};
+
   if (currentUser && isLoggedIn) {
     return <Navigate to={from} />;
   }
-  if (isLoggedIn && currentUser ) {
-    <Navigate to="/"
-    state={{ from: location }}
+  if (isLoggedIn && currentUser) {
+    <Navigate
+      to="/"
+      state={{ from: location }}
     />;
   }
-  if (isLoggedIn && currentUser ) {
-    <Navigate to="/me"
-    state={{ from: location }}
-    />;
+  if (isLoggedIn && currentUser) {
+    return(
+    <Navigate
+      to="/users/me"
+      state={{ from: location }}
+    />
+    )
+  }
+  if (isLoggedIn && currentUser) {
+    return (
+      <div>
+        <h1>Profile Page</h1>
+        <p>Current Path: {location.pathname}</p>
+      </div>
+    );
   }
   if (!isLoggedIn && !currentUser) {
     return (
       <Navigate
-        to="/signin"
+        to="/signup"
         state={{ from: location }}
       />
     );
@@ -40,5 +48,5 @@ function ProtectedRoute({ isLoggedIn, children }) {
 
   return children;
 }
-}
-export default ProtectedRoute 
+
+export default ProtectedRoute;

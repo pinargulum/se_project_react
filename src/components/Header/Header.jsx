@@ -29,7 +29,7 @@ const Header = ({
       navigate("/profile");
     }
   };
-
+ 
   return (
     <header className="header">
       <Link to="/">
