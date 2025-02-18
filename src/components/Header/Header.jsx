@@ -23,7 +23,6 @@ const Header = ({
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  const onClick = ProtectedRoute.goToProfile()
   
  
  
@@ -52,13 +51,14 @@ const Header = ({
           </button>
 
           <p className="header__username">{currentUser.name}</p>
-
+        <Link to="/profile">
           <img
-            onClick={onClick}
+          
             src={currentUser.avatar}
             alt="profile picture"
             className="header__avatar"
           />
+          </Link>
         </div>
       ) : (
         <div className="signed__buttons">
