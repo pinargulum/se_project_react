@@ -85,7 +85,8 @@ function App() {
   };
 
   function handleCardDelete(cardData) {
-    cardData = selectedCard._id;
+    cardData = selectedCard._id === currentUser._id;
+    //const isOwn = cardData === currentUser._id;
     Api.deleteClothingItem(cardData)
       .then(() => {
         closeActiveModal();

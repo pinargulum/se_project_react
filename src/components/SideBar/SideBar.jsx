@@ -7,7 +7,7 @@ import { removeToken } from "../../utils/token.js";
 import { useNavigate } from "react-router-dom";
 //import { Link } from "react-router-dom";
 
-function SideBar({ isLoggedIn, handleEditClick }) {
+function SideBar({ handleEditClick }) {
   const navigate = useNavigate();
 
   const currentUser = useContext(CurrentUserContext);
@@ -19,7 +19,9 @@ function SideBar({ isLoggedIn, handleEditClick }) {
 
   return (
     <div className="profile__sidebar">
+     
       <div className="profile__user-info">
+        
         <div className="sidebar__user-container">
           <img
             src={currentUser.avatar}
@@ -50,7 +52,9 @@ function SideBar({ isLoggedIn, handleEditClick }) {
             Log out
           </button>
         </div>
+      
       </div>
+        
     </div>
   );
 }

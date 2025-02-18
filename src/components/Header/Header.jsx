@@ -43,7 +43,7 @@ const Header = ({
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      {isLoggedIn ? (
+      {currentUser?  (
         <div className="header__user-container">
           <button
             onClick={handleAddClick}
@@ -55,7 +55,7 @@ const Header = ({
 
           <p className="header__username">{currentUser.name}</p>
        
-        {isLoggedIn && (
+      
           <img 
           onClick={onClick}
             src={currentUser.avatar}
@@ -63,7 +63,7 @@ const Header = ({
             className="header__avatar"
           />
          
-        )}
+      
           
         </div>
       ) : (
