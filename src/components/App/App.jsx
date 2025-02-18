@@ -78,11 +78,17 @@ function App() {
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
   
-
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSlectedCard(card);
   };
+
+useEffect(() => {
+  Api.getClothingItems()
+  .then((cardData) => {
+ setClothingItems(cardData);
+  }).catch(console.error);
+})
 
   function handleCardDelete(cardData) {
     cardData = selectedCard._id === currentUser._id;
@@ -120,8 +126,10 @@ function App() {
     });
   }
   useEffect(() => {
-    localStorage.getItem("token");
-    if ((data) => getUserData(data));
+   const data = localStorage.getItem("token");
+    if (data) {
+      return getUserData(data)
+  }
   }, []);
 
   const handleProfileChange = (name, avatar) => {
@@ -129,7 +137,7 @@ function App() {
     auth.updateProfile(token, name, avatar).then((data) => {
       localStorage.getItem("token");
       getUserData(data);
-      setCurrentUser(data);
+      setCurrentUser(token.data);
       closeActiveModal().catch(console.error);
     });
   };
@@ -144,7 +152,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("token", data.token);
         getUserData(data.token);
-
+setIsLoggedIn(true)
         closeActiveModal();
       })
       .catch(console.error);
