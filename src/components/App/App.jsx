@@ -195,6 +195,16 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="/me"
+                element={
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ProfileEditModal
+                    
+                  />
+                   </ProtectedRoute>
+                }
+              />
             </Routes>
             <RegisterModal
               isOpen={activeModal === "signup"}

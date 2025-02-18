@@ -20,7 +20,7 @@ function ProtectedRoute({ isLoggedIn, children }) {
     return <Navigate to={from} />;
   }
   if (isLoggedIn && currentUser ) {
-    <Navigate to="/profile"
+    <Navigate to="/"
     state={{ from: location }}
     />;
   }
