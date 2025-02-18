@@ -13,7 +13,7 @@ function SideBar({ isLoggedIn, handleEditClick }) {
   const currentUser = useContext(CurrentUserContext);
 
   const handleLogout = () => {
-    navigate("/");
+    
     removeToken();
   };
 

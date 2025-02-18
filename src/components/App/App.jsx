@@ -8,6 +8,7 @@ import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
+import SideBar from "../SideBar/SideBar.jsx";
 import Api from "../../utils/Api.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
@@ -183,7 +184,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ProtectedRoute>
                   <Profile
                     isOpen={activeModal === "profile"}
                     onClick={handleCardClick}
@@ -195,6 +196,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              
              
             </Routes>
             <RegisterModal

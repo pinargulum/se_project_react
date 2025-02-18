@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 //import UserContext  from "../contexts/UserContext.jsx";
 import { useContext, useEffect } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-
+import ProtectedRoute from "../ProtectedRoute.jsx";
 import * as auth from "../../utils/auth.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import { useState } from "react";
@@ -23,12 +23,9 @@ const Header = ({
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  const navigate = useNavigate();
-  const goToProfile = () => {
-    if (isLoggedIn && currentUser) {
-      navigate("/profile");
-    }
-  };
+  const onClick = ProtectedRoute.goToProfile()
+  
+ 
  
   return (
     <header className="header">
@@ -57,7 +54,7 @@ const Header = ({
           <p className="header__username">{currentUser.name}</p>
 
           <img
-            onClick={goToProfile}
+            onClick={onClick}
             src={currentUser.avatar}
             alt="profile picture"
             className="header__avatar"
