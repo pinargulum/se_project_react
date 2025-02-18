@@ -187,7 +187,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ProtectedRoute>
                     <Profile
                       isOpen={activeModal === "profile"}
                       onClick={handleCardClick}

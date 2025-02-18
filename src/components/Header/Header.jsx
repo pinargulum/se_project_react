@@ -23,8 +23,12 @@ const Header = ({
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
-  
-  
+  const navigate = useNavigate();
+  const onClick = () => {
+    if (isLoggedIn && currentUser) {
+  navigate("/profile")
+    }
+  }
   return (
     <header className="header">
       <Link to="/">
@@ -50,16 +54,17 @@ const Header = ({
           </button>
 
           <p className="header__username">{currentUser.name}</p>
-        <Link to="/profile">
+       
         {isLoggedIn && (
           <img 
-          //onClick={onClick}
+          onClick={onClick}
             src={currentUser.avatar}
             alt="profile picture"
             className="header__avatar"
           />
+         
         )}
-          </Link>
+          
         </div>
       ) : (
         <div className="signed__buttons">
