@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer.jsx";
 import Api from "../../utils/Api.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-
+import ProtectedRoute from "../ProtectedRoute.jsx";
 import { getWeather, getCurrentWeather } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import * as auth from "../../utils/auth.js";
@@ -183,6 +183,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <Profile
                     isOpen={activeModal === "profile"}
                     onClick={handleCardClick}
@@ -191,6 +192,7 @@ function App() {
                     handleEditClick={handleEditClick}
                     isLoggedIn={isLoggedIn}
                   />
+                  </ProtectedRoute>
                 }
               />
             </Routes>
