@@ -192,11 +192,13 @@ setIsLoggedIn(true)
               <Route
                 path="/"
                 element={
+                  <ProtectedRoute>
                   <Main
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                   />
+                  </ProtectedRoute>
                 }
               />
               <Route

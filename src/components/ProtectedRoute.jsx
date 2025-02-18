@@ -12,7 +12,7 @@ function ProtectedRoute({ children }) {
 
   const currentUser = useContext(CurrentUserContext);
   const { isLoggedIn } = createContext(currentUser);
-  
+
   if (currentUser && isLoggedIn) {
     return <Navigate to={from} />;
   }
@@ -22,16 +22,18 @@ function ProtectedRoute({ children }) {
       state={{ from: location }}
     />;
   }
-  
-  if (isLoggedIn && currentUser) {
-    return(
-    <Navigate
-      to="profile"
-      state={{ from: location }}
-    />
-    )
-  }
 
+  if (isLoggedIn && currentUser) {
+    return (
+      <Navigate
+        to="profile"
+        state={{ from: location }}
+      />
+    );
+  }
+  if (isLoggedIn && currentUser) {
+    currentUser.owner === currentUser._id;
+  }
   if (isLoggedIn && currentUser) {
     return (
       <div>
@@ -40,15 +42,8 @@ function ProtectedRoute({ children }) {
       </div>
     );
   }
-  
 
-    
-
-
-
-
- 
-   /*
+  /*
   if (!isLoggedIn && !currentUser) {
     return (
       <Navigate
