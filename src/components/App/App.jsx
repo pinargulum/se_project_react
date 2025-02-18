@@ -95,7 +95,7 @@ function App() {
       })
       .catch(console.error);
   }
-  function handleAddItemSubmit({ newItem, token }) {
+  function handleAddItemSubmit(newItem, token) {
     token = localStorage.getItem("token");
     setIsLoading(true);
     Api.addClothingItem(newItem, token)
