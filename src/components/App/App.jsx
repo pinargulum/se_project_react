@@ -78,17 +78,23 @@ function App() {
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
   
-  const handleCardClick = (card) => {
+  const handleCardClick = (cardData) => {
+    cardData = selectedCard._id === currentUser._id;
     setActiveModal("preview");
-    setSlectedCard(card);
+    setSlectedCard(cardData);
   };
 
-useEffect(() => {
-  Api.getClothingItems()
-  .then((cardData) => {
- setClothingItems(cardData);
-  }).catch(console.error);
-})
+  useEffect(() => {
+    Api.getClothingItems()
+      .then((data) => {
+        const item = data._id
+        setClothingItems((items) =>
+          items.filter((item) => item.weather)
+        );
+      })
+      .catch(console.error);
+      
+  }, []);
 
   function handleCardDelete(cardData) {
     cardData = selectedCard._id === currentUser._id;

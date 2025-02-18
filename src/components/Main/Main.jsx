@@ -6,6 +6,7 @@ import ItemCard from "../ItemCard/ItemCard.jsx";
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+ // const { item } = item._id
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
