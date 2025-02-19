@@ -31,7 +31,7 @@ function ProtectedRoute({ children }) {
       />
     );
   }
-  
+
   if (isLoggedIn && currentUser) {
     return (
       <div>
@@ -40,17 +40,8 @@ function ProtectedRoute({ children }) {
       </div>
     );
   }
+  
 
-  /*
-  if (!isLoggedIn && !currentUser) {
-    return (
-      <Navigate
-        to="/signin"
-        state={{ from: location }}
-      />
-    );
-  }
-*/
   return children;
 }
 

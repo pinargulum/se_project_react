@@ -1,31 +1,23 @@
 import "../SideBar/SideBar.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-import defaultAvatar from "/src/assets/defaultAvatar.png";
-import ProfileEditModal from "../ProfileEditModal/ProfileEditModal.jsx";
-import { removeToken } from "../../utils/token.js";
+
 import { useNavigate } from "react-router-dom";
 //import { Link } from "react-router-dom";
 
 function SideBar({ handleEditClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
-  const navigate = useNavigate();
- 
-  const[logOut, setLogOut] = useState()
-  
-  const handleLogOut = (e) => {
-    setLogOut(e.target) 
-    navigate("/signin")
-  }
-  
-    useEffect(() => {
-    setLogOut(!isLoggedIn)
-  })
-useEffect(() => {
-    if (!isLoggedIn) {
-      setLogOut(localStorage.removeItem("token"))
-    }
-  }, [!isLoggedIn]);
+  const navigate = useNavigate;
+  const [logout, setLogout] = useState(false);
+
+  useEffect(() => {
+    localStorage.removeItem("token");
+    setLogout(true);
+    const timer = setTimeout(() => {
+      navigate("/login");
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div className="profile__sidebar">
@@ -47,9 +39,8 @@ useEffect(() => {
             >
               Change profile data
             </button>
-
             <button
-              onClick={logOut}
+              onClick={logout}
               type="button"
               className="sidebar__button logout"
             >
