@@ -1,7 +1,12 @@
 import "../ItemCard/ItemCard.css";
+import { useContext, useEffect } from "react";
+import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+
 <ItemCard />;
 
 function ItemCard({ item, onCardClick }) {
+  //const currentUser = useContext(CurrentUserContext);
+  //const isOwn = item.owner === currentUser._id;
   const handleCardClik = () => {
     onCardClick(item);
   };

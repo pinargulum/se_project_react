@@ -208,7 +208,7 @@ setIsLoggedIn(true)
                     <Profile
                       isOpen={activeModal === "profile"}
                       onCardClick={handleCardClick}
-                      profileItems={clothingItems}
+                      clothingItems={clothingItems}
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
                       isLoggedIn={isLoggedIn}
