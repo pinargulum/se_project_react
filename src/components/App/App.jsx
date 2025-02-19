@@ -221,7 +221,7 @@ function App() {
               onCloseModal={closeActiveModal}
               handleLogin={handleLogin}
             />
-            <ProfileEditModal
+            <ProfileEditModal 
               isOpen={activeModal === "profile"}
               onCloseModal={closeActiveModal}
               handleProfileChange={handleProfileChange}

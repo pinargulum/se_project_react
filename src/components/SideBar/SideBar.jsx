@@ -12,18 +12,12 @@ function SideBar({ handleEditClick, isLoggedIn }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     if (!isLoggedIn) {
-      navigate("/login")
+      navigate("/login");
     }
-    const timer = setTimeout(() => {
-      
-    }, 1000);
-    return () => clearTimeout(timer)
-  }
-      
-      
-       
-       
-  
+    const timer = setTimeout(() => {}, 1000);
+    return () => clearTimeout(timer);
+  };
+
   return (
     <div className="profile__sidebar">
       {currentUser && (

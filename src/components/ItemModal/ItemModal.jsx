@@ -2,9 +2,7 @@ import "./ItemModal.css";
 import { useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
-
 function ItemModal({ activeModal, card, onCloseModal, handleCardDelete }) {
-  
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
 
@@ -25,14 +23,13 @@ function ItemModal({ activeModal, card, onCloseModal, handleCardDelete }) {
           <h2 className="modal__caption">{card.name}</h2>
           <p className="modal__weather">Weather: {card.weather}</p>
           {isOwn && (
-          <button 
-            className="preview__delete-button"
-            type="button"
-          
-            onClick={handleCardDelete}
-          >
-            Delete item
-          </button>
+            <button
+              className="preview__delete-button"
+              type="button"
+              onClick={handleCardDelete}
+            >
+              Delete item
+            </button>
           )}
         </div>
       </div>
