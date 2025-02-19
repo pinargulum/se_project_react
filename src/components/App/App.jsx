@@ -77,7 +77,7 @@ function App() {
     setActiveModal("");
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
-  
+
   const handleCardClick = (item) => {
     setActiveModal("preview");
     setSlectedCard(item);
@@ -86,13 +86,9 @@ function App() {
   useEffect(() => {
     Api.getClothingItems()
       .then((cardData) => {
-        
-        setClothingItems((cardData)
-         
-        );
+        setClothingItems(cardData);
       })
       .catch(console.error);
-      
   }, []);
 
   function handleCardDelete(cardData) {
@@ -114,7 +110,7 @@ function App() {
     Api.addClothingItem(newItem, token)
       .then((newItem) => {
         getUserData(cardData.token);
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
         setClothingItems([newItem, ...clothingItems]);
         setIsLoading(false);
         closeActiveModal();
@@ -132,10 +128,10 @@ function App() {
     });
   }
   useEffect(() => {
-   const data = localStorage.getItem("token");
+    const data = localStorage.getItem("token");
     if (data) {
-      return getUserData(data)
-  }
+      return getUserData(data);
+    }
   }, []);
 
   const handleProfileChange = (name, avatar) => {
@@ -158,7 +154,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("token", data.token);
         getUserData(data.token);
-setIsLoggedIn(true)
+        setIsLoggedIn(true);
         closeActiveModal();
       })
       .catch(console.error);
@@ -192,13 +188,11 @@ setIsLoggedIn(true)
               <Route
                 path="/"
                 element={
-                  
                   <Main
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                   />
-                 
                 }
               />
               <Route

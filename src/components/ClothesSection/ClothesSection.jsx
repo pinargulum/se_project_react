@@ -6,7 +6,6 @@ import "/src/utils/weatherApi.js";
 
 function ClothesSection({ onCardClick, clothingItems, handleProfileAddItem }) {
   const currentUser = useContext(CurrentUserContext);
-  
 
   return (
     <div className="clothes-section">
@@ -22,8 +21,8 @@ function ClothesSection({ onCardClick, clothingItems, handleProfileAddItem }) {
       </div>
       <div className="profile__clothes-list">
         <ul className="your__clothes-list">
-        {clothingItems.filter((item) => item.owner === currentUser._id)
-            
+          {clothingItems
+            .filter((item) => item.owner === currentUser._id)
             .map((item) => (
               <ItemCard
                 key={item._id}

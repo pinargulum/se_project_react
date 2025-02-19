@@ -9,21 +9,15 @@ function Profile({
   clothingItems,
   handleProfileAddItem,
   handleEditClick,
+  isLoggedIn
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = (item) => {
-    if (item) {
-      {
-        clothingItems.map(item);
-        item._id === currentUser._id;
-      }
-    }
-  };
+  
 
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar handleEditClick={handleEditClick} />
+        <SideBar handleEditClick={handleEditClick} isLoggedIn={isLoggedIn} />
       </section>
       <section className="profile__clothing-items">
         <ClothesSection
