@@ -3,11 +3,9 @@ import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import { useContext } from "react";
 import ItemCard from "../ItemCard/ItemCard.jsx";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const currentUser = useContext(CurrentUserContext);
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
@@ -17,21 +15,17 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
           {currentTemperatureUnit} and it is {weatherData.type} / You may want
           to wear:
         </p>
-        
         <ul className="cloths__list">
           {clothingItems
             .filter((item) => item.weather === weatherData.type)
             .map((item) => (
-             
               <ItemCard
                 key={item._id}
                 item={item}
-                onCardClick={handleCardClick}
+                handleCardClik={handleCardClick}
               />
             ))}
-          
         </ul>
-       
       </section>
     </main>
   );

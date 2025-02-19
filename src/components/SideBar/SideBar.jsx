@@ -8,13 +8,14 @@ import { useNavigate } from "react-router-dom";
 //import { Link } from "react-router-dom";
 
 function SideBar({ handleEditClick }) {
-  const navigate = useNavigate();
-
+  
   const currentUser = useContext(CurrentUserContext);
-
-  const handleLogout = () => {
-    
-    removeToken();
+  const navigate = useNavigate();
+  const onClick = () => {
+    if (isLoggedIn && currentUser) {
+      removeToken();
+      navigate("/signin");
+    }
   };
 
   return (
@@ -45,7 +46,7 @@ function SideBar({ handleEditClick }) {
           </button>
 
           <button
-            onClick={handleLogout}
+            onClick={onclick}
             type="button"
             className="sidebar__button logout"
           >

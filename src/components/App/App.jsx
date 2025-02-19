@@ -78,9 +78,9 @@ function App() {
   };
   /////////////////////////// CLOTHING ITEMS //////////////////
   
-  const handleCardClick = (card) => {
+  const handleCardClick = (item) => {
     setActiveModal("preview");
-    setSlectedCard(card);
+    setSlectedCard(item);
   };
 
   useEffect(() => {
