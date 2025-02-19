@@ -108,13 +108,14 @@ function App() {
       .catch(console.error);
   }
   function handleAddItemSubmit(newItem, token) {
+    const cardData = selectedCard._id === currentUser._id;
     token = localStorage.getItem("token");
     setIsLoading(true);
     Api.addClothingItem(newItem, token)
-      .then((item) => {
-        getUserData(token);
+      .then((newItem) => {
+        getUserData(cardData.token);
         setIsLoggedIn(true)
-        setClothingItems([item, ...clothingItems]);
+        setClothingItems([newItem, ...clothingItems]);
         setIsLoading(false);
         closeActiveModal();
       })
