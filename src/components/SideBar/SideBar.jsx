@@ -8,17 +8,22 @@ import { useNavigate } from "react-router-dom";
 function SideBar({ handleEditClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate;
-  const [logout, setLogout] = useState(false);
 
-  useEffect(() => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
-    setLogout(true);
+    if (!isLoggedIn) {
+      navigate("/login")
+    }
     const timer = setTimeout(() => {
-      navigate("/login");
+      
     }, 1000);
-    return () => clearTimeout(timer);
-  }, [navigate]);
-
+    return () => clearTimeout(timer)
+  }
+      
+      
+       
+       
+  
   return (
     <div className="profile__sidebar">
       {currentUser && (
@@ -39,8 +44,9 @@ function SideBar({ handleEditClick, isLoggedIn }) {
             >
               Change profile data
             </button>
+
             <button
-              onClick={logout}
+              onClick={handleLogout}
               type="button"
               className="sidebar__button logout"
             >
