@@ -4,7 +4,7 @@ import SideBar from "../SideBar/SideBar";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import { useContext } from "react";
 //import ProfileEditModal from "../ProfileEdidModal/ProfileEditModal.jsx";
-function Profile({ handleCardClick, profileItems, handleProfileAddItem, isLoggedIn, handleEditClick }) {
+function Profile({ onCardClick, profileItems, handleProfileAddItem, isLoggedIn, handleEditClick }) {
   const currentUser = useContext(CurrentUserContext);
   
   return (
@@ -13,7 +13,7 @@ function Profile({ handleCardClick, profileItems, handleProfileAddItem, isLogged
         <SideBar handleEditClick={handleEditClick} />
       </section>
       <section className="profile__clothing-items">
-        <ClothesSection handleCardClick={handleCardClick} profileItems={profileItems} handleProfileAddItem={handleProfileAddItem} />
+      <ClothesSection onCardClick={onCardClick} profileItems={profileItems} handleProfileAddItem={handleProfileAddItem} />
       </section>
     </div>
   );

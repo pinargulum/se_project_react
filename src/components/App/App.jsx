@@ -206,7 +206,7 @@ setIsLoggedIn(true)
                   <ProtectedRoute>
                     <Profile
                       isOpen={activeModal === "profile"}
-                      handleCardClick={handleCardClick}
+                      onCardClick={handleCardClick}
                       profileItems={clothingItems}
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}

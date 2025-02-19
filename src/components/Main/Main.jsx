@@ -22,7 +22,7 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
               <ItemCard
                 key={item._id}
                 item={item}
-                handleCardClik={handleCardClick}
+                onCardClick={handleCardClick}
               />
             ))}
         </ul>

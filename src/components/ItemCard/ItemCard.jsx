@@ -1,15 +1,10 @@
 import "../ItemCard/ItemCard.css";
-import { useContext, useEffect } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 <ItemCard />;
 
-function ItemCard({ item, handleCardClik }) {
-  const currentUser = useContext(CurrentUserContext);
-
-    const isOwn = currentUser.owner === currentUser._id;
-    const onCardClik = () => {
-      handleCardClik(item);
-    };
+function ItemCard({ item, onCardClick }) {
+  const handleCardClik = () => {
+    onCardClick(item);
+  };
 
   return (
     <li className="card">
@@ -17,7 +12,7 @@ function ItemCard({ item, handleCardClik }) {
       <img
         src={item.imageUrl}
         alt={item.name}
-        onClick={onCardClik}
+        onClick={handleCardClik}
         className="cards__image"
       />
     </li>
