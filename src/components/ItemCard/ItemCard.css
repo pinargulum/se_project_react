@@ -1,7 +1,7 @@
 .card {
   position: relative;
   width: 323px;
-  height: 326px; 
+  height: 326px;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
@@ -14,31 +14,41 @@
   max-width: 323px;
   height: 326px;
 }
-.image__text {
+.card__info {
   display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  top: 15px;
+  left: 125px;
+}
+.image__text {
+  
   font-size: 16px;
   line-height: 20px;
   color: black;
-  position: absolute;
-  top: 15px;
+  
+ 
   background-color: white;
   border-radius: 4px;
   width: fit-content;
   justify-content: center;
-  left: 125px;
+  
   padding: 2px 12px 2px 12px;
 }
 .like__button {
-  display: flex;
-  position: absolute;
-  top: 24px;
-  left: 454px;
+ 
   
+ 
+  background-color: transparent;
+  border: none;
   width: 20px;
   height: 20px;
+  
   background-repeat: no-repeat;
-  border: none;
-  background-image: url("/se_project_react/src/assets/likeButon.png");
+
+  background-image: url("/src/assets/likeButon.png");
 }
 @media screen and (max-width: 740px) {
   .card {
@@ -50,8 +60,7 @@
     height: 164px;
   }
   .image__text {
-    top:-4px;
-    left: 45px
-
+    top: -4px;
+    left: 45px;
   }
 }

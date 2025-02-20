@@ -18,13 +18,15 @@ function ItemCard({ item, onCardClick, onCardLike }) {
 
   return (
     <li className="card">
+      <div className="card__info">
       <h2 className="image__text">{item.name}</h2>
       <button type="button" className="like__button"></button>
+      </div>
       <img
         src={item.imageUrl}
         alt={item.name}
         onClick={handleCardClik}
-        handleLike={handleLike}
+        //handleLike={handleLike}
         className="cards__image"
       />
     </li>
