@@ -11,7 +11,7 @@
   border: 1px;
   border-radius: 30px;
   list-style-type: none;
-  width: 323px;
+  max-width: 323px;
   height: 326px;
 }
 .image__text {
@@ -30,15 +30,17 @@
 }
 .like__button {
   display: flex;
-  background-image: url("/src/assets/heart.png");
  
-  height: 20px;
-  color: black;
+ width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  color: aqua;
+  background-repeat: no-repeat;
   position: absolute;
   top: 15px;
  
-  border: none;
-  width: fit-content;
+
+ 
   justify-content: center;
   left: 110px;
   padding: 2px 12px 2px 12px;
