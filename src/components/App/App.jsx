@@ -119,15 +119,14 @@ function App() {
       .catch(console.error);
   }
   const [isClicked, setIsClicked] = React.useState(false);
-  function ToggleButton() {
-    setIsClicked(!isClicked);
-  }
-  function handleCardLike(id, likes) {
+  const [liked, setLiked] = React.useState(false);
+  
+  function handleCardLike(_id, likes) {
     likes = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
-    Api.removeCardLike(id, token).then((cardData) => {
+    Api.addCardLike(_id, token, likes).then((cardData) => {
       getUserData(cardData.token);
-      //setLiked(liked);
+      setIsClicked(!isClicked);
       //if (likes) setClothingItems(liked, ...clothingItems);
       if (likes) setClothingItems(cardData, ...clothingItems);
     });
