@@ -20,13 +20,13 @@ function ItemCard({ item, onCardClick, onCardLike }) {
     <li className="card">
       <div className="card__info">
       <h2 className="image__text">{item.name}</h2>
-      <button type="button" className="like__button"></button>
+      <button type="button" className="like__button" onClick={handleLike}></button>
       </div>
       <img
         src={item.imageUrl}
         alt={item.name}
         onClick={handleCardClik}
-        handleLike={handleLike}
+       
         className="cards__image"
       />
     </li>
