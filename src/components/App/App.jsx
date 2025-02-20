@@ -118,14 +118,13 @@ function App() {
       })
       .catch(console.error);
   }
-  function handleCardLike({ id, token }) {
-     const likes = selectedCard.likes = currentUser._id;
+  function handleCardLike(id, likes) {
+    likes = selectedCard.likes = currentUser._id;
     const token = localStorage.getItem("token");
-    Api.addCardLike(id, token)
-    .then((cardData) => {
-getUserData(cardData.token);
-setIsLiked(cardData);
-    }) 
+    Api.addCardLike(token, id, likes).then((cardData) => {
+      getUserData(cardData.token);
+      setIsLiked(cardData);
+    });
   }
   //////////////////////   USER    //////////////////////////
 
@@ -232,7 +231,7 @@ setIsLiked(cardData);
               onCloseModal={closeActiveModal}
               handleLogin={handleLogin}
             />
-            <ProfileEditModal 
+            <ProfileEditModal
               isOpen={activeModal === "profile"}
               onCloseModal={closeActiveModal}
               handleProfileChange={handleProfileChange}
