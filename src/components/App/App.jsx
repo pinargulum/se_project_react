@@ -118,15 +118,14 @@ function App() {
       })
       .catch(console.error);
   }
+  
+  // function to get likes
   function handleCardLike(id, likes) {
     likes = selectedCard._id === currentUser._id;
-    
     const token = localStorage.getItem("token");
-
     Api.addCardLike(id, token).then((cardData) => {
       getUserData(cardData.token);
-      if(likes)
-      setClothingItems(likes, ...clothingItems)
+      if (likes) setClothingItems(likes, ...clothingItems);
       setLiked(cardData);
     });
   }
