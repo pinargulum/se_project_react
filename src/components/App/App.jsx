@@ -125,7 +125,7 @@ function App() {
     const token = localStorage.getItem("token");
     Api.addCardLike(id, token).then((cardData) => {
       getUserData(cardData.token);
-      if (likes) setClothingItems(likes, ...clothingItems);
+      if (likes) setClothingItems(liked, ...clothingItems);
       setLiked(cardData);
     });
   }

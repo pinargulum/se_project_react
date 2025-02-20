@@ -42,7 +42,7 @@
   background-image: url("/src/assets/likeButon.png");
 }
 .like__button:active {
-  fill: black;
+  color: black;
 }
 @media screen and (max-width: 740px) {
   .card {
