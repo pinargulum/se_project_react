@@ -118,9 +118,9 @@ function App() {
       })
       .catch(console.error);
   }
-  function handleCardLike({ id, isLiked }) {
-     isLiked = selectedCard.likes = currentUser._id;
-    token = localStorage.getItem("token");
+  function handleCardLike({ id, token }) {
+     const likes = selectedCard.likes = currentUser._id;
+    const token = localStorage.getItem("token");
     Api.addCardLike(id, token)
     .then((cardData) => {
 getUserData(cardData.token);
@@ -202,6 +202,7 @@ setIsLiked(cardData);
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />

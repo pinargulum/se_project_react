@@ -28,6 +28,21 @@
   left: 125px;
   padding: 2px 12px 2px 12px;
 }
+.like__button {
+  display: flex;
+  background-image: url("/src/assets/heart.png");
+ 
+  height: 20px;
+  color: black;
+  position: absolute;
+  top: 15px;
+ 
+  border: none;
+  width: fit-content;
+  justify-content: center;
+  left: 110px;
+  padding: 2px 12px 2px 12px;
+}
 @media screen and (max-width: 740px) {
   .card {
     width: 164px;
