@@ -11,11 +11,11 @@ function ItemCard({ item, onCardClick, onCardLike }) {
 
   const [isClicked, setIsClicked] = useState(false);
   function ToggleButton() {
-    setIsClicked(!isClicked);
+    setIsClicked(true);
   }
   const handleLike = (_id) => {
     onCardLike(item._id);
-    ToggleButton();
+    ToggleButton(!isClicked);
   };
 
   const handleCardClik = () => {

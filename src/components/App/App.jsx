@@ -119,7 +119,6 @@ function App() {
       .catch(console.error);
   }
   
-  // function to get likes
   function handleCardLike(id, likes) {
     likes = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
@@ -131,6 +130,18 @@ function App() {
       
     });
   }
+  function handleCardLikeDelete(id, likes) {
+    likes = selectedCard._id === currentUser._id;
+    const token = localStorage.getItem("token");
+    Api.removeCardLike(id, token).then((cardData) => {
+      getUserData(cardData.token);
+      setLiked(liked);
+      //if (likes) setClothingItems(liked, ...clothingItems);
+      if (likes) setClothingItems(cardData, ...clothingItems);
+      
+    });
+  }
+  
   
   //////////////////////   USER    //////////////////////////
 
