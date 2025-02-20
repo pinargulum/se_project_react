@@ -129,6 +129,7 @@ function App() {
       setLiked(cardData);
     });
   }
+  
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data
@@ -171,7 +172,7 @@ function App() {
       })
       .catch(console.error);
   };
-  // updated reate function
+  // updated create function
   const handleCreateUser = ({ email, password, name, avatar }) => {
     auth
       .registerUser(email, password, name, avatar)

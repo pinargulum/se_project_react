@@ -1,17 +1,28 @@
 import "../ItemCard/ItemCard.css";
-import React from "react";
-import { useContext, useEffect } from "react";
+
+import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-////import likeButton from "../assets/likeButton.png";
 
 <ItemCard />;
 
 function ItemCard({ item, onCardClick, onCardLike }) {
-  //const currentUser = useContext(CurrentUserContext);
-  //const isOwn = item.owner === currentUser._id;
+  const currentUser = useContext(CurrentUserContext);
+  const liked = item.owner === currentUser._id;
+  const [activeButton, setActiveButton] = useState(false);
+    useEffect(() => {
+     
+      if (liked) {
+        setActiveButton(true);
+      }
+      setActiveButton(false)
+    }, []);
+    
   const handleCardClik = () => {
     onCardClick(item);
+    
   };
+  
+
   const handleLike = (_id) => {
     onCardLike(item._id);
   };
