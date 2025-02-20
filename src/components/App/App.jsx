@@ -124,7 +124,7 @@ function App() {
 
     Api.addCardLike(token, id, likes).then((cardData) => {
       getUserData(cardData.token);
-      setClothingItems(cardData)
+      setClothingItems(likes, ...clothingItems)
       setLiked(cardData);
     });
   }
