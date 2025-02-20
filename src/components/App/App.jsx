@@ -120,20 +120,20 @@ function App() {
   }
   const [isClicked, setIsClicked] = React.useState(false);
   function ToggleButton() {
-    setIsClicked(true);
+    setIsClicked(!isClicked);
   }
-  function handleCardLike(_id, likes) {
-    const cardData = selectedCard._id === currentUser._id;
+  function handleCardLike(id, likes) {
+    likes = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
-    Api.addCardLike(_id, token, likes)
-    .then((updatedData) => {
+    Api.removeCardLike(id, token).then((cardData) => {
       getUserData(cardData.token);
-      ToggleButton(isClicked);
-      if(cardData.likes !== cardData.likes)
-      setClothingItems(updatedData, ...clothingItems)
-   
+      //setLiked(liked);
+      //if (likes) setClothingItems(liked, ...clothingItems);
+      if (likes) setClothingItems(cardData, ...clothingItems);
     });
-  }
+   
+    };
+  
 
   function handleCardLikeDelete(id, likes) {
     likes = selectedCard._id === currentUser._id;
