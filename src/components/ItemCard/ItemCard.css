@@ -30,20 +30,15 @@
 }
 .like__button {
   display: flex;
- 
- width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  color: aqua;
-  background-repeat: no-repeat;
   position: absolute;
-  top: 15px;
- 
-
- 
-  justify-content: center;
-  left: 110px;
-  padding: 2px 12px 2px 12px;
+  top: 24px;
+  left: 454px;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  border: none;
+  background-image: url("/se_project_react/src/assets/likeButon.png");
 }
 @media screen and (max-width: 740px) {
   .card {

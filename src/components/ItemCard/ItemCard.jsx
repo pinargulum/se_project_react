@@ -2,8 +2,8 @@ import "../ItemCard/ItemCard.css";
 import React from "react";
 import { useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-//import likeButton from "../assets/likeButton.png";
-import like from "/src/assets/likeButton.png";
+////import likeButton from "../assets/likeButton.png";
+
 <ItemCard />;
 
 function ItemCard({ item, onCardClick, onCardLike }) {
@@ -19,11 +19,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   return (
     <li className="card">
       <h2 className="image__text">{item.name}</h2>
-      <image src="/src/assets/likeButton.png"
-        className="like__button"
-        //type="button"
-        onClick={onCardLike}
-      />
+      <button type="button" className="like__button"></button>
       <img
         src={item.imageUrl}
         alt={item.name}
