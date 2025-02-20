@@ -119,11 +119,13 @@ function App() {
       .catch(console.error);
   }
   function handleCardLike(id, likes) {
-    likes = selectedCard.id = currentUser._id;
+    likes = selectedCard._id === currentUser._id;
+    
     const token = localStorage.getItem("token");
 
-    Api.addCardLike(token, id, likes).then((cardData) => {
+    Api.addCardLike(id, token).then((cardData) => {
       getUserData(cardData.token);
+      if(likes)
       setClothingItems(likes, ...clothingItems)
       setLiked(cardData);
     });

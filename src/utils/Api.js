@@ -30,14 +30,14 @@ function deleteClothingItem(_id) {
     },
   }).then(checkResponse);
 }
-function addCardLike(token, { id, likes }) {
+function addCardLike(id, token) {
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ id, likes })
+    body: JSON.stringify({ id })
   }).then(checkResponse);
 }
 const Api = {
