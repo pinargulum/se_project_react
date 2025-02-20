@@ -41,11 +41,15 @@
   background-repeat: no-repeat;
   background-image: url("/src/assets/likeButon.png");
 }
-.like__button:active {
-  background-color: black;
-  
+.like__button:active  {
+  background-color: transparent no-repeat ;
+  background-image: url("/src/assets/likeButonActive.png");
 }
-
+  
+.like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
 @media screen and (max-width: 740px) {
   .card {
     width: 164px;

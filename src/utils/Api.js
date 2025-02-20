@@ -47,7 +47,7 @@ function removeCardLike(_id, token, likes) {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id, likes })
+    body: JSON.stringify(_id, likes)
   }).then(checkResponse);
 }
 const Api = {

@@ -9,13 +9,10 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   const likes = item.owner === currentUser._id;
 
-  const [isClicked, setIsClicked] = useState(false);
-  function ToggleButton() {
-    setIsClicked(true);
-  }
-  const handleLike = (_id) => {
+  
+  const handleLike = () => {
     onCardLike(item._id);
-    ToggleButton(!isClicked);
+    
   };
 
   const handleCardClik = () => {
