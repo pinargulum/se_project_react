@@ -30,9 +30,20 @@ function deleteClothingItem(_id) {
     },
   }).then(checkResponse);
 }
+function addCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/Json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ id, isLikes }),
+  }).then(checkResponse);
+}
 const Api = {
   getClothingItems,
   addClothingItem,
   deleteClothingItem,
+  addCardLike
 };
 export default Api;

@@ -42,6 +42,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
+  const [isLiked, setIsLiked] = useState({});
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -116,6 +117,15 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error);
+  }
+  function handleCardLike({ id, isLiked }) {
+     isLiked = selectedCard.likes = currentUser._id;
+    token = localStorage.getItem("token");
+    Api.addCardLike(id, token)
+    .then((cardData) => {
+getUserData(cardData.token);
+setIsLiked(cardData);
+    }) 
   }
   //////////////////////   USER    //////////////////////////
 
