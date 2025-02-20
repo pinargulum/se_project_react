@@ -31,7 +31,7 @@ function deleteClothingItem(_id) {
   }).then(checkResponse);
 }
 function addCardLike(token, { id, likes }) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${baseUrl}/items/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/Json",
