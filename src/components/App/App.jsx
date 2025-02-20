@@ -124,7 +124,7 @@ function App() {
     const token = localStorage.getItem("token");
     Api.addCardLike(id, token).then((cardData) => {
       getUserData(cardData.token);
-      setLiked(liked);
+      //setLiked(liked);
       //if (likes) setClothingItems(liked, ...clothingItems);
       if (likes) setClothingItems(cardData, ...clothingItems);
       
@@ -135,7 +135,7 @@ function App() {
     const token = localStorage.getItem("token");
     Api.removeCardLike(id, token).then((cardData) => {
       getUserData(cardData.token);
-      setLiked(liked);
+      //setLiked(liked);
       //if (likes) setClothingItems(liked, ...clothingItems);
       if (likes) setClothingItems(cardData, ...clothingItems);
       

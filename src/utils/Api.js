@@ -30,24 +30,24 @@ function deleteClothingItem(_id) {
     },
   }).then(checkResponse);
 }
-function addCardLike(id, token, likes) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+function addCardLike(_id, token, likes) {
+  return fetch(`${baseUrl}/items/${_id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ id, likes })
+    body: JSON.stringify({ _id, likes })
   }).then(checkResponse);
 }
-function removeCardLike(id, token, likes) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+function removeCardLike(_id, token, likes) {
+  return fetch(`${baseUrl}/items/${_id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ id, likes })
+    body: JSON.stringify({ _id, likes })
   }).then(checkResponse);
 }
 const Api = {

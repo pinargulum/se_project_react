@@ -35,7 +35,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       <img
         src={item.imageUrl}
         alt={item.name}
-        onClick={handleCardClik}
+        onClick={handleCardClik} 
         className="cards__image"
       />
     </li>
