@@ -42,7 +42,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
-  const [liked, setLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -120,34 +121,33 @@ function App() {
   }
   
   function handleCardLike(_id, likes) {
-    const cardData = selectedCard._id === currentUser._id;
-    const token = localStorage.getItem("token");
-    Api.addCardLike(_id, token, likes)
-    .then(() => {
-      getUserData(cardData.token);
-      setClothingItems((updatedData) =>
-        updatedData.filter((item) => item._id !== cardData),
-      );
-      //if(cardData.likes !== cardData.likes)
-      //setClothingItems(updatedData, ...clothingItems)
-     
-    })
-    };
-  
-
-  function handleCardLikeDelete(id, likes) {
     likes = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
-    Api.removeCardLike(id, token).then((cardData) => {
-      getUserData(cardData.token);
-      //setLiked(liked);
-      //if (likes) setClothingItems(liked, ...clothingItems);
-      if (likes) setClothingItems(cardData, ...clothingItems);
-    });
+    if(!likes) {
+    Api.addCardLike(_id, token, likes)
+    .then((newData) => {
+      setClothingItems([newData, ...clothingItems]);
+        setIsLiked(true);
+        //setClothingItems((prewItems) =>
+          //prewItems.filter((item) => item._id !== cardData),
+        //);
+        
+    })
+      .catch(console.error)
+    
+  } else {
+    
+      Api.removeCardLike((_id, token, isLiked))
+      _id = isLiked === currentUser._id
+        .then((item) => {
+          setClothingItems((prewItems) =>
+            prewItems.filter((item) =  item._id = isLiked === currentUser._id))      //item.likes === item.currentUser._id))
+        
+    })
+    .catch(console.error);
   }
+}
 
-  
-  
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data

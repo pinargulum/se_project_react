@@ -1,27 +1,28 @@
+<ItemCard />;
 import React from "react";
 import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import "../ItemCard/ItemCard.css";
 
-<ItemCard />;
-
 function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   
-const [isLiked, setIsLiked] = useState(false)
+  const [isLiked, setIsLiked] = useState(false);
+  const toggleButton = () => {
+    if (!isLiked) {
+       
+        setIsLiked(true);
+        onCardLike(item._id, true); 
+    } else {
+      
+        setIsLiked(false);
+        onCardLike(item._id, false); 
+    }
+};
   
-const toggleButton = (item) => {
-  //item.likes = item.owner === currentUser._id;
-      if(!isLiked) {
-        setIsLiked(!isLiked);
-      }
-    
-    
-  }
-   
-   
   const handleLike = (_id) => {
-    toggleButton(item._id, true)
+    //item = item.owner === currentUser._id;
+    toggleButton()
     onCardLike(item._id);
     
   };
@@ -35,7 +36,7 @@ const toggleButton = (item) => {
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
         <button
-         type="button"
+          type="button"
           className="like__button"
           onClick={handleLike}
         ></button>
@@ -43,7 +44,8 @@ const toggleButton = (item) => {
       <img
         src={item.imageUrl}
         alt={item.name}
-        onClick={handleCardClik} 
+        onClick={handleCardClik}
+       
         className="cards__image"
       />
     </li>
