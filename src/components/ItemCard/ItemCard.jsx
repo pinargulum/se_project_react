@@ -10,17 +10,18 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   
 const [isLiked, setIsLiked] = useState(false)
   
-const toggleButton = (likes) => {
-  likes = item.owner === currentUser._id;
+const toggleButton = (item) => {
+  //item.likes = item.owner === currentUser._id;
       if(!isLiked) {
         setIsLiked(!isLiked);
       }
-      setIsLiked(isLiked)
+    
     
   }
    
+   
   const handleLike = (_id) => {
-    toggleButton()
+    toggleButton(item._id, true)
     onCardLike(item._id);
     
   };
@@ -34,7 +35,7 @@ const toggleButton = (likes) => {
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
         <button
-         
+         type="button"
           className="like__button"
           onClick={handleLike}
         ></button>

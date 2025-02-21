@@ -123,14 +123,17 @@ function App() {
     const cardData = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
     Api.addCardLike(_id, token, likes)
-    .then((updatedData) => {
+    .then(() => {
       getUserData(cardData.token);
-      //ToggleButton(cardData);
-      if(cardData.likes !== cardData.likes)
-      setClothingItems(updatedData, ...clothingItems)
-   
-    });
-  }
+      setClothingItems((updatedData) =>
+        updatedData.filter((item) => item._id !== cardData),
+      );
+      //if(cardData.likes !== cardData.likes)
+      //setClothingItems(updatedData, ...clothingItems)
+     
+    })
+    };
+  
 
   function handleCardLikeDelete(id, likes) {
     likes = selectedCard._id === currentUser._id;
