@@ -42,8 +42,8 @@
   background-image: url("/src/assets/likeButon.png");
 }
 .like__button:active  {
-  background-color: transparent no-repeat ;
-  background-image: url("/src/assets/likeButonActive.png");
+  
+  background-image: url("/src/assets/likeButtonActive.png");
 }
   
 .like-button:hover {

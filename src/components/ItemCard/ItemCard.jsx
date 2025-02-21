@@ -7,10 +7,20 @@ import "../ItemCard/ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
-  const likes = item.owner === currentUser._id;
-
   
+const [isLiked, setIsLiked] = useState(false)
+  
+const toggleButton = (likes) => {
+  likes = item.owner === currentUser._id;
+      if(!isLiked) {
+        setIsLiked(!isLiked);
+      }
+      setIsLiked(isLiked)
+    
+  }
+   
   const handleLike = (_id) => {
+    toggleButton()
     onCardLike(item._id);
     
   };
@@ -24,7 +34,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
         <button
-          type="button"
+         
           className="like__button"
           onClick={handleLike}
         ></button>
