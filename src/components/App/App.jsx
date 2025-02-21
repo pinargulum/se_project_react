@@ -126,11 +126,11 @@ function App() {
     if(!likes) {
     Api.addCardLike(_id, token, likes)
     .then((newData) => {
-      setClothingItems([newData, ...clothingItems]);
+      //setClothingItems([newData, ...clothingItems]);
         setIsLiked(true);
-        //setClothingItems((prewItems) =>
-          //prewItems.filter((item) => item._id !== cardData),
-        //);
+        setClothingItems((newData) =>
+          newData.filter((item) => item.likes === currentUser._id),
+        );
         
     })
       .catch(console.error)
