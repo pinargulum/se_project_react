@@ -42,7 +42,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
-
+  const [liked, setLiked] = useState(false);
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -118,17 +118,14 @@ function App() {
       })
       .catch(console.error);
   }
-  const [isClicked, setIsClicked] = React.useState(false);
-  function ToggleButton() {
-    setIsClicked(true);
-  }
+  
   function handleCardLike(_id, likes) {
     const cardData = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
     Api.addCardLike(_id, token, likes)
     .then((updatedData) => {
       getUserData(cardData.token);
-      ToggleButton(cardData);
+      //ToggleButton(cardData);
       if(cardData.likes !== cardData.likes)
       setClothingItems(updatedData, ...clothingItems)
    
@@ -146,6 +143,8 @@ function App() {
     });
   }
 
+  
+  
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data
