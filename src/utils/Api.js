@@ -21,7 +21,7 @@ function addClothingItem(item, token) {
     body: JSON.stringify(item),
   }).then(checkResponse);
 }
-function deleteClothingItem(_id) {
+function deleteClothingItem(_id, token) {
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
     headers: {

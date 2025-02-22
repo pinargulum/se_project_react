@@ -42,8 +42,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
-  // const [isLiked, setIsLiked] = useState(false);
-
+  const [isLiked, setIsLiked] = useState(false);
+  
+  
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -93,11 +94,12 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleCardDelete(cardData) {
-    cardData = selectedCard._id === currentUser._id;
+  function handleCardDelete(_id, token) {
+    //cardData = selectedCard._id === currentUser._id;
     //const isOwn = cardData === currentUser._id;
-    Api.deleteClothingItem(cardData)
-      .then(() => {
+    token = localStorage.getItem("token");
+    Api.deleteClothingItem({ _id, token })
+      .then((cardData) => {
         closeActiveModal();
         setClothingItems((prewItems) =>
           prewItems.filter((item) => item._id !== cardData),
@@ -119,16 +121,7 @@ function App() {
       })
       .catch(console.error);
   }
-  const [isLiked, setIsLiked] = useState(false);
-  const [activeButton, setActiveButon] = useState();
-
-  const toggleButton = () => {
-    if (!isLiked) {
-      setActiveButon(true);
-    } else {
-      setActiveButon(false);
-    }
-  };
+  
 
   function handleCardLike({ _id, likes, token }) {
     token = localStorage.getItem("token");
@@ -153,7 +146,7 @@ function App() {
         })
         .catch(console.error);
     }
-    toggleButton();
+   
   }
   //////////////////////   USER    //////////////////////////
 
