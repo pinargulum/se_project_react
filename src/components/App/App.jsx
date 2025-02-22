@@ -120,13 +120,23 @@ function App() {
       .catch(console.error);
   }
   const [isLiked, setIsLiked] = useState(false);
+  const [activeButton, setActiveButon] = useState()
+ 
+  const toggleButton = () => {
+    if (!isLiked) {
+      setActiveButon(true);
+    } else {
+      setActiveButon(false);
+    }
+  };
+
   function handleCardLike({ _id, likes, token }) {
-    
     token = localStorage.getItem("token");
-    if(isLiked) {
+    if(!isLiked) {
       Api.addCardLike(_id, token, likes)
           .then((cardData) => {
             setIsLiked(true)
+            setActiveButon()
             //setClothingItems([updateCard, ...clothingItems]);
             setClothingItems((prewItems) =>
               prewItems.filter((item) => item._id !== cardData),
@@ -134,7 +144,7 @@ function App() {
           })
           .catch(console.error)
         }
-        if(!isLiked) {
+        if(isLiked) {
       Api.removeCardLike(_id, token, likes)
         .then((cardData) => {
           setIsLiked(false)
@@ -144,6 +154,7 @@ function App() {
           
         }).catch(console.error);
       }
+      toggleButton()
     }
   //////////////////////   USER    //////////////////////////
 

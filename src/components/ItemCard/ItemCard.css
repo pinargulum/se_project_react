@@ -34,6 +34,7 @@
   padding: 2px 12px 2px 12px;
 }
 .like__button {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   width: 20px;
@@ -41,10 +42,24 @@
   background-repeat: no-repeat;
   background-image: url("/src/assets/likeButon.png");
 }
-.like__button:active  {
+.like__button.active {
+  background-repeat: no-repeat;
+  fill:black;
+  background-image: url("/src/assets/likeButtonActive.png");
+}
+.like__input {
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  fill: url("/src/assets/likeButon.png");
+}
+.like__input:active  {
   background-repeat: no-repeat;
   background-image: url("/src/assets/likeButtonActive.png");
 }
+  
   
 .like-button:hover {
   opacity: 0.5;
