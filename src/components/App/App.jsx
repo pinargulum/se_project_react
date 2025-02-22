@@ -119,26 +119,32 @@ function App() {
       })
       .catch(console.error);
   }
-
+  const [isLiked, setIsLiked] = useState(false);
   function handleCardLike({ _id, likes, token }) {
     
     token = localStorage.getItem("token");
-    
+    if(isLiked) {
       Api.addCardLike(_id, token, likes)
-          .then((updateCard) => {
-            setClothingItems([updateCard, ...clothingItems]);
+          .then((cardData) => {
+            setIsLiked(true)
+            //setClothingItems([updateCard, ...clothingItems]);
+            setClothingItems((prewItems) =>
+              prewItems.filter((item) => item._id !== cardData),
+            );
           })
-          .catch(console.error),
-      
+          .catch(console.error)
+        }
+        if(!isLiked) {
       Api.removeCardLike(_id, token, likes)
         .then((cardData) => {
+          setIsLiked(false)
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
           
         }).catch(console.error);
       }
-  
+    }
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data
