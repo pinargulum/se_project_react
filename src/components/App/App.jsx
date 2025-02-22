@@ -94,11 +94,11 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleCardDelete({_id, token }) {
+  function handleCardDelete(_id, token) {
     const cardData = selectedCard._id === currentUser._id;
     
     
-    Api.deleteClothingItem(_id, token)
+    Api.deleteClothingItem({ _id, token })
       .then((cardData) => {
         getUserData(cardData)
         closeActiveModal();
