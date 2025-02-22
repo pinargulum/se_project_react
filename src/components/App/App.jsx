@@ -95,8 +95,8 @@ function App() {
   }, []);
 
   function handleCardDelete({_id, token }) {
-    const item._id= selectedCard._id === currentUser._id;
-    //const isOwn = cardData === currentUser._id;
+    const cardData = selectedCard._id === currentUser._id;
+    
     
     Api.deleteClothingItem(_id, token)
       .then((cardData) => {
@@ -109,7 +109,7 @@ function App() {
       .catch(console.error);
   }
   function handleAddItemSubmit(newItem, token) {
-    const cardData = selectedCard._id === currentUser._id;
+    const cardData = selectedCard._id === currentUser._id
     token = localStorage.getItem("token");
     setIsLoading(true);
     Api.addClothingItem(newItem, token)
