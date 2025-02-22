@@ -120,8 +120,8 @@ function App() {
       .catch(console.error);
   }
   const [isLiked, setIsLiked] = useState(false);
-  const [activeButton, setActiveButon] = useState()
- 
+  const [activeButton, setActiveButon] = useState();
+
   const toggleButton = () => {
     if (!isLiked) {
       setActiveButon(true);
@@ -132,30 +132,29 @@ function App() {
 
   function handleCardLike({ _id, likes, token }) {
     token = localStorage.getItem("token");
-    if(!isLiked) {
+    if (!isLiked) {
       Api.addCardLike(_id, token, likes)
-          .then((cardData) => {
-            setIsLiked(true)
-            setActiveButon()
-            //setClothingItems([updateCard, ...clothingItems]);
-            setClothingItems((prewItems) =>
-              prewItems.filter((item) => item._id !== cardData),
-            );
-          })
-          .catch(console.error)
-        }
-        if(isLiked) {
-      Api.removeCardLike(_id, token, likes)
         .then((cardData) => {
-          setIsLiked(false)
+          setIsLiked(true);
+          setActiveButon();
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
-          
-        }).catch(console.error);
-      }
-      toggleButton()
+        })
+        .catch(console.error);
     }
+    if (isLiked) {
+      Api.removeCardLike(_id, token, likes)
+        .then((cardData) => {
+          setIsLiked(false);
+          setClothingItems((prewItems) =>
+            prewItems.filter((item) => item._id !== cardData),
+          );
+        })
+        .catch(console.error);
+    }
+    toggleButton();
+  }
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data

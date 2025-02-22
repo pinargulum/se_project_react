@@ -5,18 +5,13 @@ import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import "../ItemCard/ItemCard.css";
 import heart from "/src/assets/likeButtonActive.png";
 function ItemCard({ item, onCardClick, onCardLike }) {
-  const currentUser = useContext(CurrentUserContext);
+ 
+  const [activeButton, setActiveButton] = useState();
 
-  const [activeButton, setActiveButton] = useState()
-    
-    
-   
-    const handleLike = () => {
-      onCardLike(item); // Send the like to backend
-      setActiveButton((prevState) => !prevState); // Toggle button state
-    };
-
-  
+  const handleLike = () => {
+    onCardLike(item);
+    setActiveButton((prevState) => !prevState);
+  };
 
   const handleCardClik = () => {
     onCardClick(item);
@@ -28,8 +23,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         <h2 className="image__text">{item.name}</h2>
         <button
           type="button"
-          
-          className={activeButton ? "like__button active" : "like__button"}       
+          className={activeButton ? "like__button active" : "like__button"}
           onClick={handleLike}
         ></button>
       </div>
