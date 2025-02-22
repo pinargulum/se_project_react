@@ -21,14 +21,14 @@ function addClothingItem(item, token) {
     body: JSON.stringify(item),
   }).then(checkResponse);
 }
-function deleteClothingItem({ _id, token }) {
+function deleteClothingItem(_id, token, owner) {
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-   
+    body: JSON.stringify({ _id, owner })
   }).then(checkResponse);
 }
 function addCardLike(_id, token, likes) {

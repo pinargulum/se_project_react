@@ -94,20 +94,24 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleCardDelete(_id, token) {
-    const cardData = selectedCard._id === currentUser._id;
+  function handleCardDelete(_id, token, owner) {
+    token = localStorage.getItem("token");
+    owner = selectedCard.owner === currentUser._id
     
-    
-    Api.deleteClothingItem({ _id, token })
+     
+    Api.deleteClothingItem(_id, token, owner)
       .then((cardData) => {
         getUserData(cardData)
-        closeActiveModal();
+       
         setClothingItems((prewItems) =>
           prewItems.filter((item) => item._id !== cardData),
         );
+        closeActiveModal();
       })
-      .catch(console.error);
-  }
+      .catch(console.error)
+
+    }
+  
   function handleAddItemSubmit(newItem, token) {
     const cardData = selectedCard._id === currentUser._id
     token = localStorage.getItem("token");
