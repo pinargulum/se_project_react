@@ -94,12 +94,13 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleCardDelete(_id, token) {
-    //cardData = selectedCard._id === currentUser._id;
+  function handleCardDelete({_id, token }) {
+    const item._id= selectedCard._id === currentUser._id;
     //const isOwn = cardData === currentUser._id;
-    token = localStorage.getItem("token");
-    Api.deleteClothingItem({ _id, token })
+    
+    Api.deleteClothingItem(_id, token)
       .then((cardData) => {
+        getUserData(cardData)
         closeActiveModal();
         setClothingItems((prewItems) =>
           prewItems.filter((item) => item._id !== cardData),

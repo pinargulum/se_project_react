@@ -28,6 +28,7 @@ function deleteClothingItem(_id, token) {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify({ _id, token })
   }).then(checkResponse);
 }
 function addCardLike(_id, token, likes) {
