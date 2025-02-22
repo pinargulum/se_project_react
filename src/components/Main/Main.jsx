@@ -5,7 +5,7 @@ import { useContext } from "react";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
-function Main({ weatherData, handleCardClick, clothingItems, onCardLike, removeCardLike }) {
+function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentUser = useContext(CurrentUserContext);
   const id = currentUser._id
@@ -27,7 +27,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike, removeC
                 item={item}
                 onCardClick={handleCardClick}
                 onCardLike={onCardLike}
-                removeCardLike={removeCardLike}
+               
               />
             ))}
         </ul>

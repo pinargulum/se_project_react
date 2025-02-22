@@ -4,22 +4,23 @@ import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import "../ItemCard/ItemCard.css";
 
-function ItemCard({ item, onCardClick, onCardLike, removeCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const [isLiked, setIsLiked] = useState();
+  const [isLiked, setIsLiked] = useState([]);
+  
   const toggleButton = () => {
-    if (!isLiked) {
-      setIsLiked(true);
-    } else {
+    if (isLiked) {
       setIsLiked(false);
+    } else {
+      setIsLiked(true);
     }
   };
 
   const handleLike = (_id) => {
     toggleButton();
-    onCardLike(item._id);
-    removeCardLike(item._id);
+    onCardLike();
+   
   };
 
   const handleCardClik = () => {

@@ -123,7 +123,7 @@ function App() {
   function handleCardLike(_id, likes) {
     likes = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
-    if (likes) {
+    !likes ? 
       Api.addCardLike(_id, token, likes)
         .then((newData) => {
           setClothingItems((newData) =>
@@ -131,15 +131,15 @@ function App() {
           );
           setClothingItems([newData, ...clothingItems]);
         })
-        .catch(console.error);
-    }
-  }
-    function removeCardLike(_id, token, likes) {
+        .catch(console.error)
+    
+  :
+    //function removeCardLike(_id, token, likes) {
       token = localStorage.getItem("token");
-      Api.removeCardLike(_id, token, likes)
+      Api.removeCardLike(_id, token,likes)
         .then((newData) => {
           setClothingItems((newData) =>
-            newData.map((item) => (item._id = item.likes === currentUser._id)),
+            newData.filter((item) => (item._id = item.likes === currentUser._id)),
           );
           setClothingItems([newData, ...clothingItems]);
         })
@@ -223,7 +223,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    removeCardLike={removeCardLike}
+                    
                   />
                 }
               />
