@@ -17,9 +17,9 @@ function ItemCard({ item, onCardClick, onCardLike }) {
     }
   };
 
-  const handleLike = (_id) => {
+  const handleLike = () => {
     toggleButton();
-    onCardLike();
+    onCardLike(item);
    
   };
 

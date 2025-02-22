@@ -120,33 +120,25 @@ function App() {
       .catch(console.error);
   }
 
-  function handleCardLike(_id, likes) {
-    likes = selectedCard._id === currentUser._id;
-    const token = localStorage.getItem("token");
-    !likes ? 
-      Api.addCardLike(_id, token, likes)
-        .then((newData) => {
-          setClothingItems((newData) =>
-            newData.map((item) => (item.id = item.likes === currentUser._id)),
-          );
-          setClothingItems([newData, ...clothingItems]);
-        })
-        .catch(console.error)
+  function handleCardLike({ _id, likes, token }) {
     
-  :
-    //function removeCardLike(_id, token, likes) {
-      token = localStorage.getItem("token");
-      Api.removeCardLike(_id, token,likes)
-        .then((newData) => {
-          setClothingItems((newData) =>
-            newData.filter((item) => (item._id = item.likes === currentUser._id)),
+    token = localStorage.getItem("token");
+    
+      Api.addCardLike(_id, token, likes)
+          .then((updateCard) => {
+            setClothingItems([updateCard, ...clothingItems]);
+          })
+          .catch(console.error),
+      
+      Api.removeCardLike(_id, token, likes)
+        .then((cardData) => {
+          setClothingItems((prewItems) =>
+            prewItems.filter((item) => item._id !== cardData),
           );
-          setClothingItems([newData, ...clothingItems]);
-        })
-        .catch(console.error);
-    }
+          
+        }).catch(console.error);
+      }
   
-
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data
@@ -223,7 +215,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    
                   />
                 }
               />
