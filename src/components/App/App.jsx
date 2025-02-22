@@ -42,7 +42,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
-  const [isLiked, setIsLiked] = useState(false);
+  // const [isLiked, setIsLiked] = useState(false);
 
   ///////////////////////////////// HEADER /////////////////////////////////
 
@@ -119,34 +119,33 @@ function App() {
       })
       .catch(console.error);
   }
-  
+
   function handleCardLike(_id, likes) {
     likes = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
-    if(!likes) {
-    Api.addCardLike(_id, token, likes)
-    .then((newData) => {
-      //setClothingItems([newData, ...clothingItems]);
-        setIsLiked(true);
-        setClothingItems((newData) =>
-          newData.filter((item) => item.likes === currentUser._id),
-        );
-        
-    })
-      .catch(console.error)
-    
-  } else {
-    
-      Api.removeCardLike((_id, token, isLiked))
-      _id = isLiked === currentUser._id
-        .then((item) => {
-          setClothingItems((prewItems) =>
-            prewItems.filter((item) =  item._id = isLiked === currentUser._id))      //item.likes === item.currentUser._id))
-        
-    })
-    .catch(console.error);
+    if (likes) {
+      Api.addCardLike(_id, token, likes)
+        .then((newData) => {
+          setClothingItems((newData) =>
+            newData.map((item) => (item.id = item.likes === currentUser._id)),
+          );
+          setClothingItems([newData, ...clothingItems]);
+        })
+        .catch(console.error);
+    }
   }
-}
+    function removeCardLike(_id, token, likes) {
+      token = localStorage.getItem("token");
+      Api.removeCardLike(_id, token, likes)
+        .then((newData) => {
+          setClothingItems((newData) =>
+            newData.map((item) => (item._id = item.likes === currentUser._id)),
+          );
+          setClothingItems([newData, ...clothingItems]);
+        })
+        .catch(console.error);
+    }
+  
 
   //////////////////////   USER    //////////////////////////
 
@@ -224,6 +223,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    removeCardLike={removeCardLike}
                   />
                 }
               />

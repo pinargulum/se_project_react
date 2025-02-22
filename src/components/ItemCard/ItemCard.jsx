@@ -4,27 +4,22 @@ import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import "../ItemCard/ItemCard.css";
 
-function ItemCard({ item, onCardClick, onCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike, removeCardLike }) {
   const currentUser = useContext(CurrentUserContext);
-  
-  const [isLiked, setIsLiked] = useState(false);
+
+  const [isLiked, setIsLiked] = useState();
   const toggleButton = () => {
     if (!isLiked) {
-       
-        setIsLiked(true);
-        onCardLike(item._id, true); 
+      setIsLiked(true);
     } else {
-      
-        setIsLiked(false);
-        onCardLike(item._id, false); 
+      setIsLiked(false);
     }
-};
-  
+  };
+
   const handleLike = (_id) => {
-    //item = item.owner === currentUser._id;
-    toggleButton()
+    toggleButton();
     onCardLike(item._id);
-    
+    removeCardLike(item._id);
   };
 
   const handleCardClik = () => {
@@ -45,7 +40,6 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         src={item.imageUrl}
         alt={item.name}
         onClick={handleCardClik}
-       
         className="cards__image"
       />
     </li>
