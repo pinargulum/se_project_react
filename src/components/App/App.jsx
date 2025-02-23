@@ -282,7 +282,7 @@ function App() {
 
             <ItemModal
               activeModal={activeModal}
-              isOpen={deleteModalClick}
+              deleteModal={deleteModalClick}
               card={selectedCard}
               onCloseModal={closeActiveModal}
               handleCardDelete={handleCardDelete}
