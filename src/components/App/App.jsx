@@ -273,7 +273,7 @@ function App() {
             <DeleteModal
               isOpen={activeModal === "delete"}
               onCloseModal={closeActiveModal}
-             handleDeleteModal={handleDeleteModal}
+              handleCardDelete={handleCardDelete}
             />
             <AddItemModal
               isOpen={activeModal === "add-garment"}
