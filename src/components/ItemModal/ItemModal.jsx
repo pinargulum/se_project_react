@@ -26,8 +26,8 @@ function ItemModal({ activeModal, card, onCloseModal, handleCardDelete, isOpen }
             <button
               className="preview__delete-button"
               type="button"
-              onClick={handleCardDelete}
-              isOpen={isOpen}
+              onClick={isOpen}
+              
             >
               Delete item
             </button>

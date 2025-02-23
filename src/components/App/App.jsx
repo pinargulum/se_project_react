@@ -109,15 +109,13 @@ function App() {
         setClothingItems((prewItems) =>
           prewItems.filter((item) => item._id !== cardData),
         );
-        closeActiveModal();
+        closeActiveModal("delete");
       })
       .catch(console.error)
 
     }
   
-    const handleDeleteModal = () => {
-
-  }
+   
   function handleAddItemSubmit(newItem, token) {
     const cardData = selectedCard._id === currentUser._id
     token = localStorage.getItem("token");
@@ -235,7 +233,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    isOpen={deleteModalClick}
+                   
                   />
                 }
               />
@@ -272,7 +270,7 @@ function App() {
             />
             <DeleteModal
               isOpen={activeModal === "delete"}
-              onCloseModal={closeActiveModal}
+              onClose={closeActiveModal}
               handleCardDelete={handleCardDelete}
             />
             <AddItemModal
@@ -284,7 +282,7 @@ function App() {
 
             <ItemModal
               activeModal={activeModal}
-              isOpen={activeModal === "delete"}
+              isOpen={deleteModalClick}
               card={selectedCard}
               onCloseModal={closeActiveModal}
               handleCardDelete={handleCardDelete}

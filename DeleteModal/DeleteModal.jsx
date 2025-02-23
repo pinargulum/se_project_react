@@ -1,6 +1,6 @@
 import "../DeleteModal/DeleteModal.css";
 import ModalWithForm from "../src/components/ModalWithForm/ModalWithForm";
-function DeleteModal(isOpen, onCloseModal,handleCardDelete ) {
+function DeleteModal(isOpen, onClose,handleCardDelete ) {
 
 
 
@@ -12,7 +12,7 @@ function DeleteModal(isOpen, onCloseModal,handleCardDelete ) {
     <ModalWithForm
       titleText="Are you sure you want to delete this item? This action is irreversible."
       isOpen={isOpen}
-      //onClose={onCloseModal}
+      onClick={onClose}
       onSubmit={handleSubmit}
     >
      
