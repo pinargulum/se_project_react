@@ -270,7 +270,7 @@ function App() {
               onCloseModal={closeActiveModal}
               handleProfileChange={handleProfileChange}
             />
-            <ProfileEditModal
+            <DeleteModal
               isOpen={activeModal === "delete"}
               onCloseModal={closeActiveModal}
              handleDeleteModal={handleDeleteModal}
@@ -284,6 +284,7 @@ function App() {
 
             <ItemModal
               activeModal={activeModal}
+              isOpen={activeModal === "delete"}
               card={selectedCard}
               onCloseModal={closeActiveModal}
               handleCardDelete={handleCardDelete}

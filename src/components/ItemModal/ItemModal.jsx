@@ -2,7 +2,7 @@ import "./ItemModal.css";
 import { useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
-function ItemModal({ activeModal, card, onCloseModal, handleCardDelete }) {
+function ItemModal({ activeModal, card, onCloseModal, handleCardDelete, isOpen }) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
 
@@ -27,6 +27,7 @@ function ItemModal({ activeModal, card, onCloseModal, handleCardDelete }) {
               className="preview__delete-button"
               type="button"
               onClick={handleCardDelete}
+              isOpen={isOpen}
             >
               Delete item
             </button>
