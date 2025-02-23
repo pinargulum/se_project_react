@@ -75,6 +75,9 @@ function App() {
   const handleEditClick = () => {
     setActiveModal("profile");
   };
+  const deleteModal = () => {
+    setActiveModal("delete");
+  }
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -94,17 +97,18 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleCardDelete(_id, token, owner) {
+  function handleCardDelete(item, token) {
     token = localStorage.getItem("token");
     owner = selectedCard.owner === currentUser._id
     
      
-    Api.deleteClothingItem(_id, token, owner)
+    Api.deleteClothingItem(item, token)
       .then((cardData) => {
-        getUserData(cardData)
+        getUserData(cardData.token);
+        setIsLoggedIn(true);
        
         setClothingItems((prewItems) =>
-          prewItems.filter((item) => item._id !== cardData),
+          prewItems.filter((item) => item !== cardData),
         );
         closeActiveModal();
       })
@@ -112,6 +116,9 @@ function App() {
 
     }
   
+    const handleDeleteModal = () => {
+
+  }
   function handleAddItemSubmit(newItem, token) {
     const cardData = selectedCard._id === currentUser._id
     token = localStorage.getItem("token");
@@ -229,6 +236,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    deleteModal={deleteModal}
                   />
                 }
               />
