@@ -8,7 +8,7 @@ import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
-import SideBar from "../SideBar/SideBar.jsx";
+import DeleteModal from "../../../DeleteModal/DeleteModal.jsx";
 import Api from "../../utils/Api.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
@@ -99,7 +99,7 @@ function App() {
 
   function handleCardDelete(item, token) {
     token = localStorage.getItem("token");
-    owner = selectedCard.owner === currentUser._id
+    item.owner = selectedCard.owner === currentUser._id
     
      
     Api.deleteClothingItem(item, token)
@@ -270,6 +270,11 @@ function App() {
               isOpen={activeModal === "profile"}
               onCloseModal={closeActiveModal}
               handleProfileChange={handleProfileChange}
+            />
+            <ProfileEditModal
+              isOpen={activeModal === "delete"}
+              onCloseModal={closeActiveModal}
+             handleDeleteModal={handleDeleteModal}
             />
             <AddItemModal
               isOpen={activeModal === "add-garment"}
