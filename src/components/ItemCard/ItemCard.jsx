@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import "../ItemCard/ItemCard.css";
 
-function ItemCard({ item, onCardClick, onCardLike, deleteModal }) {
+function ItemCard({ item, onCardClick, onCardLike, isOpen }) {
   const currentUser = useContext(CurrentUserContext);
   const [activeButton, setActiveButton] = useState();
 const handleLikeButton = () =>{
@@ -29,7 +29,7 @@ const handleLikeButton = () =>{
         <h2 className="image__text">{item.name}</h2>
         {currentUser && (
         <button
-        deleteModal={deleteModal}
+        isOpen={isOpen}
           type="button"
           className={activeButton ? "like__button active" : "like__button"}
           onClick={handleLike}

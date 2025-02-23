@@ -236,7 +236,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    deleteModal={deleteModal}
+                    isOpen={deleteModal}
                   />
                 }
               />
