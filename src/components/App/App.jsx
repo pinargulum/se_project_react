@@ -270,7 +270,7 @@ function App() {
             />
             <DeleteModal
               isOpen={activeModal === "delete"}
-              onClose={closeActiveModal}
+              onCloseModal={closeActiveModal}
               handleCardDelete={handleCardDelete}
             />
             <AddItemModal

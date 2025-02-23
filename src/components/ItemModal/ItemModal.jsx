@@ -2,7 +2,7 @@ import "./ItemModal.css";
 import { useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 
-function ItemModal({ activeModal, card, onCloseModal, handleCardDelete, isOpen }) {
+function ItemModal({ activeModal, card, onCloseModal, isOpen }) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
 
