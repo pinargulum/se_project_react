@@ -21,14 +21,14 @@ function addClothingItem(item, token) {
     body: JSON.stringify(item),
   }).then(checkResponse);
 }
-function deleteClothingItem(item, token) {
-  return fetch(`${baseUrl}/items/${item}`, {
+function deleteItem(_id, token) {
+  return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(item),
+    //body: JSON.stringify(item),
   }).then(checkResponse);
 }
 function addCardLike(_id, token, likes) {
@@ -55,7 +55,7 @@ function removeCardLike(_id, token, likes) {
 const Api = {
   getClothingItems,
   addClothingItem,
-  deleteClothingItem,
+  deleteItem,
   addCardLike,
   removeCardLike
 };

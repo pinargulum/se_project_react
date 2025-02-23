@@ -97,18 +97,17 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleCardDelete(item, token) {
+  function handleCardDelete({ item, token }) {
     token = localStorage.getItem("token");
-    item.owner = selectedCard.owner === currentUser._id
-    
-     
-    Api.deleteClothingItem(item, token)
+    item = selectedCard._id;
+    //item.owner = selectedCard.owner === currentUser._id
+    Api.deleteItem(item, token)
       .then((cardData) => {
         getUserData(cardData.token);
         setIsLoggedIn(true);
        
         setClothingItems((prewItems) =>
-          prewItems.filter((item) => item !== cardData),
+          prewItems.filter((item) => item._id !== cardData),
         );
         closeActiveModal();
       })
