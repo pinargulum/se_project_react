@@ -6,7 +6,7 @@ import ItemCard from "../ItemCard/ItemCard.jsx";
 import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
 import DeleteModal from "../../../DeleteModal/DeleteModal.jsx";
 
-function Main({ weatherData, handleCardClick, clothingItems, onCardLike, isOpen }) {
+function Main({ weatherData, handleCardClick, clothingItems, onCardLike, deleteModalClick }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentUser = useContext(CurrentUserContext);
   const id = currentUser._id
@@ -28,7 +28,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike, isOpen 
                 item={item}
                 onCardClick={handleCardClick}
                 onCardLike={onCardLike}
-                isOpen={isOpen}
+                deleteModalClick={deleteModalClick}
                
               />
             ))}

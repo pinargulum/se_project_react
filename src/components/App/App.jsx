@@ -75,7 +75,7 @@ function App() {
   const handleEditClick = () => {
     setActiveModal("profile");
   };
-  const deleteModal = () => {
+  const deleteModalClick = () => {
     setActiveModal("delete");
   }
 
@@ -236,7 +236,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    isOpen={deleteModal}
+                    isOpen={deleteModalClick}
                   />
                 }
               />

@@ -1,6 +1,6 @@
 import "../DeleteModal/DeleteModal.css";
 import ModalWithForm from "../src/components/ModalWithForm/ModalWithForm";
-function DeleteModal() {
+function DeleteModal(isOpen, handleDeleteModal) {
   return (
     <ModalWithForm
       titleText="Are you sure you want to delete this item? This action is irreversible."
