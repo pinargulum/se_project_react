@@ -1,26 +1,29 @@
 import "../DeleteModal/DeleteModal.css";
 import ModalWithForm from "../src/components/ModalWithForm/ModalWithForm";
-function DeleteModal({ isOpen, onCloseModal,handleCardDelete }) {
+const DeleteModal = ({ isOpen, onCloseModal,handleCardDelete }) => {
 
 
 
     
   return (
-    <ModalWithForm
+    <ModalWithForm ModalWithForm_delete
       titleText="Are you sure you want to delete this item? This action is irreversible."
       isOpen={isOpen}
-      onClick={onCloseModal}
-      onSubmit={handleCardDelete}
+      onClose={onCloseModal}
+      //onSubmit={handleCardDelete}
+      className="delete__modal"
     >
      
       <button
-        type="submit"
-        className="modal__submit"
+        type="button"
+        className="delete__modal-submit"
+        onSubmit={handleCardDelete}
       >
         Yes, Delete item
       </button>
 
       <button
+      onClick={onCloseModal}
         className="cancel_button"
         type="button"
       >

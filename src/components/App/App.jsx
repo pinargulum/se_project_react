@@ -138,7 +138,7 @@ function App() {
       Api.addCardLike(_id, token, likes)
         .then((cardData) => {
           setIsLiked(true);
-          setActiveButon();
+          
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
