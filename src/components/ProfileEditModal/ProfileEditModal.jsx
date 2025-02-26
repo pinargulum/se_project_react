@@ -38,23 +38,24 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
+      modifierClass="change_data"
       
     >
     
-      <label className="modal__label">Name*</label>
+      <label className="modal__Chage_label">Name*</label>
       <input
         name="name"
         type="text"
-        className="modal__input"
+        className="change_data_input"
         placeholder="Name"
         value={data.name}
         onChange={handleChange}
       />
-      <label className="modal__label">Avatar*</label>
+      <label className="modal__change_label">Avatar*</label>
       <input
         name="avatar"
         type="url"
-        className="modal__input"
+        className="change_data_input"
         value={data.avatar}
         onChange={handleChange}
         placeholder="Avatar"
