@@ -40,12 +40,10 @@
   line-height: 20px;
 }
 
-.modal__label {
-  margin-top: 4px;
-}
+
 .modal__input {
   display: block;
-  height: 24px;
+
   width: 440px;
   margin-bottom: 24px;
   border: none;
@@ -83,8 +81,8 @@
 .modal__submit {
   display: flex;
   position: absolute;
-  width: 130px;
-  height: 40px;
+  width: 124px;
+  height: 36px;
   padding: 8px 16px 8px 16px;
   color: #ffffff;
   background-color: #0000004d;

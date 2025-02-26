@@ -1,20 +1,5 @@
-.modal__login {
-  display: flex;
-  position: absolute;
-  width: 130px;
-  height: 40px;
-  padding: 8px 16px 8px 16px;
-  color: black;
-  background-color: transparent;
-  border: none;
-  bottom: 20px;
-  right: 206px;
-}
-.model__title_sign-up {
-  display: flex;
-  margin-bottom: 2px;
-}
-.modal__content_signup_form {
+
+.modal_content_register_form {
   margin: 193px auto;
   border: solid 1px;
   border-radius: 20px;
@@ -28,4 +13,17 @@
   line-height: 20px;
   font-weight: 700;
   position: relative;
+}
+.second__button {
+  display: flex;
+  position: absolute;
+  width: 93px;
+  height: 40px;
+  padding: 13px 16px 8px 16px;
+  color: black;
+  background-color: transparent;
+  border: none;
+  
+  bottom: 20px;
+  left: 143px
 }

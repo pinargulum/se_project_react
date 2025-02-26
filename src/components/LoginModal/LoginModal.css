@@ -1,6 +1,5 @@
-
-.login_content {
-margin: 193px auto;
+.modal_content_login_form {
+  margin: 193px auto;
   border: solid 1px;
   border-radius: 20px;
   border-color: #ffffff;
@@ -13,4 +12,17 @@ margin: 193px auto;
   line-height: 20px;
   font-weight: 700;
   position: relative;
+}
+.second__button {
+  display: flex;
+  position: absolute;
+  width: 93px;
+  height: 40px;
+  padding: 13px 16px 8px 16px;
+  color: black;
+  background-color: transparent;
+  border: none;
+  
+  bottom: 20px;
+  left: 143px
 }

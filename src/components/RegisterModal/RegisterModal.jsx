@@ -44,10 +44,11 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser }) => {
   return (
     <ModalWithForm
       titleText="sign up"
-      buttonText="Save"
+      buttonText="Sign up"
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
+      modifierClass="register"
     >
       <label className="modal__label">Email:</label>
 
@@ -90,14 +91,9 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser }) => {
         placeholder="Avatar URL"
       />
 
+      
       <button
-        type="submit"
-        className="modal__submit"
-      >
-        Sign up
-      </button>
-      <button
-        className="modal__submit modal__login"
+        className="second__button"
         type="submit"
       >
         or Log in

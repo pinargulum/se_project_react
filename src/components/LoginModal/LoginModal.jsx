@@ -26,11 +26,12 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin }) => {
   }
   return (
     <ModalWithForm
-      titleText="signin"
+      titleText="Log in"
+      buttonText="Log in"
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
-      modifierClass= "login"
+      modifierClass="login"
     >
       <label className="modal__label">Email:</label>
 
@@ -52,15 +53,9 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin }) => {
         placeholder="Password"
         required
       />
-      <button
-        type="submit"
-        className="modal__submit"
-      >
-        Login
-      </button>
 
       <button
-        className="modal__submit modal__login"
+        className="second__button"
         type="submit"
       >
         or Sign up
