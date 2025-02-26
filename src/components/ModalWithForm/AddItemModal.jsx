@@ -1,5 +1,6 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
+import "../ModalWithForm/AddItemModal.css"
 //import { useForm } from "../../Hooks/useForm.js"; 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
@@ -36,6 +37,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
+       modifierClass= "add"
     >
     
       <label className="modal__label">

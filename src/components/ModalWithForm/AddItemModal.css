@@ -1,0 +1,15 @@
+.add_content {
+  margin: 193px auto;
+  border: solid 1px;
+  border-radius: 20px;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  height: 436px;
+  width: 496px;
+  padding: 28px 28px 36px 28px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  position: relative;
+}
