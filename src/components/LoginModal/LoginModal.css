@@ -1,5 +1,5 @@
 
-.modal__content_login_form {
+.login_modal_content {
 margin: 193px auto;
   border: solid 1px;
   border-radius: 20px;
@@ -13,7 +13,4 @@ margin: 193px auto;
   line-height: 20px;
   font-weight: 700;
   position: relative;
-}
-.modal__title_login {
-    margin-top: 1px;
 }

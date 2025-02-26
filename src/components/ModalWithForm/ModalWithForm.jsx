@@ -8,11 +8,10 @@ function ModalWithForm({
   onClose,
   isOpen,
   onSubmit,
-  modifierClass = "add_item_modal_content",
 }) {
   return (
-    <div className={`modal ${isOpen ? "modal_opened" : ""} ${modifierClass}`}>
-      <div className={`modal_content modal_content_type_form ${modifierClass}_content`}>
+    <div className={`modal ${isOpen && "modal_opened"} `}>
+      <div className="modal__content  modal__content_type_form">
         <h2 className="modal__title">{titleText}</h2>
         <button
           onClick={onClose}

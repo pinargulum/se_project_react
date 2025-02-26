@@ -1,8 +1,7 @@
-
-  
-  
-
-.delete_modal_content {
+.modal__content_delete_form {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 193px auto;
   border: solid 1px;
   border-radius: 20px;
@@ -10,69 +9,71 @@
   background-color: #ffffff;
   height: 280px;
   width: 670px;
-  padding: 28px 28px 36px 28px;
+  padding: 140px 152px 60px 151px;
   box-sizing: border-box;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
   position: relative;
 }
-
-.modal__form_delete_form {
+.modal__content_delete_container {
   display: flex;
-  width: 367px;
-  height: 48px;
   flex-direction: column;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.modal__title_delete_title {
-  display: flex;
-  width: 360px;
-  height: 48px;
-  font-size: 16px;
-  line-height: 20px;
   justify-content: center;
-  flex-wrap: wrap;
-  padding-left: 151px;
+  align-items: center;
+  margin-top: -130px;
 }
-
-.modal__submit_delete {
-  display: flex;
-  position: absolute;
-  width: 130px;
-  height: 40px;
-  padding: 8px 16px 8px 16px;
-  color: #ffffff;
-  background-color: #0000004d;
-  border: solid 1px;
-  border-radius: 4px;
-  bottom: 20px;
-}
-.cancel__button {
-  display: flex;
-  width: 138px;
-  height: 24px;
-  background-color: white;
-  border: none;
-  font-family: sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-.modal__close-button_delete_modal {
+.modal__close-button-delete {
   position: relative;
   border: none;
-  background-image: url("/src/assets/modalClose.png");
-  top: -55px;
-  left: 422px;
+  background-image: url(/src/assets/modalClose.png);
+  top: -125px;
+  left: 472px;
   background-color: transparent;
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 800px) {
-  .modal__content_type_form {
-    margin-left: 150px;
-  }
+.modal__confirm-title {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 372px;
+
+  height: 48px;
+
+  padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+}
+.modal__p {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 48px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  left: 200px;
+  margin-top: -30px;
+}
+.delete__confirm {
+  color: red;
+
+  bottom: 109px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  left: 240px;
+  border: none;
+
+  background-color: transparent;
+}
+
+.cancel__button {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  left: 272px;
+  border: none;
+  background-color: transparent;
+  margin-top: 30px;
 }

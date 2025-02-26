@@ -30,6 +30,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
+      modifierClass= "login_modal_content"
     >
       <label className="modal__label">Email:</label>
 

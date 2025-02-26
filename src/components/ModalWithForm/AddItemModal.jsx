@@ -36,7 +36,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
-       modifierClass = "add_item_modal_content"
     >
     
       <label className="modal__label">
