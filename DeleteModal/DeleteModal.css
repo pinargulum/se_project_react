@@ -17,13 +17,7 @@
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
 }
-.modal__content_delete_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: -130px;
-}
+
 .modal__close-button-delete {
   position: relative;
   border: none;
@@ -35,12 +29,17 @@
   height: 20px;
   background-repeat: no-repeat;
 }
+.modal__content_delete_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -130px;
+}
 .modal__confirm-title {
   font-family: Arial, Helvetica, sans-serif;
   width: 372px;
-
   height: 48px;
-
   padding: 0;
   font-size: 16px;
   line-height: 20px;
@@ -53,18 +52,15 @@
   line-height: 20px;
   font-weight: 700;
   left: 200px;
-  margin-top: -30px;
+  margin-top: -40px;
 }
 .delete__confirm {
   color: red;
-
-  bottom: 109px;
+  margin-top: 0px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  left: 240px;
   border: none;
-
   background-color: transparent;
 }
 
@@ -72,7 +68,7 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  left: 272px;
+
   border: none;
   background-color: transparent;
   margin-top: 30px;
