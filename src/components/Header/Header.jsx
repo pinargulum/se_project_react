@@ -77,7 +77,7 @@ const Header = ({
               type="button"
               className="header__button"
             >
-              or Login
+              Login
             </button>
           </div>
         </div>
