@@ -1,7 +1,7 @@
 .swich {
   display: flex;
   position: relative;
-margin-left: 580px;
+  left: 560px;
 }
 .checkbox {
   border-radius: 25px;
@@ -44,8 +44,8 @@ margin-left: 580px;
   font-size: 16px;
   color: white;
 }
-@media screen and (max-width: 1340px) {
+@media screen and (max-width: 1200px) {
   .swich {
-    left: 5px;
+    left: 10px;
   }
 }

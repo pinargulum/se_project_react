@@ -17,7 +17,6 @@ import { getWeather, getCurrentWeather } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import * as auth from "../../utils/auth.js";
 import { useState, useEffect } from "react";
-import { setToken, getToken, removeToken } from "../../utils/token.js";
 import {
   Routes,
   Route,

@@ -22,12 +22,16 @@
   color: #000;
 }
 .header__add-clothes-button {
-  width: 270px;
+  
   border: none;
   background-color: transparent;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 700;
+  /* padding: 0; */
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
 }
 
 .header__buttons {
@@ -54,37 +58,45 @@
   margin: 0;
 }
 .header__user-container {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  left: 960px;
+
+  flex-direction: row;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  width: 400px;
+  width: 370px;
   height: 28px;
-  margin: 0px 20px 0px 0px;
+  margin: 0 20px 0 40px;
+
+  /* gap: 20px; */
+  align-items: center;
+  justify-content: center;
+}
+
+.header__avatar {
   display: flex;
 
-  align-items: center;
-  gap: 25px;
-}
-.header__username {
-  width: 270px;
-  border: none;
-  background-color: transparent;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-.header__avatar {
+  margin-left: 12px;
+
   height: 40px;
   width: 40px;
-  margin-right: 0px;
+  border-radius: 50%;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1390px) {
   .header {
     margin-top: 28px;
     margin-left: 0;
     margin-right: 0;
     padding-right: 0;
     width: 375px;
+  }
+}
+@media screen and (max-width: 1260px) {
+  .header__user-container {
+    left: 260px;
   }
 }
