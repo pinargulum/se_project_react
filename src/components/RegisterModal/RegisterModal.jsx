@@ -53,7 +53,8 @@ const RegisterModal = ({
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
-      modifierClass="register"
+      modifierClass = "register"
+       
     >
       <label className="modal__label">Email:</label>
       <input
@@ -63,7 +64,7 @@ const RegisterModal = ({
         value={email}
         placeholder="Email"
         onChange={handleEmailChange}
-        required
+        
       />
       <label className="modal__label">Password:</label>
       <input
@@ -73,7 +74,7 @@ const RegisterModal = ({
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
-        required
+        
       />
       <label className="modal__label">Name:</label>
       <input
@@ -83,7 +84,7 @@ const RegisterModal = ({
         value={name}
         onChange={handleNameChange}
         placeholder="Password"
-        required
+        
       />
       <label className="modal__label">Avatar URL:</label>
       <input
@@ -93,7 +94,7 @@ const RegisterModal = ({
         name="avatar"
         onChange={handleavatarChange}
         placeholder="Avatar URL"
-        required
+        
       />
 
       <button
