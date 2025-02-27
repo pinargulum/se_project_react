@@ -40,7 +40,6 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
   const [isLiked, setIsLiked] = useState(false);
 
@@ -95,11 +94,10 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
+  // delete a card
   function handleCardDelete({ item, token }) {
     token = localStorage.getItem("token");
     item = selectedCard._id;
-    //item.owner = selectedCard.owner === currentUser._id
     Api.deleteItem(item, token)
       .then((cardData) => {
         getUserData(cardData.token);
@@ -112,7 +110,7 @@ function App() {
       })
       .catch(console.error);
   }
-
+  // add new item
   function handleAddItemSubmit(newItem, token) {
     const cardData = selectedCard._id === currentUser._id;
     token = localStorage.getItem("token");
@@ -127,7 +125,7 @@ function App() {
       })
       .catch(console.error);
   }
-
+  // like && dislike cards
   function handleCardLike({ _id, likes, token }) {
     token = localStorage.getItem("token");
     if (!isLiked) {
@@ -153,7 +151,6 @@ function App() {
     }
   }
   //////////////////////   USER    //////////////////////////
-
   // function to get the user data
   function getUserData(token) {
     token = localStorage.getItem("token");
@@ -171,22 +168,20 @@ function App() {
       return getUserData(data);
     }
   }, []);
-
+  // update user data
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
-
     auth
       .updateProfile(token, name, avatar)
       .then((data, update) => {
         getUserData(data);
         setCurrentUser({ data: update });
-
         closeActiveModal("profile");
       })
       .catch(console.error);
   };
 
-  // updated login function
+  //login function
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
       return;
@@ -201,7 +196,7 @@ function App() {
       })
       .catch(console.error);
   };
-  // updated create function
+  //register function
   const handleCreateUser = ({ email, password, name, avatar }) => {
     auth
       .registerUser(email, password, name, avatar)
