@@ -22,13 +22,11 @@
   color: #000;
 }
 .header__add-clothes-button {
-  
   border: none;
   background-color: transparent;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  /* padding: 0; */
   margin-right: 20px;
   margin-left: 20px;
   display: flex;
@@ -36,13 +34,22 @@
 
 .header__buttons {
   display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
+top: 32px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -60px;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    width: 370px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
 }
 .header__button {
-  display: flex;
-  flex-direction: row;
+
   width: 90px;
   border: none;
   font-size: 20px;
@@ -62,7 +69,6 @@
   position: absolute;
   right: 20px;
   left: 960px;
-
   flex-direction: row;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -70,8 +76,6 @@
   width: 370px;
   height: 28px;
   margin: 0 20px 0 40px;
-
-  /* gap: 20px; */
   align-items: center;
   justify-content: center;
 }
