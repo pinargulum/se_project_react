@@ -27,16 +27,18 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    buttonState
     onAddItem({ name, imageUrl, weather });
+   
   }
-
+  
   return (
     <ModalWithForm
       titleText="New Garment"
       buttonText={isLoading ? "Adding garment..." : "Add garment"}
       isOpen={isOpen}
       onClose={onCloseModal}
-      onSubmit={handleSubmit?  () => "modal__submit:hover" : "modal__submit"} disable = {false}
+      onSubmit={handleSubmit}
        modifierClass= "add_item"
     >
     

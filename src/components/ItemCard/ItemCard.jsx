@@ -9,11 +9,13 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   const [activeButton, setActiveButton] = useState();
   const handleLikeButton = () => {
-    item.likes.some(id => id === currentUser._id);
+   if(currentUser) {
     setActiveButton((prevState) => !prevState);
+   }
   };
 
   const handleLike = () => {
+    item.likes.some(id => id === currentUser._id);
     handleLikeButton();
     onCardLike(item);
   };
