@@ -9,7 +9,12 @@ function ModalWithForm({
   isOpen,
   onSubmit,
    modifierClass= ""
-}) {
+}) 
+
+{
+
+
+  
   return (
     <div className={`modal ${isOpen && "modal_opened"} `}>
        <div className={`modal_content modal_content_${modifierClass}_form`}>

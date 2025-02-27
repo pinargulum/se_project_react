@@ -23,7 +23,11 @@
   color: black;
   background-color: transparent;
   border: none;
-  
   bottom: 20px;
   left: 143px
+}
+.second__button:hover {
+  background-color: ;
+  color: white;
+  border
 }

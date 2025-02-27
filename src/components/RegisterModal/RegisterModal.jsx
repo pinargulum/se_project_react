@@ -3,7 +3,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../RegisterModal/RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser, loginModal }) => {
+const RegisterModal = ({
+  isOpen,
+  onCloseModal,
+  handleCreateUser,
+  loginModal,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -43,7 +48,7 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser, loginModal }) =
 
   return (
     <ModalWithForm
-      titleText="sign up"
+      titleText="Sign up"
       buttonText="Sign up"
       isOpen={isOpen}
       onClose={onCloseModal}
@@ -51,7 +56,6 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser, loginModal }) =
       modifierClass="register"
     >
       <label className="modal__label">Email:</label>
-
       <input
         name="email"
         type="email"
@@ -61,7 +65,6 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser, loginModal }) =
         onChange={handleEmailChange}
         required
       />
-
       <label className="modal__label">Password:</label>
       <input
         name="password"
@@ -80,6 +83,7 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser, loginModal }) =
         value={name}
         onChange={handleNameChange}
         placeholder="Password"
+        required
       />
       <label className="modal__label">Avatar URL:</label>
       <input
@@ -89,10 +93,11 @@ const RegisterModal = ({ isOpen, onCloseModal, handleCreateUser, loginModal }) =
         name="avatar"
         onChange={handleavatarChange}
         placeholder="Avatar URL"
+        required
       />
 
-      
-      <button onClick={loginModal}
+      <button
+        onClick={loginModal}
         className="second__button"
         type="submit"
       >
