@@ -252,6 +252,7 @@ function App() {
               isOpen={activeModal === "signup"}
               onCloseModal={closeActiveModal}
               handleCreateUser={handleCreateUser}
+              loginModal={loginModal}
             />
             <LoginModal
               isOpen={activeModal === "signin"}
