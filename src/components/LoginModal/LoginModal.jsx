@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../LoginModal/LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ isOpen, onCloseModal, handleLogin }) => {
+const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleEmailChange(e) {
@@ -54,7 +54,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin }) => {
         required
       />
 
-      <button
+      <button onClick={registerModal}
         className="second__button"
         type="submit"
       >

@@ -257,6 +257,7 @@ function App() {
               isOpen={activeModal === "signin"}
               onCloseModal={closeActiveModal}
               handleLogin={handleLogin}
+              registerModal={registerModal}
             />
             <ProfileEditModal
               isOpen={activeModal === "profile"}
