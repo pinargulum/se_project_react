@@ -36,7 +36,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       buttonText={isLoading ? "Adding garment..." : "Add garment"}
       isOpen={isOpen}
       onClose={onCloseModal}
-      onSubmit={handleSubmit? () =>  "modal__submit:hover" : "modal__submit"}
+      onSubmit={handleSubmit?  () => "modal__submit:hover" : "modal__submit"} disable = {false}
        modifierClass= "add_item"
     >
     
