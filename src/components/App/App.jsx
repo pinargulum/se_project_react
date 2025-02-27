@@ -43,8 +43,7 @@ function App() {
   const [userData, setUserData] = useState();
   const [currentUser, setCurrentUser] = useState({});
   const [isLiked, setIsLiked] = useState(false);
-  
-  
+
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -77,7 +76,7 @@ function App() {
   };
   const deleteModalClick = () => {
     setActiveModal("delete");
-  }
+  };
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -105,19 +104,17 @@ function App() {
       .then((cardData) => {
         getUserData(cardData.token);
         setIsLoggedIn(true);
-       
+
         setClothingItems((prewItems) =>
           prewItems.filter((item) => item._id !== cardData),
         );
         closeActiveModal("delete");
       })
-      .catch(console.error)
+      .catch(console.error);
+  }
 
-    }
-  
-   
   function handleAddItemSubmit(newItem, token) {
-    const cardData = selectedCard._id === currentUser._id
+    const cardData = selectedCard._id === currentUser._id;
     token = localStorage.getItem("token");
     setIsLoading(true);
     Api.addClothingItem(newItem, token)
@@ -130,7 +127,6 @@ function App() {
       })
       .catch(console.error);
   }
-  
 
   function handleCardLike({ _id, likes, token }) {
     token = localStorage.getItem("token");
@@ -138,7 +134,7 @@ function App() {
       Api.addCardLike(_id, token, likes)
         .then((cardData) => {
           setIsLiked(true);
-          
+
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
@@ -155,17 +151,19 @@ function App() {
         })
         .catch(console.error);
     }
-   
   }
   //////////////////////   USER    //////////////////////////
 
   // function to get the user data
   function getUserData(token) {
     token = localStorage.getItem("token");
-    auth.getCurrentUser(token).then((data) => {
-      setIsLoggedIn(true);
-      setCurrentUser(data);
-    });
+    auth
+      .getCurrentUser(token)
+      .then((data) => {
+        setIsLoggedIn(true);
+        setCurrentUser(data);
+      })
+      .catch(console.error);
   }
   useEffect(() => {
     const data = localStorage.getItem("token");
@@ -176,12 +174,16 @@ function App() {
 
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
-    auth.updateProfile(token, name, avatar).then((data) => {
-      localStorage.getItem("token");
-      getUserData(data);
-      setCurrentUser(token.data);
-      closeActiveModal().catch(console.error);
-    });
+
+    auth
+      .updateProfile(token, name, avatar)
+      .then((data, update) => {
+        getUserData(data);
+        setCurrentUser({ data: update });
+
+        closeActiveModal("profile");
+      })
+      .catch(console.error);
   };
 
   // updated login function
@@ -233,7 +235,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                   
                   />
                 }
               />
@@ -283,7 +284,6 @@ function App() {
             <ItemModal
               activeModal={activeModal}
               deleteModalClick={deleteModalClick}
-           
               card={selectedCard}
               onCloseModal={closeActiveModal}
               handleCardDelete={handleCardDelete}

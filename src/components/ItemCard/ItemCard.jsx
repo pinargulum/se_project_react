@@ -9,7 +9,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   const [activeButton, setActiveButton] = useState();
   const handleLikeButton = () => {
-    //const isLiked = item.likes.some(id => id === currentUser._id);
+    item.likes.some(id => id === currentUser._id);
     setActiveButton((prevState) => !prevState);
   };
 
@@ -29,7 +29,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         {currentUser && (
           <button
             type="button"
-            className={activeButton ? "like__button active" : "like__button"}
+            className={!activeButton ? "like__button active" : "like__button"}
             onClick={handleLike}
           ></button>
         )}
@@ -41,6 +41,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         className="cards__image"
       />
     </li>
+        
   );
 }
 export default ItemCard;
