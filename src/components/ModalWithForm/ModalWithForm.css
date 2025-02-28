@@ -42,11 +42,17 @@
 
 .modal__input {
   display: block;
-
   width: 440px;
   margin-bottom: 24px;
   border: none;
   border-bottom: 1px solid black;
+}
+.modal__input_error {
+  display: block;
+  width: 440px;
+  margin-bottom: 24px;
+  border: none;
+  border-bottom: 1px solid #ff0000;
 }
 .modal__legend {
   line-height: 20px;
@@ -89,10 +95,27 @@
   border-radius: 4px;
   bottom: 20px;
 }
-.modal__submit.active {
-  background-color: black;
-  color: white;
+.modal__submit:hover:not(:disabled) {
+  opacity: 0.8;
+  cursor: pointer;
 }
+
+.modal__submit_disabled {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.2);
+  border: 1px solid;
+  cursor: default;
+  border-radius: 2px;
+}
+.modal__submit_disabled:hover {
+  opacity: 1;
+  cursor: default;
+}
+.form__error_visible {
+  border-bottom-color: #ff0000;
+  width: 358px;
+}
+
 .modal__close-button_type_form {
   position: relative;
   border: none;

@@ -103,7 +103,7 @@ function App() {
         setIsLoggedIn(true);
 
         setClothingItems((prewItems) =>
-          prewItems.filter((item) => item._id !== cardData),
+          prewItems.filter((prewItem) => prewItem._id !== item),
         );
         closeActiveModal("delete");
       })
@@ -224,12 +224,14 @@ function App() {
               <Route
                 path="/"
                 element={
+                 
                   <Main
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
                   />
+                  
                 }
               />
               <Route

@@ -1,12 +1,17 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
-import "../ModalWithForm/AddItemModal.css"
-//import { useForm } from "../../Hooks/useForm.js"; 
+import "../ModalWithForm/AddItemModal.css";
+import { showInputError } from "../../utils/validation";
+//import { useForm } from "../../Hooks/useForm.js";
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
   
+ 
+  
+   
+ 
   function handleNameChange(e) {
     setName(e.target.value);
   }
@@ -26,12 +31,11 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   }, [isOpen]);
 
   function handleSubmit(evt) {
+  showInputError()
     evt.preventDefault();
-    buttonState
     onAddItem({ name, imageUrl, weather });
-   
   }
-  
+
   return (
     <ModalWithForm
       titleText="New Garment"
@@ -39,12 +43,13 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
-       modifierClass= "add_item"
+      modifierClass="add_item"
     >
-    
       <label className="modal__label">
         Name
         <input
+          minLength="2"
+          maxLength="30"
           type="text"
           className="modal__input"
           id="name"
@@ -57,6 +62,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       <label className="modal__label">
         Image
         <input
+          minLength="2"
           type="text"
           className="modal__input"
           id="imageURL"
@@ -81,7 +87,10 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
             required
           />
         </label>
-        <label name="radio" className="modal__radio-label">
+        <label
+          name="radio"
+          className="modal__radio-label"
+        >
           Warm
           <input
             id="warm"
@@ -94,7 +103,10 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
             required
           />
         </label>
-        <label name="radio" className="modal__radio-label">
+        <label
+          name="radio"
+          className="modal__radio-label"
+        >
           Cold
           <input
             id="cold"
