@@ -1,9 +1,9 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
 import "../ModalWithForm/AddItemModal.css";
-import { showInputError } from "../../utils/validation";
+
 //import { useForm } from "../../Hooks/useForm.js";
-const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
+const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading, handleInputChange }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -31,7 +31,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   }, [isOpen]);
 
   function handleSubmit(evt) {
-  showInputError()
+  handleInputChange()
     evt.preventDefault();
     onAddItem({ name, imageUrl, weather });
   }
@@ -43,6 +43,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
+      handleInputChange={handleInputChange}
       modifierClass="add_item"
     >
       <label className="modal__label">
