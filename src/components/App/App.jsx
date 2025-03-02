@@ -43,18 +43,7 @@ function App() {
   const [isLiked, setIsLiked] = useState(false);
   
   
-  const [inputValue, setInputValue] = useState("");
-  const [inputError, setInputError] = useState(false);
-
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-    if (value === "" || value.length < 2) {
-      setInputError(true);  
-    } else {
-      setInputError(false); 
-    }
-  };
+  
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -290,7 +279,7 @@ function App() {
               onAddItem={handleAddItemSubmit}
               onCloseModal={closeActiveModal}
               isLoading={isLoading}
-              handleInputChange={handleInputChange}
+             
             />
 
             <ItemModal

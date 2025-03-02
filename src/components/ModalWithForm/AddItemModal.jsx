@@ -3,12 +3,23 @@ import { useState, useEffect } from "react";
 import "../ModalWithForm/AddItemModal.css";
 
 //import { useForm } from "../../Hooks/useForm.js";
-const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading, handleInputChange }) => {
+const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
   
- 
+  const [inputValue, setInputValue] = useState("");
+  const [inputError, setInputError] = useState(false);
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    if (value === "" || value.length < 2) {
+      setInputError(true);  
+    } else {
+      setInputError(false); 
+    }
+  };
   
    
  
@@ -43,7 +54,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading, handleInputC
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
-      handleInputChange={handleInputChange}
+      
       modifierClass="add_item"
     >
       <label className="modal__label">
@@ -52,7 +63,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading, handleInputC
           minLength="2"
           maxLength="30"
           type="text"
-          className="modal__input"
+          className={`modal__input ${inputError ? "modal__input_error" : ""}`}
           id="name"
           value={name}
           onChange={handleNameChange}
