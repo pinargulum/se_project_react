@@ -33,3 +33,10 @@
   border: solid 1px;
   border-radius: 4px;
 }
+.register_input {
+  display: block;
+  width: 440px;
+  margin-bottom: 24px;
+  border: none;
+  border-bottom: 1px solid black;
+}

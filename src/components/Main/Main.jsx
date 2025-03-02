@@ -3,7 +3,7 @@ import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import { useContext } from "react";
 import ItemCard from "../ItemCard/ItemCard.jsx";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import DeleteModal from "../../../DeleteModal/DeleteModal.jsx";
 
 function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {

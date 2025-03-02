@@ -1,7 +1,7 @@
 <ItemCard />;
 import React from "react";
 import { useContext, useEffect, useState } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "../ItemCard/ItemCard.css";
 

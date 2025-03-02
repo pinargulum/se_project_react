@@ -59,7 +59,7 @@ const RegisterModal = ({
       <input
         name="email"
         type="email"
-        className="modal__input"
+        className="register_input"
         value={email}
         placeholder="Email"
         onChange={handleEmailChange}
@@ -69,7 +69,7 @@ const RegisterModal = ({
       <input
         name="password"
         type="password"
-        className="modal__input"
+        className="register_input"
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
@@ -77,7 +77,7 @@ const RegisterModal = ({
       />
       <label className="modal__label">Name:</label>
       <input
-        className="modal__input"
+        className="register_input"
         name="name"
         type="text"
         value={name}
@@ -88,7 +88,7 @@ const RegisterModal = ({
       <label className="modal__label">Avatar URL:</label>
       <input
         type="url"
-        className="modal__input"
+        className="register_input"
         value={avatar}
         name="avatar"
         onChange={handleavatarChange}

@@ -1,6 +1,6 @@
 import "../SideBar/SideBar.css";
 import { useContext, useState, useEffect } from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 
 import { useNavigate } from "react-router-dom";
 //import { Link } from "react-router-dom";

@@ -3,7 +3,7 @@ import { useContext, createContext } from "react";
 
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
-import CurrentUserContext from "./contexts/CurrentUserContext";
+import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 
 function ProtectedRoute({ children }) {
   const location = useLocation();

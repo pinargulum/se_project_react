@@ -1,15 +1,10 @@
 import logo from "/src/assets/Logo.png";
-import defaultAvatar from "/src/assets/defaultAvatar.png";
 import "./Header.css";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
 import { Link } from "react-router-dom";
-//import UserContext  from "../contexts/UserContext.jsx";
-import { useContext, useEffect } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import ProtectedRoute from "../ProtectedRoute.jsx";
-import * as auth from "../../utils/auth.js";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
-import { useState } from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 
 const Header = ({
   handleAddClick,

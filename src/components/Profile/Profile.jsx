@@ -1,7 +1,7 @@
 import "../Profile/Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
-import CurrentUserContext from "../contexts/CurrentUserContext.jsx";
+import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import { useContext } from "react";
 //import ProfileEditModal from "../ProfileEdidModal/ProfileEditModal.jsx";
 function Profile({
