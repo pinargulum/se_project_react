@@ -1,5 +1,5 @@
-import "../DeleteModal/DeleteModal.css";
-import ModalWithForm from "../src/components/ModalWithForm/ModalWithForm";
+import "./DeleteModal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const DeleteModal = ({ activeModal, onCloseModal, handleCardDelete }) => {
   return (
     <div className={`modal ${activeModal === "delete" && "modal_opened"} `}>

@@ -8,7 +8,7 @@ import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
-import DeleteModal from "../../../DeleteModal/DeleteModal.jsx";
+import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 import Api from "../../utils/Api.js";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
