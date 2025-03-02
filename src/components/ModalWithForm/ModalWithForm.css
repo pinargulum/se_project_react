@@ -45,9 +45,9 @@
   width: 440px;
   margin-bottom: 24px;
   border: none;
-  border-bottom: 1px solid black;
+ 
 }
-.modal__input_error {
+.modal__form_error {
   display: block;
   width: 440px;
   margin-bottom: 24px;

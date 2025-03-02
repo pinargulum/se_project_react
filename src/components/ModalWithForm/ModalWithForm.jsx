@@ -1,7 +1,5 @@
-//import AddItemModal from "../AddItemModal/AddItemModal";
-import { useState } from "react";
 import "./ModalWithForm.css";
-import { showInputError } from "../../utils/validation";
+
 function ModalWithForm({
   children,
   buttonText,
@@ -9,10 +7,9 @@ function ModalWithForm({
   onClose,
   isOpen,
   onSubmit,
-  handleInputChange,
- 
   modifierClass = "",
 }) {
+  
   return (
     <div className={`modal ${isOpen && "modal_opened"} `}>
       <div className={`modal_content modal_content_${modifierClass}_form`}>
@@ -22,10 +19,11 @@ function ModalWithForm({
           type="button"
           className="modal__close-button modal__close-button_type_form"
         />
-        <form 
-          className={handleInputChange}
+        <form
+          className="modal__form"
           onSubmit={onSubmit}
         >
+         
           {children} {}
           <button
             className="modal__submit"

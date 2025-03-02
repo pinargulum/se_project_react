@@ -2,30 +2,15 @@ import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
 import "../ModalWithForm/AddItemModal.css";
 
-//import { useForm } from "../../Hooks/useForm.js";
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
-  
-  const [inputValue, setInputValue] = useState("");
-  const [inputError, setInputError] = useState(false);
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-    if (value === "" || value.length < 2) {
-      setInputError(true);  
-    } else {
-      setInputError(false); 
-    }
-  };
-  
-   
- 
   function handleNameChange(e) {
     setName(e.target.value);
   }
+
   function handleImageUrlChange(e) {
     setImageUrl(e.target.value);
   }
@@ -42,7 +27,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   }, [isOpen]);
 
   function handleSubmit(evt) {
-  handleInputChange()
     evt.preventDefault();
     onAddItem({ name, imageUrl, weather });
   }
@@ -54,16 +38,13 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       isOpen={isOpen}
       onClose={onCloseModal}
       onSubmit={handleSubmit}
-      
       modifierClass="add_item"
     >
-      <label className="modal__label">
+      <label className="modal__add_item">
         Name
         <input
-          minLength="2"
-          maxLength="30"
           type="text"
-          className={`modal__input ${inputError ? "modal__input_error" : ""}`}
+          className="add_item_input"
           id="name"
           value={name}
           onChange={handleNameChange}
@@ -71,12 +52,11 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
           required
         />
       </label>
-      <label className="modal__label">
+      <label className="modal__add_item">
         Image
         <input
-          minLength="2"
           type="text"
-          className="modal__input"
+          className="add_item_input"
           id="imageURL"
           placeholder="ImageURL"
           value={imageUrl}

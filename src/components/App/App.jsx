@@ -41,9 +41,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isLiked, setIsLiked] = useState(false);
-  
-  
-  
+
   ///////////////////////////////// HEADER /////////////////////////////////
 
   const handleToggleSwitchChange = () => {
@@ -226,14 +224,12 @@ function App() {
               <Route
                 path="/"
                 element={
-                 
                   <Main
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
                   />
-                  
                 }
               />
               <Route
@@ -279,7 +275,6 @@ function App() {
               onAddItem={handleAddItemSubmit}
               onCloseModal={closeActiveModal}
               isLoading={isLoading}
-             
             />
 
             <ItemModal

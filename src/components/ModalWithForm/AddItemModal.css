@@ -13,3 +13,18 @@
   font-weight: 700;
   position: relative;
 }
+.add_item_input {
+  display: block;
+  width: 440px;
+  margin-bottom: 24px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.add_item_input_error {
+  display: block;
+  width: 440px;
+  margin-bottom: 24px;
+  border: none;
+  border-bottom: 1px solid #ff0000;
+}
