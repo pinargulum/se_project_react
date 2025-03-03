@@ -14,7 +14,7 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const handleLikeButton = (likes) => {
   
     likes = item.likes === currentUser._id
-  if(currentUser) {
+  if(currentUser._id) {
       setActiveButton((prevState) => !prevState);
   }
   };
@@ -33,13 +33,13 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
     <li className="card">
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
-        {currentUser && (
+        
           <button
             type="button"
-            className={activeButton ? "like__button active" : "like__button"}
+            className={activeButton ? "like__button" : "like__button active" } 
             onClick={handleLike}
           ></button>
-        )}
+       
       </div>
       <img
         src={item.imageUrl}
