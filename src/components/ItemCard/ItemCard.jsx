@@ -5,18 +5,22 @@ import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "../ItemCard/ItemCard.css";
 
-function ItemCard({ item, onCardClick, onCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
+  item.likes.some((id) => id === currentUser._id);
+  
   const [activeButton, setActiveButton] = useState();
   
-  const handleLikeButton = () => {
-    item.likes.some((id) => id === currentUser._id);
+  const handleLikeButton = (likes) => {
   
+    likes = item.likes === currentUser._id
+  if(currentUser) {
       setActiveButton((prevState) => !prevState);
-    
+  }
   };
 
   const handleLike = () => {
+    
     handleLikeButton();
     onCardLike(item);
   };
