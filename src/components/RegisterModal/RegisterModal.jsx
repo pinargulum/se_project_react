@@ -38,12 +38,12 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleCreateUser({
+    handleCreateUser(
       name,
       avatar,
       email,
       password,
-    });
+    );
   };
 
   return (
@@ -63,7 +63,6 @@ const RegisterModal = ({
         value={email}
         placeholder="Email"
         onChange={handleEmailChange}
-        required
       />
       <label className="modal__label">Password:</label>
       <input
@@ -73,7 +72,6 @@ const RegisterModal = ({
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
-        required
       />
       <label className="modal__label">Name:</label>
       <input
@@ -83,7 +81,6 @@ const RegisterModal = ({
         value={name}
         onChange={handleNameChange}
         placeholder="Name"
-        required
       />
       <label className="modal__label">Avatar URL:</label>
       <input
@@ -93,7 +90,6 @@ const RegisterModal = ({
         name="avatar"
         onChange={handleavatarChange}
         placeholder="Avatar URL"
-        required
       />
 
       <button

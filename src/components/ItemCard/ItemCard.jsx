@@ -8,15 +8,15 @@ import "../ItemCard/ItemCard.css";
 function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
   const [activeButton, setActiveButton] = useState();
+  
   const handleLikeButton = () => {
     item.likes.some((id) => id === currentUser._id);
-    if (currentUser) {
+  
       setActiveButton((prevState) => !prevState);
-    }
+    
   };
 
   const handleLike = () => {
-    
     handleLikeButton();
     onCardLike(item);
   };
@@ -29,10 +29,10 @@ function ItemCard({ item, onCardClick, onCardLike }) {
     <li className="card">
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
-        {currentUser._id && (
+        {currentUser && (
           <button
             type="button"
-            className={!activeButton ? "like__button active" : "like__button"}
+            className={activeButton ? "like__button active" : "like__button"}
             onClick={handleLike}
           ></button>
         )}

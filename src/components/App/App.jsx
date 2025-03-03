@@ -201,7 +201,7 @@ function App() {
       .registerUser(email, password, name, avatar)
       .then((userData) => {
         handleLogin({ email, password });
-        closeActiveModal("signup");
+        closeActiveModal("");
       })
 
       .catch(console.error);
@@ -229,6 +229,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
@@ -278,6 +279,7 @@ function App() {
             />
 
             <ItemModal
+         
               activeModal={activeModal}
               deleteModalClick={deleteModalClick}
               card={selectedCard}
