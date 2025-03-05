@@ -127,13 +127,12 @@ function App() {
   }
   // like && dislike cards
    
-  function handleCardLike({ _id, token}) {
-    token = localStorage.getItem("token");
+  function handleCardLike({ _id, likes}) {
+    const token = localStorage.getItem("token");
     if (!isLiked) {
-      Api.addCardLike(_id, token)
+      Api.addCardLike(_id, token, likes)
         .then((cardData) => {
           setIsLiked(true);
-
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
