@@ -31,25 +31,25 @@ function deleteItem(_id, token) {
     //body: JSON.stringify({ _id })
   }).then(checkResponse);
 }
-function addCardLike(_id, token, likes) {
+function addCardLike(_id, token) {
   return fetch(`${baseUrl}/items/${_id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id, likes })
+    //body: JSON.stringify({ _id, likes })
   }).then(checkResponse);
 }
 
-function removeCardLike(_id, token, likes) {
+function removeCardLike(_id, token) {
   return fetch(`${baseUrl}/items/${_id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/Json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id, likes })
+    //body: JSON.stringify({ _id, likes })
   }).then(checkResponse);
 }
 const Api = {

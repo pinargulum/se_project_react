@@ -110,6 +110,7 @@ function App() {
       .catch(console.error);
   }
   // add new item
+  
   function handleAddItemSubmit(newItem, token) {
     const cardData = selectedCard._id === currentUser._id;
     token = localStorage.getItem("token");
@@ -125,10 +126,11 @@ function App() {
       .catch(console.error);
   }
   // like && dislike cards
-  function handleCardLike({ _id, likes, token }) {
+   
+  function handleCardLike({ _id, token}) {
     token = localStorage.getItem("token");
     if (!isLiked) {
-      Api.addCardLike(_id, token, likes)
+      Api.addCardLike(_id, token)
         .then((cardData) => {
           setIsLiked(true);
 

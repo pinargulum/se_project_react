@@ -7,23 +7,17 @@ import "../ItemCard/ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
-  item.likes.some((id) => id === currentUser._id);
-  
-  const [activeButton, setActiveButton] = useState();
-  
-  const handleLikeButton = (likes) => {
-  
-    likes = item.likes === currentUser._id
-  if(currentUser._id) {
-      setActiveButton((prevState) => !prevState);
-  }
-  };
+  const [activeButton, setActiveButton] = useState(item);
+  function handleLike(item) {
+    if (item.likes.some((like) => like === currentUser._id)) {
+      //item._id = item.likes === currentUser._id
 
-  const handleLike = () => {
-    
-    handleLikeButton();
+      setActiveButton("like__buton:active");
+    } else {
+      setActiveButton("like__button");
+    }
     onCardLike(item);
-  };
+  }
 
   const handleCardClik = () => {
     onCardClick(item);
@@ -33,14 +27,14 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
     <li className="card">
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
-        
-          <button
-            type="button"
-            className={activeButton ? "like__button" : "like__button active" } 
-            onClick={handleLike}
-          ></button>
-       
+
+        <button
+          type="button"
+          className={activeButton} //{currentUser ? "like__button active" : "like__button"}
+          onClick={() => handleLike(item)}
+        ></button>
       </div>
+
       <img
         src={item.imageUrl}
         alt={item.name}
