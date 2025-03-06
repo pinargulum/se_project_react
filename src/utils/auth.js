@@ -32,7 +32,7 @@ export function registerUser(email, password, name, avatar) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password, name, avatar }),
+    body: JSON.stringify(email, password, name, avatar),
   }).then(checkResponse);
 }
 

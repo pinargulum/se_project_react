@@ -69,7 +69,7 @@ const RegisterModal = ({
       />
       <label
         className="modal__label"
-        htmlFor="password"
+        htmlFor="name"
       >
         Name:
       </label>
@@ -95,6 +95,7 @@ const RegisterModal = ({
         name="avatar"
         onChange={handleChange}
         placeholder="Avatar URL"
+        required
       />
 
       <button

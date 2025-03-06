@@ -203,7 +203,7 @@ function App() {
       .catch(console.error);
   };
   //register function
-  const handleCreateUser = ({ email, password, name, avatar }) => {
+  const handleCreateUser = (email, password, name, avatar) => {
     auth.registerUser(email, password, name, avatar).then((userData) => {
       handleLogin({ email, password });
       closeActiveModal("");
