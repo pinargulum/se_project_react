@@ -96,6 +96,7 @@ const RegisterModal = ({
         onClick={loginModal}
         className="second__button"
         type="submit"
+        disabled
       >
         or Log in
       </button>

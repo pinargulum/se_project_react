@@ -28,6 +28,7 @@ function ModalWithForm({
           <button
             className="modal__submit"
             type="submit"
+            disabled
           >
             {buttonText}
           </button>
