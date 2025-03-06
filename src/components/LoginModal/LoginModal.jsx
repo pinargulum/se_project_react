@@ -56,8 +56,8 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
 
       <button onClick={registerModal}
         className="second__button"
-        type="submit"
-        disabled
+        type="button"
+        
       >
         or Sign up
       </button>
