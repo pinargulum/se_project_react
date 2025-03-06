@@ -159,8 +159,8 @@ function App() {
 
   //////////////////////   USER    //////////////////////////
   // function to get the user data
-  function getUserData(token) {
-    token = localStorage.getItem("token");
+  function getUserData() {
+    const token = localStorage.getItem("token");
     auth
       .getCurrentUser(token)
       .then((data) => {
@@ -179,9 +179,8 @@ function App() {
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
     const makeRequest = () => {
-      return auth.updateProfile(token, name, avatar).then((data, update) => {
-        getUserData(data);
-        setCurrentUser({ data: update });
+      return auth.updateProfile(token, name, avatar).then(() => {
+        setCurrentUser(currentUser);
       });
     };
     handleSubmit(makeRequest);
