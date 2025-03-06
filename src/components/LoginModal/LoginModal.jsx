@@ -6,9 +6,10 @@ import { useForm } from "../../utils/hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
-  const { values, handleChange, setValues } = useForm({});
+  const { values, handleChange, setValues } = useForm({ email: "", password: "" });
 
-  
+
+
   //function handleEmailChange(e) {
   //values
   //}
@@ -17,15 +18,14 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
   //}
   useEffect(() => {
     if (isOpen) {
-      //setEmail("");
-      //setPassword("");
       setValues("");
     }
   }, [isOpen]);
 
   function handleSubmit(evt) {
+   const inputValues = (values.email, values.password)
     evt.preventDefault();
-    handleLogin(values);
+    handleLogin({ inputValues });
   }
   return (
     <ModalWithForm
@@ -43,7 +43,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
         className="login_input"
         placeholder="Email"
         onChange={handleChange}
-        values={values}
+        value={values.email}
       />
 
       <label className="modal__label">Password:</label>
@@ -52,7 +52,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
         onChange={handleChange}
         className="login_input"
         placeholder="Password"
-        values={values}
+        value={values.password}
       />
       <button
         onClick={registerModal}
