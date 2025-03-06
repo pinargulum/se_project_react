@@ -7,8 +7,8 @@ import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
   const currentUser = useContext(CurrentUserContext);
   const [data, setData] = useState({
-    name: currentUser.name,
-    avatar: currentUser.avatar,
+    name: currentUser.name || "",
+    avatar: currentUser.avatar || "",
   });
   if (!currentUser || !currentUser._id) {
     return null;
@@ -20,14 +20,15 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
       [name]: value,
     }));
   };
+  /*
 useEffect(() => {
     if (isOpen) {
       setData(data.name, data.avatar);
     }
   }, [isOpen]);
+  */
   const handleSubmit = (e) => {
     e.preventDefault();
-
     return handleProfileChange(data);
   };
   return (
