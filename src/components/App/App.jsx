@@ -188,7 +188,7 @@ function App() {
   };
 
   //login function
-  const handleLogin = (email, password) => {
+  const handleLogin = ({ email, password }) => {
     if (!email, !password) {
       return;
     }

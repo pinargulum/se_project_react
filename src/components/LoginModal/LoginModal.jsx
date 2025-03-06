@@ -20,7 +20,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
   function handleSubmit(evt) {
     const inputValues = (values.email, values.password);
     evt.preventDefault();
-    handleLogin({ inputValues });
+    handleLogin(values.email, values.password);
   }
   return (
     <ModalWithForm
@@ -39,6 +39,8 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
       </label>
       <input
         type="email"
+        id="email"
+        name="email"
         className="login_input"
         placeholder="Email"
         onChange={handleChange}
@@ -54,6 +56,8 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
       </label>
       <input
         type="password"
+        name="password"
+        id="password"
         onChange={handleChange}
         className="login_input"
         placeholder="Password"
