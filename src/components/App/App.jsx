@@ -62,7 +62,7 @@ function App() {
     setIsLoading(true);
     request()
       // we need to close only in `then`
-      .then(closeActiveModal) 
+      .then(closeActiveModal)
       // we need to catch possible errors
       // console.error is used to handle errors if you don’t have any other ways for that
       .catch(console.error)
@@ -104,45 +104,32 @@ function App() {
       })
       .catch(console.error);
   }, []);
+
   // delete a card
   function handleCardDelete() {
     const token = localStorage.getItem("token");
     const item = selectedCard._id;
-    Api.deleteItem(item, token)
-      .then((cardData) => {
+    const makeRequest = () => {
+      return Api.deleteItem(item, token).then((cardData) => {
         getUserData(cardData.token);
         setIsLoggedIn(true);
-
         setClothingItems((prewItems) =>
           prewItems.filter((prewItem) => prewItem._id !== item),
         );
-        closeActiveModal("delete");
-      })
-      .catch(console.error);
-  }
-  const handleAddItem = (item) => {
-    // here we create a function that returns a promise
-    const makeRequest = () => {
-      // `return` lets us use a promise chain `then, catch, finally`
-      return addNewItem(item).then((item) => {
-        setClothingItems([item, ...clothingItems]);
       });
     };
-    // here we call handleSubmit passing the request
     handleSubmit(makeRequest);
-  };
+  }
   // add new item
   function handleAddItemSubmit(newItem) {
     const token = localStorage.getItem("token");
     const makeRequest = () => {
-    return Api.addClothingItem(newItem, token)
-    .then((newItem) => {
-      setClothingItems([newItem, ...clothingItems]) 
-  })
-}
-  handleSubmit(makeRequest);
-
-}
+      return Api.addClothingItem(newItem, token).then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+      });
+    };
+    handleSubmit(makeRequest);
+  }
   // like && dislike cards
   const [isLiked, setIsLiked] = useState([""]);
   function toggleButton() {
@@ -196,6 +183,7 @@ function App() {
   // update user data
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
+    
     auth
       .updateProfile(token, name, avatar)
       .then((data, update) => {
