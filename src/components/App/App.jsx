@@ -123,7 +123,7 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error)
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(false));
   }
   // like && dislike cards
   const [isLiked, setIsLiked] = useState([""]);
@@ -205,12 +205,10 @@ function App() {
   };
   //register function
   const handleCreateUser = ({ email, password, name, avatar }) => {
-    auth
-      .registerUser(email, password, name, avatar)
-      .then((userData) => {
-        handleLogin({ email, password });
-        closeActiveModal("");
-      })
+    auth.registerUser(email, password, name, avatar).then((userData) => {
+      handleLogin({ email, password });
+      closeActiveModal("");
+    });
   };
 
   return (
