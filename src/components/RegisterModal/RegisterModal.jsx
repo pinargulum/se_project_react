@@ -25,7 +25,7 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleCreateUser(values.name, values.avatar, values.email, values.password);
+    handleCreateUser( values.email, values.password, values.name, values.avatar);
   };
 
   return (
@@ -84,7 +84,7 @@ const RegisterModal = ({
       />
       <label
         className="modal__label"
-        htmlFor="avatar Url"
+        htmlFor="avatar"
       >
         Avatar Url:
       </label>
