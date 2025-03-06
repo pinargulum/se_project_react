@@ -57,6 +57,18 @@ function App() {
       .catch(console.error);
   }, []);
 
+  function handleSubmit(request) {
+    // start loading
+    setIsLoading(true);
+    request()
+      // we need to close only in `then`
+      .then(closeActiveModal) 
+      // we need to catch possible errors
+      // console.error is used to handle errors if you don’t have any other ways for that
+      .catch(console.error)
+      // and in finally we need to stop loading
+      .finally(() => setIsLoading(false));
+  }
   ///////////////////////////MODALS////////////////////////////
 
   const handleAddClick = () => {
@@ -108,23 +120,29 @@ function App() {
       })
       .catch(console.error);
   }
+  const handleAddItem = (item) => {
+    // here we create a function that returns a promise
+    const makeRequest = () => {
+      // `return` lets us use a promise chain `then, catch, finally`
+      return addNewItem(item).then((item) => {
+        setClothingItems([item, ...clothingItems]);
+      });
+    };
+    // here we call handleSubmit passing the request
+    handleSubmit(makeRequest);
+  };
   // add new item
-
   function handleAddItemSubmit(newItem) {
-    const cardData = selectedCard._id === currentUser._id;
     const token = localStorage.getItem("token");
-    setIsLoading(true);
-    Api.addClothingItem(newItem, token)
-      .then((newItem) => {
-        //getUserData(cardData.token);
-        //setIsLoggedIn(true);
-        setClothingItems([newItem, ...clothingItems]);
-        setIsLoading(false);
-        closeActiveModal();
-      })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
-  }
+    const makeRequest = () => {
+    return Api.addClothingItem(newItem, token)
+    .then((newItem) => {
+      setClothingItems([newItem, ...clothingItems]) 
+  })
+}
+  handleSubmit(makeRequest);
+
+}
   // like && dislike cards
   const [isLiked, setIsLiked] = useState([""]);
   function toggleButton() {
