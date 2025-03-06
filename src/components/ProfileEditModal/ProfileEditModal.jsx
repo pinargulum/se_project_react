@@ -3,44 +3,27 @@ import { useState, useEffect, useContext } from "react";
 import "../ProfileEditModal/ProfileEditModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
-import { useForm } from "../../utils/hooks/useForm";
+
+
 const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
-  
   const currentUser = useContext(CurrentUserContext);
-
-  const { values, handleChange, setValues } = useForm({
-    name: "",
-    avatar: "",
-  });
-
-  useEffect(() => {
-    setValues("");
-  });
-
-  /*
   const [data, setData] = useState({
     name: currentUser.name || "",
     avatar: currentUser.avatar || "",
   });
-
   if (!currentUser || !currentUser._id) {
     return null;
   }
-*/
-
-  /*
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
-*/
   const handleSubmit = (e) => {
     e.preventDefault();
-    return handleProfileChange(values.name, values.avatar);
+    return handleProfileChange(data);
   };
   return (
     <ModalWithForm
@@ -62,12 +45,12 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
         type="text"
         className="change_data_input"
         placeholder="Name"
-        value={values.name || ""}
+        value={data.name}
         onChange={handleChange}
       />
       <label
         className="modal__label"
-        htmlFor="name"
+        htmlFor="avatar"
       >
         Avatar:
       </label>
@@ -75,13 +58,11 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
         name="avatar"
         type="url"
         className="change_data_input"
-        value={values.avatar || ""}
+        value={data.avatar}
         onChange={handleChange}
         placeholder="Avatar"
-        required
       />
     </ModalWithForm>
   );
 };
-
 export default ProfileEditModal;

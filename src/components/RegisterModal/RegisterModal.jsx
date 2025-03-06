@@ -25,7 +25,7 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleCreateUser( values.email, values.password, values.name, values.avatar);
+    handleCreateUser(values.email, values.password, values.name, values.avatar);
   };
 
   return (
@@ -37,7 +37,7 @@ const RegisterModal = ({
       onSubmit={handleSubmit}
       modifierClass="register"
     >
-       <label
+      <label
         className="modal__label"
         htmlFor="email"
       >
@@ -86,18 +86,17 @@ const RegisterModal = ({
         className="modal__label"
         htmlFor="avatar"
       >
-        Avatar Url:
+        Avatar:
       </label>
       <input
-        type="url"
-        className="register_input"
-        value={values.avatar || ""}
         name="avatar"
+        type="url"
+        className="change_data_input"
+        value={values.avatar || ""}
         onChange={handleChange}
-        placeholder="Avatar URL"
+        placeholder="Avatar"
         required
       />
-
       <button
         onClick={loginModal}
         className="second__button"
