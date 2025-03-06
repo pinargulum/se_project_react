@@ -204,8 +204,8 @@ function App() {
   };
   //register function
   const handleCreateUser = (email, password, name, avatar) => {
-    auth.registerUser(email, password, name, avatar).then((userData) => {
-      handleLogin({ email, password });
+    auth.registerUser({ email, password, name, avatar }).then((userData) => {
+      handleLogin(email, password);
       closeActiveModal("");
     });
   };
