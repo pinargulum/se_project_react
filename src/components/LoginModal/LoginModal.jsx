@@ -2,27 +2,30 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../LoginModal/LoginModal.css";
+import { useForm } from "../../utils/hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
+  const { values, handleChange, setValues } = useForm({});
+
+  
+  //function handleEmailChange(e) {
+  //values
+  //}
+  //function handlePasswordChange(e) {
+  //setPassword(e.target.value);
+  //}
   useEffect(() => {
     if (isOpen) {
-      setEmail("");
-      setPassword("");
+      //setEmail("");
+      //setPassword("");
+      setValues("");
     }
   }, [isOpen]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    handleLogin({ email, password });
+    handleLogin(values);
   }
   return (
     <ModalWithForm
@@ -37,27 +40,24 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
 
       <input
         type="email"
-       className="login_input"
+        className="login_input"
         placeholder="Email"
-        onChange={handleEmailChange}
-        value={email}
-        
+        onChange={handleChange}
+        values={values}
       />
 
       <label className="modal__label">Password:</label>
       <input
         type="password"
-        value={password}
-        onChange={handlePasswordChange}
+        onChange={handleChange}
         className="login_input"
         placeholder="Password"
-        
+        values={values}
       />
-
-      <button onClick={registerModal}
+      <button
+        onClick={registerModal}
         className="second__button"
         type="button"
-        
       >
         or Sign up
       </button>

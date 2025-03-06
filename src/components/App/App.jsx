@@ -57,13 +57,7 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function handleSubmit(request) {
-    setIsLoading(true);
-    request()
-      .then(closeActiveModal)
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
-  }
+ 
   ///////////////////////////MODALS////////////////////////////
 
   const handleAddClick = () => {
@@ -85,6 +79,13 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+  function handleSubmit(request) {
+    setIsLoading(true);
+    request()
+      .then(closeActiveModal)
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  }
   /////////////////////////// CLOTHING ITEMS //////////////////
 
   const handleCardClick = (item) => {
@@ -135,26 +136,26 @@ function App() {
 
   function handleCardLike({ _id, likes }) {
     const token = localStorage.getItem("token");
-    likes
-      ? Api.addCardLike(_id, token)
-          .then((item) => {
-            setIsLoggedIn(true);
-            toggleButton();
-            setClothingItems((prewItems) =>
-              prewItems.filter((prewItem) => prewItem._id !== item),
-            );
-          })
-          .catch(console.error)
-      : //const token = localStorage.getItem("token")
-        Api.removeCardLike(_id, token)
-          .then((item) => {
-            setIsLoggedIn(true);
-            toggleButton();
-            setClothingItems((prewItems) =>
-              prewItems.filter((prewItem) => prewItem._id !== item),
-            );
-          })
-          .catch(console.error);
+    if (!isLiked) {
+      Api.addCardLike(_id, token, likes)
+        .then((cardData) => {
+          setIsLiked(true);
+          setClothingItems((prewItems) =>
+            prewItems.filter((item) => item._id !== cardData),
+          );
+        })
+        .catch(console.error);
+    }
+    if (isLiked) {
+      Api.removeCardLike(_id, token, likes)
+        .then((cardData) => {
+          setIsLiked(false);
+          setClothingItems((prewItems) =>
+            prewItems.filter((item) => item._id !== cardData),
+          );
+        })
+        .catch(console.error);
+    }
   }
 
   //////////////////////   USER    //////////////////////////
@@ -188,7 +189,7 @@ function App() {
 
   //login function
   const handleLogin = ({ email, password }) => {
-    if (!email || !password) {
+    if (!email, !password) {
       return;
     }
     auth
