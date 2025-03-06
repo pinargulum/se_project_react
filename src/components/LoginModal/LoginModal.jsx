@@ -44,13 +44,13 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
         className="login_input"
         placeholder="Email"
         onChange={handleChange}
-        value={values.email}
+        value={values.email || ""}
         required
       />
 
       <label
         className="modal__label"
-        htmlFor="email"
+        htmlFor="password"
       >
         Password:
       </label>
@@ -61,7 +61,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
         onChange={handleChange}
         className="login_input"
         placeholder="Password"
-        value={values.password}
+        value={values.password || ""}
         required
       />
       <button
