@@ -58,15 +58,10 @@ function App() {
   }, []);
 
   function handleSubmit(request) {
-    // start loading
     setIsLoading(true);
     request()
-      // we need to close only in `then`
       .then(closeActiveModal)
-      // we need to catch possible errors
-      // console.error is used to handle errors if you don’t have any other ways for that
       .catch(console.error)
-      // and in finally we need to stop loading
       .finally(() => setIsLoading(false));
   }
   ///////////////////////////MODALS////////////////////////////
@@ -183,15 +178,13 @@ function App() {
   // update user data
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
-    
-    auth
-      .updateProfile(token, name, avatar)
-      .then((data, update) => {
+    const makeRequest = () => {
+      return auth.updateProfile(token, name, avatar).then((data, update) => {
         getUserData(data);
         setCurrentUser({ data: update });
-        closeActiveModal("profile");
-      })
-      .catch(console.error);
+      });
+    };
+    handleSubmit(makeRequest);
   };
 
   //login function
