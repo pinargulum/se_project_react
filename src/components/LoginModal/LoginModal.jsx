@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import "../LoginModal/LoginModal.css";
 import { useForm } from "../../utils/hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
