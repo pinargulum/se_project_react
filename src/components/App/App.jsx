@@ -93,9 +93,9 @@ function App() {
       .catch(console.error);
   }, []);
   // delete a card
-  function handleCardDelete({ item, token }) {
-    token = localStorage.getItem("token");
-    item = selectedCard._id;
+  function handleCardDelete() {
+    const token = localStorage.getItem("token");
+    const item = selectedCard._id;
     Api.deleteItem(item, token)
       .then((cardData) => {
         getUserData(cardData.token);
@@ -211,7 +211,7 @@ function App() {
         closeActiveModal("");
       })
   };
-  
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
