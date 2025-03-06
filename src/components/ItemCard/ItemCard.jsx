@@ -6,38 +6,13 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "../ItemCard/ItemCard.css";
 
 
-
-  /*
-  function toggleLikes(_id) {
-    item.likes = activeButton === currentUser._id 
-   //const isLiked = activeButton
-    _id = item.likes  === currentUser._id
-   //!isLiked 
-    //item.likes.some((like) => like === currentUser._id)?
-      //item._id = item.likes === currentUser._id
-      setActiveButton(item._id)
-   
-
-      
+function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
+  const currentUser = useContext(CurrentUserContext);
+ //const [activeButton, setActiveButton] = useState();
+const handleLikes = () => {
+  onCardLike(item)
+}
  
-      }
-      */
-      function ItemCard({ item, onCardClick, onCardLike }) {
-        const currentUser = useContext(CurrentUserContext);
-        const [activeButton, setActiveButton] = useState();
-        
-        const handleLikeButton = () => {
-          item.likes.some((id) => id === currentUser._id);
-          if (currentUser) {
-            setActiveButton((prevState) => !prevState);
-          }
-        };
-        const handleLike = () => {
-          handleLikeButton()
-          onCardLike(item)
-        }
-      
-
   const handleCardClik = () => {
     onCardClick(item);
   };
@@ -46,13 +21,13 @@ import "../ItemCard/ItemCard.css";
     <li className="card">
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
-        {currentUser._id && (
-          <button
-            type="button"
-            className={!activeButton ? "like__button active" : "like__button"}
-            onClick={handleLike}
-          ></button>
-        )}
+        {currentUser._id && 
+        <button
+          type="button"
+          className="like__button"
+          onClick={handleLikes}
+        ></button>
+        }
       </div>
 
       <img
@@ -60,8 +35,7 @@ import "../ItemCard/ItemCard.css";
         alt={item.name}
         onClick={handleCardClik}
         className="cards__image"
-        //onCardLike={handleLike}
-       
+        
       />
     </li>
   );

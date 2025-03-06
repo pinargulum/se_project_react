@@ -38,12 +38,12 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleCreateUser(
+    handleCreateUser({
       name,
       avatar,
       email,
       password,
-    );
+  });
   };
 
   return (

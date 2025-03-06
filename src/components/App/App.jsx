@@ -40,7 +40,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [isLiked, setIsLiked] = useState(false);
 
   ///////////////////////////////// HEADER /////////////////////////////////
 
@@ -110,7 +109,7 @@ function App() {
       .catch(console.error);
   }
   // add new item
-  
+
   function handleAddItemSubmit(newItem, token) {
     const cardData = selectedCard._id === currentUser._id;
     token = localStorage.getItem("token");
@@ -126,30 +125,37 @@ function App() {
       .catch(console.error);
   }
   // like && dislike cards
-   
-  function handleCardLike({ _id, likes}) {
-    const token = localStorage.getItem("token");
-    if (!isLiked) {
-      Api.addCardLike(_id, token, likes)
-        .then((cardData) => {
-          setIsLiked(true);
-          setClothingItems((prewItems) =>
-            prewItems.filter((item) => item._id !== cardData),
-          );
-        })
-        .catch(console.error);
-    }
-    if (isLiked) {
-      Api.removeCardLike(_id, token, likes)
-        .then((cardData) => {
-          setIsLiked(false);
-          setClothingItems((prewItems) =>
-            prewItems.filter((item) => item._id !== cardData),
-          );
-        })
-        .catch(console.error);
-    }
+  const [isLiked, setIsLiked] = useState([""]);
+  function toggleButton() {
+    currentUser._id === isLiked
+      ? setIsLiked(".button__like active")
+      : setIsLiked(".button__like");
   }
+
+  function handleCardLike({ _id, likes }) {
+    const token = localStorage.getItem("token");
+    likes
+      ? Api.addCardLike(_id, token)
+          .then((item) => {
+            setIsLoggedIn(true);
+            toggleButton();
+            setClothingItems((prewItems) =>
+              prewItems.filter((prewItem) => prewItem._id !== item),
+            );
+          })
+          .catch(console.error)
+      : //const token = localStorage.getItem("token")
+        Api.removeCardLike(_id, token)
+          .then((item) => {
+            setIsLoggedIn(true);
+            toggleButton();
+            setClothingItems((prewItems) =>
+              prewItems.filter((prewItem) => prewItem._id !== item),
+            );
+          })
+          .catch(console.error);
+  }
+
   //////////////////////   USER    //////////////////////////
   // function to get the user data
   function getUserData(token) {
@@ -204,9 +210,8 @@ function App() {
         handleLogin({ email, password });
         closeActiveModal("");
       })
-
-      .catch(console.error);
   };
+  
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -280,7 +285,6 @@ function App() {
             />
 
             <ItemModal
-         
               activeModal={activeModal}
               deleteModalClick={deleteModalClick}
               card={selectedCard}
