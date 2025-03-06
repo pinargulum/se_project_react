@@ -110,19 +110,20 @@ function App() {
   }
   // add new item
 
-  function handleAddItemSubmit(newItem, token) {
+  function handleAddItemSubmit(newItem) {
     const cardData = selectedCard._id === currentUser._id;
-    token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     setIsLoading(true);
     Api.addClothingItem(newItem, token)
       .then((newItem) => {
-        getUserData(cardData.token);
-        setIsLoggedIn(true);
+        //getUserData(cardData.token);
+        //setIsLoggedIn(true);
         setClothingItems([newItem, ...clothingItems]);
         setIsLoading(false);
         closeActiveModal();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setIsLoading(false))
   }
   // like && dislike cards
   const [isLiked, setIsLiked] = useState([""]);
