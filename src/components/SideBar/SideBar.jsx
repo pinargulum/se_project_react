@@ -7,14 +7,15 @@ import { Link } from "react-router-dom";
 
 function SideBar({ handleEditClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
-  const navigate = useNavigate;
-
-  const handleLogout = () => {
-    !isLoggedIn;
-    !currentUser._id;
-    localStorage.removeItem("token");
+  const navigate = useNavigate();
+  const LogoutButton = () => {
+    localStorage.getItem("token")
+    isLoggedIn
+    if (isLoggedIn) {
+      localStorage.removeItem("token");
+      navigate("/");
+    }
   };
-
   return (
     <div className="profile__sidebar">
       {currentUser && (
@@ -35,17 +36,14 @@ function SideBar({ handleEditClick, isLoggedIn }) {
             >
               Change profile data
             </button>
-        
 
-              <button
-                onClick={handleLogout}
-                type="submit"
-                className="sidebar__button logout"
-              >
-                Log out
-              </button>
-            
-
+            <button
+              onClick={LogoutButton}
+              type="button"
+              className="sidebar__button logout"
+            >
+              Log out
+            </button>
           </div>
         </div>
       )}
