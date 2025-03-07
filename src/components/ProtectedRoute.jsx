@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, createContext } from "react";
+import { useContext, createContext, useEffect } from "react";
 
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
@@ -12,28 +12,22 @@ function ProtectedRoute({ children }) {
 
   const currentUser = useContext(CurrentUserContext);
   const { isLoggedIn } = createContext(currentUser);
-/*
-  if (!currentUser && isLoggedIn) {
-    return <Navigate to={from} />;
-  }
-  if (isLoggedIn && !currentUser) {
-    <Navigate
-      to="/"
-      state={{ from: location }}
-    />;
-  }
-*/
-  if (isLoggedIn && !currentUser) {
-    return (
-      <Navigate
-        to="/"
-        state={{ from: location }}
-      />
-    );
-  }
-  
 
-return children;
+  useEffect(() => {
+    if (!isLoggedIn && currentUser) {
+      <Navigate
+        to="/profile"
+        state={{ from: location }}
+      />;
+    }
+    if (isLoggedIn && !currentUser) {
+      //navigate("/") ;
+      <Link to="/" 
+      state={{ from: location }} />
+    }
+  }, [isLoggedIn, currentUser]);
+
+  return children;
 }
 
 export default ProtectedRoute;

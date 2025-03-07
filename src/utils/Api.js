@@ -6,10 +6,14 @@ export function checkResponse(res) {
   }
   return Promise.reject(`Error: ${res.status}`);
 }
+function request(baseUrl, options) {
+  return fetch(baseUrl, options).then(checkResponse)
+}
 
 function getClothingItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }
+
 
 function addClothingItem(item, token) {
   return fetch(`${baseUrl}/items`, {

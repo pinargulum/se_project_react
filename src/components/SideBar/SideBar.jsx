@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 
 import { useNavigate, Navigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 
 function SideBar({ handleEditClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
@@ -11,12 +11,14 @@ function SideBar({ handleEditClick, isLoggedIn }) {
 
   function LogoutButton() {
     localStorage.removeItem("token");
+
     navigate("/");
   }
 
   return (
+   
     <div className="profile__sidebar">
-      {currentUser && (
+      {currentUser._id && (
         <div className="profile__user-info">
           <div className="sidebar__user-container">
             <img
@@ -26,6 +28,7 @@ function SideBar({ handleEditClick, isLoggedIn }) {
             />
             <p className="sidebar__username">{currentUser.name}</p>
           </div>
+         
           <div className="sidebar__change-profile">
             <button
               onClick={handleEditClick}
@@ -43,8 +46,9 @@ function SideBar({ handleEditClick, isLoggedIn }) {
               Log out
             </button>
           </div>
+         
         </div>
-      )}
+       )}
     </div>
   );
 }
