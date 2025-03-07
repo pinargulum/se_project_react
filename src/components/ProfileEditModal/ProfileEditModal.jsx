@@ -14,12 +14,12 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
 
   useEffect(() => {
     if (isOpen) {
-      setValues(values);
+      setValues(values);   /// ASK 
     }
   }, [isOpen]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();        
     handleProfileChange(values);
   };
   return (
