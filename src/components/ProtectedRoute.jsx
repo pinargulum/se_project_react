@@ -23,26 +23,17 @@ function ProtectedRoute({ children }) {
     />;
   }
 
-  if (isLoggedIn && currentUser) {
+  if (!isLoggedIn && !currentUser) {
     return (
       <Navigate
-        to="profile"
+        to="/"
         state={{ from: location }}
       />
     );
   }
-
-  if (isLoggedIn && currentUser) {
-    return (
-      <div>
-        <div>Profile</div>
-        <p>Current Path: {location.pathname}</p>
-      </div>
-    );
-  }
   
 
-  return children;
+return children;
 }
 
 export default ProtectedRoute;

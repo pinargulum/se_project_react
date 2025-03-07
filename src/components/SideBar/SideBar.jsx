@@ -2,20 +2,17 @@ import "../SideBar/SideBar.css";
 import { useContext, useState, useEffect } from "react";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 
-import { useNavigate } from "react-router-dom";
-//import { Link } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SideBar({ handleEditClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate;
 
   const handleLogout = () => {
+    !isLoggedIn;
+    !currentUser._id;
     localStorage.removeItem("token");
-    if (!isLoggedIn) {
-      navigate("/login");
-    }
-    const timer = setTimeout(() => {}, 1000);
-    return () => clearTimeout(timer);
   };
 
   return (
@@ -38,14 +35,17 @@ function SideBar({ handleEditClick, isLoggedIn }) {
             >
               Change profile data
             </button>
+        
 
-            <button
-              onClick={handleLogout}
-              type="button"
-              className="sidebar__button logout"
-            >
-              Log out
-            </button>
+              <button
+                onClick={handleLogout}
+                type="submit"
+                className="sidebar__button logout"
+              >
+                Log out
+              </button>
+            
+
           </div>
         </div>
       )}
