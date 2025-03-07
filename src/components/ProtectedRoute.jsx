@@ -21,9 +21,7 @@ function ProtectedRoute({ children }) {
       />;
     }
     if (isLoggedIn && !currentUser) {
-      //navigate("/") ;
-      <Link to="/" 
-      state={{ from: location }} />
+      navigate("/");
     }
   }, [isLoggedIn, currentUser]);
 
