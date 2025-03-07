@@ -10,7 +10,8 @@ function SideBar({ handleEditClick, isLoggedIn }) {
   const navigate = useNavigate();
   const LogoutButton = () => {
     localStorage.getItem("token")
-    isLoggedIn
+    //isLoggedIn
+    //currentUser
     if (isLoggedIn) {
       localStorage.removeItem("token");
       navigate("/");

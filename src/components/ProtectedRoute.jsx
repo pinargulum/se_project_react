@@ -12,18 +12,18 @@ function ProtectedRoute({ children }) {
 
   const currentUser = useContext(CurrentUserContext);
   const { isLoggedIn } = createContext(currentUser);
-
-  if (currentUser && isLoggedIn) {
+/*
+  if (!currentUser && isLoggedIn) {
     return <Navigate to={from} />;
   }
-  if (isLoggedIn && currentUser) {
+  if (isLoggedIn && !currentUser) {
     <Navigate
       to="/"
       state={{ from: location }}
     />;
   }
-
-  if (!isLoggedIn && !currentUser) {
+*/
+  if (isLoggedIn && !currentUser) {
     return (
       <Navigate
         to="/"

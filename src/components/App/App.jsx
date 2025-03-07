@@ -127,8 +127,9 @@ function App() {
     handleSubmit(makeRequest);
   }
   // like && dislike cards
-  const [isLiked, setIsLiked] = useState([""]);
+  const [isLiked, setIsLiked] = useState(false);
   function toggleButton() {
+    setIsLiked(true)
     currentUser._id === isLiked
       ? setIsLiked(".button__like active")
       : setIsLiked(".button__like");
@@ -139,7 +140,7 @@ function App() {
     if (!isLiked) {
       Api.addCardLike(_id, token, likes)
         .then((cardData) => {
-          setIsLiked(true);
+         toggleButton(cardData)
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
@@ -179,8 +180,9 @@ function App() {
   // update user data
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
-    const makeRequest = () => {
+    const makeRequest = (data) => {
       return auth.updateProfile(token, name, avatar).then(() => {
+        getUserData(data)
         setCurrentUser(currentUser);
       });
     };
@@ -196,8 +198,9 @@ function App() {
       .loginUser(email, password)
       .then((data) => {
         localStorage.setItem("token", data.token);
-        getUserData(data.token);
+        getUserData(data);
         setIsLoggedIn(true);
+        setCurrentUser(currentUser)
         closeActiveModal();
       })
       .catch(console.error);

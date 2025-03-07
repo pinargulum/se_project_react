@@ -20,7 +20,7 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
       [name]: value,
     }));
   };
-  /*
+ /* 
 useEffect(() => {
     if (isOpen) {
       setData(data.name, data.avatar);
@@ -29,7 +29,9 @@ useEffect(() => {
   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    return handleProfileChange(data);
+    
+    handleProfileChange(data);
+    return (currentUser.name, currentUser.avatar)
   };
   return (
     <ModalWithForm
