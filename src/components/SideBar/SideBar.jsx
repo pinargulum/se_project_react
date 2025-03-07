@@ -8,15 +8,14 @@ import { Link } from "react-router-dom";
 function SideBar({ handleEditClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate();
-  const LogoutButton = () => {
-    localStorage.getItem("token")
-    //isLoggedIn
-    //currentUser
-    if (isLoggedIn) {
+  
+  function LogoutButton()  {
       localStorage.removeItem("token");
       navigate("/");
-    }
-  };
+      //return isLoggedIn && !currentUser
+  }
+   
+
   return (
     <div className="profile__sidebar">
       {currentUser && (

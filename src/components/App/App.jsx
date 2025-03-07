@@ -57,7 +57,6 @@ function App() {
       .catch(console.error);
   }, []);
 
- 
   ///////////////////////////MODALS////////////////////////////
 
   const handleAddClick = () => {
@@ -71,7 +70,6 @@ function App() {
   };
   const handleEditClick = () => {
     setActiveModal("profile");
-    
   };
   const deleteModalClick = () => {
     setActiveModal("delete");
@@ -130,7 +128,7 @@ function App() {
   // like && dislike cards
   const [isLiked, setIsLiked] = useState(false);
   function toggleButton() {
-    setIsLiked(true)
+    setIsLiked(true);
     currentUser._id === isLiked
       ? setIsLiked(".button__like active")
       : setIsLiked(".button__like");
@@ -141,7 +139,7 @@ function App() {
     if (!isLiked) {
       Api.addCardLike(_id, token, likes)
         .then((cardData) => {
-         toggleButton(cardData)
+          toggleButton(cardData);
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
@@ -181,19 +179,18 @@ function App() {
   // update user data
   const handleProfileChange = (name, avatar) => {
     const token = localStorage.getItem("token");
+
     const makeRequest = (data) => {
       return auth.updateProfile(token, name, avatar).then(() => {
-        getUserData(data)
-        setCurrentUser(currentUser);
+        getUserData(data);
       });
     };
     handleSubmit(makeRequest);
-    
   };
 
   //login function
   const handleLogin = (email, password) => {
-    if (!email, !password) {
+    if ((!email, !password)) {
       return;
     }
     auth
@@ -202,7 +199,7 @@ function App() {
         localStorage.setItem("token", data.token);
         getUserData(data);
         setIsLoggedIn(true);
-        setCurrentUser(currentUser)
+        setCurrentUser(currentUser);
         closeActiveModal();
       })
       .catch(console.error);
