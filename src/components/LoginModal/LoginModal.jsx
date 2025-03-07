@@ -17,7 +17,7 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
   }, [isOpen]);
 
   function handleSubmit(evt) {
-    const inputValues = (values.email, values.password);
+    
     evt.preventDefault();
     handleLogin(values.email, values.password);
   }

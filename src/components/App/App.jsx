@@ -71,6 +71,7 @@ function App() {
   };
   const handleEditClick = () => {
     setActiveModal("profile");
+    
   };
   const deleteModalClick = () => {
     setActiveModal("delete");
@@ -187,6 +188,7 @@ function App() {
       });
     };
     handleSubmit(makeRequest);
+    
   };
 
   //login function
@@ -207,7 +209,7 @@ function App() {
   };
   //register function
   const handleCreateUser = (email, password, name, avatar) => {
-    auth.registerUser({ email, password, name, avatar }).then((userData) => {
+    auth.registerUser(email, password, name, avatar).then((userData) => {
       handleLogin(email, password);
       closeActiveModal("");
     });

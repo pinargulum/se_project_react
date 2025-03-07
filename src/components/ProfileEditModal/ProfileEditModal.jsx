@@ -19,8 +19,9 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
       ...prevData,
       [name]: value,
     }));
+    
   };
- /* 
+  /* 
 useEffect(() => {
     if (isOpen) {
       setData(data.name, data.avatar);
@@ -29,9 +30,8 @@ useEffect(() => {
   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    handleProfileChange(data);
-    return (currentUser.name, currentUser.avatar)
+
+    return handleProfileChange(data);
   };
   return (
     <ModalWithForm
@@ -42,6 +42,8 @@ useEffect(() => {
       onSubmit={handleSubmit}
       modifierClass="change_data"
     >
+      
+        
       <label
         className="modal__label"
         htmlFor="name"
@@ -66,10 +68,11 @@ useEffect(() => {
         name="avatar"
         type="url"
         className="change_data_input"
-        value={data.avatar}
+        value={currentUser.avatar}
         onChange={handleChange}
         placeholder="Avatar"
       />
+      
     </ModalWithForm>
   );
 };

@@ -91,7 +91,7 @@ const RegisterModal = ({
       <input
         name="avatar"
         type="url"
-        className="change_data_input"
+        className="register_input"
         value={values.avatar || ""}
         onChange={handleChange}
         placeholder="Avatar"
