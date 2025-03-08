@@ -26,7 +26,7 @@ function Profile({
       <section className="profile__clothing-items">
         <ClothesSection
           isLoggedIn={isLoggedIn}
-          onCardClick={handleCardClick}
+          handleCardClick={handleCardClick}
           clothingItems={clothingItems}
           handleProfileAddItem={handleProfileAddItem}
           handleCardLike={handleCardLike}
