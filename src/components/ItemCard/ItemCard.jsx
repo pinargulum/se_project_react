@@ -6,11 +6,11 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "../ItemCard/ItemCard.css";
 
 
-function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
+function ItemCard({ item, handleCardLike, onCardClick, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
  //const [activeButton, setActiveButton] = useState();
 const handleLikes = () => {
-  onCardLike(item)
+handleCardLike(item)
 }
  
   const handleCardClik = () => {

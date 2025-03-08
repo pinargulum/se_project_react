@@ -4,7 +4,7 @@ import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
 
-function ClothesSection({ handleLike, onCardClick, clothingItems, handleProfileAddItem }) {
+function ClothesSection({ handleCardLike, handleCardClick, isLoggedIn, clothingItems, handleProfileAddItem }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -25,10 +25,12 @@ function ClothesSection({ handleLike, onCardClick, clothingItems, handleProfileA
             .filter((item) => item.owner === currentUser._id)
             .map((item) => (
               <ItemCard
-                key={item._id}
-                item={item}
-                onCardClick={onCardClick}
-                handleLike={handleLike}
+              key={item._id}
+              item={item}
+              onCardClick={handleCardClick}
+              handleCardLike={handleCardLike}
+              isLoggedIn={isLoggedIn}
+              
               />
             ))}
         </ul>

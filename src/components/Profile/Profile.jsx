@@ -6,11 +6,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 //import ProfileEditModal from "../ProfileEdidModal/ProfileEditModal.jsx";
 function Profile({
-  onCardClick,
+  handleCardClick,
   clothingItems,
   handleProfileAddItem,
   handleEditClick,
   isLoggedIn,
+  handleCardLike
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -24,9 +25,11 @@ function Profile({
       </section>
       <section className="profile__clothing-items">
         <ClothesSection
-          onCardClick={onCardClick}
+        isLoggedIn={isLoggedIn}
+          onCardClick={handleCardClick}
           clothingItems={clothingItems}
           handleProfileAddItem={handleProfileAddItem}
+          handleCardLike={handleCardLike}
         />
       </section>
     </div>

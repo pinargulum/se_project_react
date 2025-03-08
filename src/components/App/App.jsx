@@ -133,13 +133,12 @@ function App() {
       ? setIsLiked(".button__like active")
       : setIsLiked(".button__like");
   }
-
   function handleCardLike({ _id, likes }) {
     const token = localStorage.getItem("token");
     if (!isLiked) {
       Api.addCardLike(_id, token, likes)
         .then((cardData) => {
-          toggleButton(cardData);
+          setIsLiked(true);
           setClothingItems((prewItems) =>
             prewItems.filter((item) => item._id !== cardData),
           );
@@ -234,7 +233,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onCardLike={handleCardLike}
+                    handleCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
                   />
                 }
@@ -245,7 +244,8 @@ function App() {
                   <ProtectedRoute>
                     <Profile
                       isOpen={activeModal === "profile"}
-                      onCardClick={handleCardClick}
+                      handleCardClick={handleCardClick}
+                      handleCardLike={handleCardLike}
                       clothingItems={clothingItems}
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
