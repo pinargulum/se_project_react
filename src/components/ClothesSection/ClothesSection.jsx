@@ -1,10 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
 
-function ClothesSection({ handleCardLike, handleCardClick, isLoggedIn, clothingItems, handleProfileAddItem, likedItems }) {
+function ClothesSection({
+  handleCardLike,
+  handleCardClick,
+  isLoggedIn,
+  clothingItems,
+  handleProfileAddItem,
+  likedItems,
+}) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -25,13 +32,12 @@ function ClothesSection({ handleCardLike, handleCardClick, isLoggedIn, clothingI
             .filter((item) => item.owner === currentUser._id)
             .map((item) => (
               <ItemCard
-              key={item._id}
-              item={item}
-              onCardClick={handleCardClick}
-              handleCardLike={handleCardLike}
-              isLoggedIn={isLoggedIn}
-              isLiked={likedItems.has(item._id)}
-              
+                key={item._id}
+                item={item}
+                onCardClick={handleCardClick}
+                handleCardLike={handleCardLike}
+                isLoggedIn={isLoggedIn}
+                isLiked={likedItems.has(item._id)}
               />
             ))}
         </ul>

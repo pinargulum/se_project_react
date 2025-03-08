@@ -3,9 +3,7 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
-//import ProfileEditModal from "../ProfileEdidModal/ProfileEditModal.jsx";
 function Profile({
   handleCardClick,
   clothingItems,
@@ -13,7 +11,7 @@ function Profile({
   handleEditClick,
   isLoggedIn,
   handleCardLike,
-  likedItems
+  likedItems,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -27,7 +25,7 @@ function Profile({
       </section>
       <section className="profile__clothing-items">
         <ClothesSection
-        isLoggedIn={isLoggedIn}
+          isLoggedIn={isLoggedIn}
           onCardClick={handleCardClick}
           clothingItems={clothingItems}
           handleProfileAddItem={handleProfileAddItem}

@@ -134,7 +134,6 @@ function App() {
     handleSubmit(makeRequest);
   }
   // like && dislike cards
-
   const handleCardLike = (itemId, isLiked) => {
     const token = localStorage.getItem("token");
     if (!isLiked) {
