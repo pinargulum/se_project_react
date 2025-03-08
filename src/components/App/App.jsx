@@ -135,10 +135,10 @@ function App() {
   
   
 
-  function handleCardLike({ _id, likes }) {
+  function handleCardLike({ _id, isLiked }) {
     const token = localStorage.getItem("token");
     if (!isLiked) {
-      Api.addCardLike(_id, token, likes)
+      Api.addCardLike(_id, token)
         .then((_id) => {
           //setIsLiked(true);
          setLikedItems(prev => new Set(prev).add(_id));
@@ -146,7 +146,7 @@ function App() {
         .catch(console.error);
     }
     else  {
-      Api.removeCardLike(_id, token, likes)
+      Api.removeCardLike(_id, token)
         .then((_id) => {
           //setIsLiked(false);
           //setIsLiked(true);
