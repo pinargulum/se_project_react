@@ -40,7 +40,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
- 
+  const [likedItems, setLikedItems] = useState(new Set());
 
   ///////////////////////////////// HEADER /////////////////////////////////
 
@@ -92,15 +92,18 @@ function App() {
     setActiveModal("preview");
     setSlectedCard(item);
   };
-  const [isLiked, setIsLiked] = useState(false);
-  const [likedItems, setLikedItems] = useState(new Set());
+
   useEffect(() => {
     Api.getClothingItems()
       .then((items) => {
-        setClothingItems(items)
-        setLikedItems(new Set(items.filter(item => item.likes.includes(currentUser._id)).map(item => item._id)));
-      
-      
+        setClothingItems(items);
+        setLikedItems(
+          new Set(
+            items
+              .filter((item) => item.likes.includes(currentUser._id))
+              .map((item) => item._id),
+          ),
+        );
       })
       .catch(console.error);
   }, [currentUser]);
@@ -131,33 +134,27 @@ function App() {
     handleSubmit(makeRequest);
   }
   // like && dislike cards
- 
-  
-  
 
-  function handleCardLike({ _id, isLiked }) {
+  function handleCardLike({ itemId, isLiked }) {
     const token = localStorage.getItem("token");
     if (!isLiked) {
-      Api.addCardLike(_id, token)
-        .then((_id) => {
-          //setIsLiked(true);
-         setLikedItems(prev => new Set(prev).add(_id));
+      Api.addCardLike(itemId, token)
+        .then(() => {
+          setLikedItems((prev) => new Set(prev).add(_id));
         })
         .catch(console.error);
-    }
-    else  {
+    } else {
       Api.removeCardLike(_id, token)
-        .then((_id) => {
-          //setIsLiked(false);
-          //setIsLiked(true);
-         setLikedItems(prev => { const newSet = new Set(prev)
-         newSet.delete(_id);
-         return newSet;
+        .then(() => {
+          setLikedItems((prev) => {
+            const newSet = new Set(prev);
+            newSet.delete(_id);
+            return newSet;
+          });
         })
-      })
         .catch(console.error);
     }
-  };
+  }
 
   //////////////////////   USER    //////////////////////////
   // function to get the user data
@@ -237,7 +234,6 @@ function App() {
                     clothingItems={clothingItems}
                     handleCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
-                    isLiked={isLiked}
                     likedItems={likedItems}
                   />
                 }
@@ -254,7 +250,6 @@ function App() {
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
                       isLoggedIn={isLoggedIn}
-
                     />
                   </ProtectedRoute>
                 }

@@ -5,12 +5,12 @@ import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "../ItemCard/ItemCard.css";
 
-function ItemCard({ item, handleCardLike, onCardClick, isLoggedIn, isLiked }) {
+function ItemCard({ item, handleCardLike, onCardClick, isLiked }) {
   const currentUser = useContext(CurrentUserContext);
   //const [activeButton, setActiveButton] = useState();
   const handleLikes = () => {
 
-    handleCardLike(item, isLiked);
+    handleCardLike(item._id, isLiked);
   };
 
   const handleCardClik = () => {
