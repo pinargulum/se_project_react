@@ -28,7 +28,7 @@ function Main({ weatherData, handleCardClick, clothingItems, handleCardLike, isL
                 item={item}
                 onCardClick={handleCardClick}
                 handleCardLike={handleCardLike}
-                //isLoggedIn={isLoggedIn}
+                isLoggedIn={isLoggedIn}
                 //isLiked={isLiked}
                 isLiked={likedItems.has(item._id)}
               />

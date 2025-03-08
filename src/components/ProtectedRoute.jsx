@@ -14,7 +14,7 @@ function ProtectedRoute({ children }) {
   const { isLoggedIn } = createContext(currentUser);
 
   useEffect(() => {
-    if (!isLoggedIn && currentUser) {
+    if (!isLoggedIn && currentUser._id) {
       <Navigate
         to="/profile"
         state={{ from: location }}
