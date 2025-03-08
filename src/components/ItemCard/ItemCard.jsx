@@ -9,8 +9,8 @@ function ItemCard({ item, handleCardLike, onCardClick, isLoggedIn, isLiked }) {
   const currentUser = useContext(CurrentUserContext);
   //const [activeButton, setActiveButton] = useState();
   const handleLikes = () => {
-    
-    handleCardLike(item._id, isLiked);
+
+    handleCardLike(item, isLiked);
   };
 
   const handleCardClik = () => {
