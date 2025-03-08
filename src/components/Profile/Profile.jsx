@@ -4,7 +4,7 @@ import SideBar from "../SideBar/SideBar";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { likeItem } from "../../../../se_project_express/controllers/clothingItemsController.js";
+
 //import ProfileEditModal from "../ProfileEdidModal/ProfileEditModal.jsx";
 function Profile({
   handleCardClick,
