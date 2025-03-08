@@ -5,14 +5,14 @@ import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "../ItemCard/ItemCard.css";
 
-
-function ItemCard({ item, handleCardLike, onCardClick, isLoggedIn }) {
+function ItemCard({ item, handleCardLike, onCardClick, isLoggedIn, isLiked }) {
   const currentUser = useContext(CurrentUserContext);
- //const [activeButton, setActiveButton] = useState();
-const handleLikes = () => {
-handleCardLike(item)
-}
- 
+  //const [activeButton, setActiveButton] = useState();
+  const handleLikes = () => {
+    
+    handleCardLike(item._id, isLiked);
+  };
+
   const handleCardClik = () => {
     onCardClick(item);
   };
@@ -21,13 +21,13 @@ handleCardLike(item)
     <li className="card">
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
-        {currentUser._id && 
-        <button
-          type="button"
-          className="like__button"
-          onClick={handleLikes}
-        ></button>
-        }
+     
+          <button
+            type="button"
+            className={`like__button ${isLiked ? "like__button_active" : ""}`}
+            onClick={handleLikes}
+          ></button>
+       
       </div>
 
       <img
@@ -35,7 +35,6 @@ handleCardLike(item)
         alt={item.name}
         onClick={handleCardClik}
         className="cards__image"
-        
       />
     </li>
   );

@@ -40,6 +40,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
+ 
 
   ///////////////////////////////// HEADER /////////////////////////////////
 
@@ -91,14 +92,18 @@ function App() {
     setActiveModal("preview");
     setSlectedCard(item);
   };
-
+  const [isLiked, setIsLiked] = useState(false);
+  const [likedItems, setLikedItems] = useState(new Set());
   useEffect(() => {
     Api.getClothingItems()
-      .then((cardData) => {
-        setClothingItems(cardData);
+      .then((items) => {
+        setClothingItems(items)
+        setLikedItems(new Set(items.filter(item => item.likes.includes(currentUser._id)).map(item => item._id)));
+      
+      
       })
       .catch(console.error);
-  }, []);
+  }, [currentUser]);
 
   // delete a card
   function handleCardDelete() {
@@ -126,36 +131,33 @@ function App() {
     handleSubmit(makeRequest);
   }
   // like && dislike cards
-  const [isLiked, setIsLiked] = useState(false);
-  function toggleButton() {
-    setIsLiked(true);
-    currentUser._id === isLiked
-      ? setIsLiked(".button__like active")
-      : setIsLiked(".button__like");
-  }
+ 
+  
+  
+
   function handleCardLike({ _id, likes }) {
     const token = localStorage.getItem("token");
     if (!isLiked) {
       Api.addCardLike(_id, token, likes)
-        .then((cardData) => {
-          setIsLiked(true);
-          setClothingItems((prewItems) =>
-            prewItems.filter((item) => item._id !== cardData),
-          );
+        .then((_id) => {
+          //setIsLiked(true);
+         setLikedItems(prev => new Set(prev).add(_id));
         })
         .catch(console.error);
     }
-    if (isLiked) {
+    else  {
       Api.removeCardLike(_id, token, likes)
-        .then((cardData) => {
-          setIsLiked(false);
-          setClothingItems((prewItems) =>
-            prewItems.filter((item) => item._id !== cardData),
-          );
+        .then((_id) => {
+          //setIsLiked(false);
+          //setIsLiked(true);
+         setLikedItems(prev => { const newSet = new Set(prev)
+         newSet.delete(_id);
+         return newSet;
         })
+      })
         .catch(console.error);
     }
-  }
+  };
 
   //////////////////////   USER    //////////////////////////
   // function to get the user data
@@ -235,6 +237,8 @@ function App() {
                     clothingItems={clothingItems}
                     handleCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
+                    isLiked={isLiked}
+                    likedItems={likedItems}
                   />
                 }
               />
@@ -250,6 +254,7 @@ function App() {
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
                       isLoggedIn={isLoggedIn}
+
                     />
                   </ProtectedRoute>
                 }
