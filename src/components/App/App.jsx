@@ -154,7 +154,7 @@ function App() {
         })
         .catch(console.error);
     }
-  }
+  };
 
   //////////////////////   USER    //////////////////////////
   // function to get the user data
@@ -250,6 +250,7 @@ function App() {
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
                       isLoggedIn={isLoggedIn}
+                      likedItems={likedItems}
                     />
                   </ProtectedRoute>
                 }

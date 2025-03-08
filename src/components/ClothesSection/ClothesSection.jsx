@@ -4,7 +4,7 @@ import "../ClothesSection/ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
 
-function ClothesSection({ handleCardLike, handleCardClick, isLoggedIn, clothingItems, handleProfileAddItem }) {
+function ClothesSection({ handleCardLike, handleCardClick, isLoggedIn, clothingItems, handleProfileAddItem, likedItems }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -30,6 +30,7 @@ function ClothesSection({ handleCardLike, handleCardClick, isLoggedIn, clothingI
               onCardClick={handleCardClick}
               handleCardLike={handleCardLike}
               isLoggedIn={isLoggedIn}
+              isLiked={likedItems.has(item._id)}
               
               />
             ))}

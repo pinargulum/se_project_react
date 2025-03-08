@@ -4,12 +4,18 @@ import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitCon
 import { useContext } from "react";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
-import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 
-function Main({ weatherData, handleCardClick, clothingItems, handleCardLike, isLoggedIn, likedItems }) {
+function Main({
+  weatherData,
+  handleCardClick,
+  clothingItems,
+  handleCardLike,
+  isLoggedIn,
+  likedItems,
+}) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentUser = useContext(CurrentUserContext);
-  const id = currentUser._id
+  const id = currentUser._id;
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
