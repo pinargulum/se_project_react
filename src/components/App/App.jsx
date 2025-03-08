@@ -135,20 +135,20 @@ function App() {
   }
   // like && dislike cards
 
-  function handleCardLike({ itemId, isLiked }) {
+  const handleCardLike = (itemId, isLiked) => {
     const token = localStorage.getItem("token");
     if (!isLiked) {
       Api.addCardLike(itemId, token)
         .then(() => {
-          setLikedItems((prev) => new Set(prev).add(_id));
+          setLikedItems((prev) => new Set(prev).add(itemId));
         })
         .catch(console.error);
     } else {
-      Api.removeCardLike(_id, token)
+      Api.removeCardLike(itemId, token)
         .then(() => {
           setLikedItems((prev) => {
             const newSet = new Set(prev);
-            newSet.delete(_id);
+            newSet.delete(itemId);
             return newSet;
           });
         })

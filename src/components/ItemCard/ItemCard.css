@@ -42,15 +42,15 @@
   background-repeat: no-repeat;
   background-image: url("/src/assets/likeButon.png");
 }
-.like__button:active {
- 
+.like__button_active {
+  background-image: url("/src/assets/likeButtonActive.png");
   cursor: pointer;
   background-color: transparent;
   border: none;
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
-  background-image: url("/src/assets/likeButtonActive.png");
+  
 }
 
 .like-button:hover {
