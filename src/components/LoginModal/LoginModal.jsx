@@ -17,7 +17,6 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
   }, [isOpen]);
 
   function handleSubmit(evt) {
-    
     evt.preventDefault();
     handleLogin(values.email, values.password);
   }
@@ -35,34 +34,33 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
         htmlFor="email"
       >
         Email:
+        <input
+          type="email"
+          id="email"
+          name="email"
+          className="login_input"
+          placeholder="Email"
+          onChange={handleChange}
+          value={values.email || ""}
+          required
+        />
       </label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        className="login_input"
-        placeholder="Email"
-        onChange={handleChange}
-        value={values.email || ""}
-        required
-      />
-
       <label
         className="modal__label"
         htmlFor="password"
       >
         Password:
+        <input
+          type="password"
+          name="password"
+          id="password"
+          onChange={handleChange}
+          className="login_input"
+          placeholder="Password"
+          value={values.password || ""}
+          required
+        />
       </label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        onChange={handleChange}
-        className="login_input"
-        placeholder="Password"
-        value={values.password || ""}
-        required
-      />
       <button
         onClick={registerModal}
         className="second__button"

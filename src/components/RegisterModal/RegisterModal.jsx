@@ -42,61 +42,61 @@ const RegisterModal = ({
         htmlFor="email"
       >
         Email:
+        <input
+          name="email"
+          type="email"
+          className="register_input"
+          value={values.email || ""}
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
       </label>
-      <input
-        name="email"
-        type="email"
-        className="register_input"
-        value={values.email || ""}
-        placeholder="Email"
-        onChange={handleChange}
-        required
-      />
       <label
         className="modal__label"
         htmlFor="password"
       >
         Password:
+        <input
+          name="password"
+          type="password"
+          className="register_input"
+          placeholder="Password"
+          value={values.password || ""}
+          onChange={handleChange}
+          required
+        />
       </label>
-      <input
-        name="password"
-        type="password"
-        className="register_input"
-        placeholder="Password"
-        value={values.password || ""}
-        onChange={handleChange}
-        required
-      />
       <label
         className="modal__label"
         htmlFor="name"
       >
         Name:
+        <input
+          className="register_input"
+          name="name"
+          type="text"
+          value={values.name || ""}
+          onChange={handleChange}
+          placeholder="Name"
+          required
+        />
       </label>
-      <input
-        className="register_input"
-        name="name"
-        type="text"
-        value={values.name || ""}
-        onChange={handleChange}
-        placeholder="Name"
-        required
-      />
       <label
         className="modal__label"
         htmlFor="avatar"
       >
         Avatar:
+        <input
+          name="avatar"
+          type="url"
+          className="register_input"
+          value={values.avatar || ""}
+          onChange={handleChange}
+          placeholder="Avatar"
+          required
+        />
       </label>
-      <input
-        name="avatar"
-        type="url"
-        className="register_input"
-        value={values.avatar || ""}
-        onChange={handleChange}
-        placeholder="Avatar"
-        required
-      />
       <button
         onClick={loginModal}
         className="second__button"

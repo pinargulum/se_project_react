@@ -14,12 +14,12 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
 
   useEffect(() => {
     if (isOpen) {
-      setValues(values);   /// ASK 
+      setValues(values); /// ASK
     }
   }, [isOpen]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();        
+    e.preventDefault();
     handleProfileChange(values);
   };
   return (
@@ -36,29 +36,29 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
         htmlFor="name"
       >
         Name:
+        <input
+          name="name"
+          type="text"
+          className="change_data_input"
+          placeholder="Name"
+          value={values.name}
+          onChange={handleChange}
+        />
       </label>
-      <input
-        name="name"
-        type="text"
-        className="change_data_input"
-        placeholder="Name"
-        value={values.name}
-        onChange={handleChange}
-      />
       <label
         className="modal__label"
         htmlFor="avatar"
       >
         Avatar:
+        <input
+          name="avatar"
+          type="url"
+          className="change_data_input"
+          value={values.avatar}
+          onChange={handleChange}
+          placeholder="Avatar"
+        />
       </label>
-      <input
-        name="avatar"
-        type="url"
-        className="change_data_input"
-        value={values.avatar}
-        onChange={handleChange}
-        placeholder="Avatar"
-      />
     </ModalWithForm>
   );
 };
