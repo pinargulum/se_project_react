@@ -10,7 +10,6 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 import Api from "../../utils/Api.js";
-
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
