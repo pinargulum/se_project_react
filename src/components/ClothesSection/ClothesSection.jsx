@@ -16,8 +16,10 @@ function ClothesSection({
 
   return (
     <div className="clothes-section">
+       {currentUser._id && (
       <div className="profile__items">
         <p className="add__items">Your items</p>
+       
         <button
           className="profile__add-button"
           type="button"
@@ -25,7 +27,9 @@ function ClothesSection({
         >
           + Add new
         </button>
+        
       </div>
+  )}
       <div className="profile__clothes-list">
         <ul className="your__clothes-list">
           {clothingItems
