@@ -12,6 +12,7 @@ function Main({
   handleCardLike,
   isLoggedIn,
   likedItems,
+
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentUser = useContext(CurrentUserContext);
@@ -36,6 +37,7 @@ function Main({
                 handleCardLike={handleCardLike}
                 isLoggedIn={isLoggedIn}
                 isLiked={likedItems.has(item._id)}
+              
               />
             ))}
         </ul>

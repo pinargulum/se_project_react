@@ -236,6 +236,7 @@ function App() {
                     handleCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
                     likedItems={likedItems}
+                   
                   />
                 }
               />
