@@ -1,14 +1,9 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
 import "../ModalWithForm/AddItemModal.css";
-//import useModalClose from "../ModalHooks/useModalClose";
-const AddItemModal = ({
-  isOpen,
-  onAddItem,
-  onCloseModal,
-  isLoading,
-  onClose,
-}) => {
+import useModalClose from "../ModalHooks/useModalClose.jsx"
+
+const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -36,7 +31,7 @@ const AddItemModal = ({
     evt.preventDefault();
     onAddItem({ name, imageUrl, weather });
   }
-  //useModalClose(isOpen, onClose);
+  useModalClose(isOpen, onCloseModal);
   return (
     <ModalWithForm
       titleText="New Garment"

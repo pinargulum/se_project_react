@@ -217,6 +217,7 @@ function App() {
     setIsLoggedIn(false)
     navigate("/");
   }
+ 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
