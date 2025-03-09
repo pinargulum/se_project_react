@@ -1,7 +1,7 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
 import "../ModalWithForm/AddItemModal.css";
-import useModalClose from "../Hooks/useModalClose";
+//import useModalClose from "../ModalHooks/useModalClose";
 const AddItemModal = ({
   isOpen,
   onAddItem,
@@ -36,7 +36,7 @@ const AddItemModal = ({
     evt.preventDefault();
     onAddItem({ name, imageUrl, weather });
   }
-  useModalClose(isOpen, onClose);
+  //useModalClose(isOpen, onClose);
   return (
     <ModalWithForm
       titleText="New Garment"
