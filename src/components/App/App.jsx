@@ -72,7 +72,6 @@ function App() {
   };
   const handleEditClick = () => {
     setActiveModal("profile");
-    
   };
   const deleteModalClick = () => {
     setActiveModal("delete");
@@ -213,10 +212,10 @@ function App() {
   const navigate = useNavigate();
   function handleLogout() {
     localStorage.removeItem("token");
-    setIsLoggedIn(false)
+    setIsLoggedIn(false);
     navigate("/");
   }
- 
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -242,7 +241,6 @@ function App() {
                     handleCardLike={handleCardLike}
                     isLoggedIn={isLoggedIn}
                     likedItems={likedItems}
-                   
                   />
                 }
               />
