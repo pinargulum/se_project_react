@@ -10,6 +10,7 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 import Api from "../../utils/Api.js";
+import useModalClose from "../Hooks/useModalClose";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../../utils/contexts/CurrentUserContext.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
@@ -71,6 +72,7 @@ function App() {
   };
   const handleEditClick = () => {
     setActiveModal("profile");
+    
   };
   const deleteModalClick = () => {
     setActiveModal("delete");
