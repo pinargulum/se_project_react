@@ -12,6 +12,7 @@ function Profile({
   isLoggedIn,
   handleCardLike,
   likedItems,
+  handleLogout
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -23,6 +24,7 @@ function Profile({
             <SideBar
               handleEditClick={handleEditClick}
               isLoggedIn={isLoggedIn}
+              handleLogout={handleLogout}
             />
           </section>
           <section className="profile__clothing-items">

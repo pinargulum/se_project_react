@@ -18,6 +18,7 @@ import { getWeather, getCurrentWeather } from "/src/utils/weatherApi.js";
 import { coordinates, APIkey } from "/src/utils/weatherApi.js";
 import * as auth from "../../utils/auth.js";
 import { useState, useEffect } from "react";
+
 import {
   Routes,
   Route,
@@ -210,7 +211,12 @@ function App() {
       closeActiveModal("");
     });
   };
-
+  const navigate = useNavigate();
+  function handleLogout() {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false)
+    navigate("/");
+  }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -253,6 +259,7 @@ function App() {
                       handleEditClick={handleEditClick}
                       isLoggedIn={isLoggedIn}
                       likedItems={likedItems}
+                      handleLogout={handleLogout}
                     />
                   </ProtectedRoute>
                 }
