@@ -5,25 +5,35 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 import CurrentUserContext from "../utils/contexts/CurrentUserContext";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ isLoggedIn, isPublic = false, children }) {
   const location = useLocation();
-  const navigate = useNavigate();
+  
   const from = location.state?.from || "/";
 
   const currentUser = useContext(CurrentUserContext);
-  const { isLoggedIn } = createContext(currentUser);
+ 
 
-  useEffect(() => {
-    if (!isLoggedIn && currentUser._id) {
-      <Navigate
-        to="/profile"
-        state={{ from: location }}
-      />;
+  if (isLoggedIn && isPublic) {
+    return  <Navigate
+    to="/profile"
+    state={{ from: location }} replace
+  />;
+  }
+    
+    if (!isLoggedIn && !isPublic) {
+      return  <Navigate
+      to="/"
+      state={{ from: location }} replace
+    />;
     }
-    if (isLoggedIn && !currentUser) {
-      navigate("/");
+      
+    if (!isLoggedIn) {
+     return  <Navigate
+      to="/"
+      state={{ from: location }} replace
+    />;
     }
-  }, [isLoggedIn, currentUser]);
+ 
 
   return children;
 }

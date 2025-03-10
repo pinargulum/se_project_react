@@ -247,7 +247,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       isOpen={activeModal === "profile"}
                       handleCardClick={handleCardClick}
@@ -259,6 +259,28 @@ function App() {
                       likedItems={likedItems}
                       handleLogout={handleLogout}
                     />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/signin"
+                element={
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    isPublic={true}
+                  >
+                    <signin />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    isPublic={true}
+                  >
+                    <signup />
                   </ProtectedRoute>
                 }
               />
