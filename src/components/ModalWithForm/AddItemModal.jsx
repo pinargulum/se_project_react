@@ -1,7 +1,7 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState, useEffect } from "react";
 import "../ModalWithForm/AddItemModal.css";
-import { useModalClose } from "../../utils/hooks/useModalClose.js"
+import { useModalClose } from "../../utils/hooks/useModalClose.js";
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
   const [name, setName] = useState("");
@@ -41,33 +41,41 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       onSubmit={handleSubmit}
       modifierClass="add_item"
     >
-      <label className="modal__add_item">
-        Name
-        <input
-          type="text"
-          className="add_item_input"
-          id="name"
-          value={name}
-          onChange={handleNameChange}
-          placeholder="Name"
-          required
-        />
-      </label>
-      <label className="modal__add_item">
+      <label
+        htmlFor="Name"
+        className="modal__add_item"
+      ></label>
+      Name
+      <input
+        type="text"
+        className="add_item_input"
+        id="name"
+        value={name}
+        onChange={handleNameChange}
+        placeholder="Name"
+        required
+      />
+      <label
+        htmlFor="imageURL"
+        className="modal__add_item"
+      >
         Image
-        <input
-          type="text"
-          className="add_item_input"
-          id="imageURL"
-          placeholder="ImageURL"
-          value={imageUrl}
-          onChange={handleImageUrlChange}
-          required
-        />
       </label>
+      <input
+        type="text"
+        className="add_item_input"
+        id="imageURL"
+        placeholder="ImageURL"
+        value={imageUrl}
+        onChange={handleImageUrlChange}
+        required
+      />
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
-        <label className="modal__radio-label">
+        <label
+          htmlFor="hot"
+          className="modal__radio-label"
+        >
           Hot
           <input
             id="hot"
@@ -81,6 +89,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
           />
         </label>
         <label
+          htmlFor="warm"
           name="radio"
           className="modal__radio-label"
         >
@@ -97,6 +106,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
           />
         </label>
         <label
+          htmlFor="cold"
           name="radio"
           className="modal__radio-label"
         >

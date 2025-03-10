@@ -14,9 +14,10 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
 
   useEffect(() => {
     if (isOpen) {
-      setValues(values); /// ASK
+     setValues({name: currentUser.name || "", avatar: currentUser.avatar || "",}) 
+      
     }
-  }, [isOpen]);
+  }, [isOpen, currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
