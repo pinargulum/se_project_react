@@ -14,7 +14,7 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
 
   useEffect(() => {
     if (isOpen) {
-     setValues({name: currentUser.name || "", avatar: currentUser.avatar || "",}) 
+     setValues({name: currentUser.name || "", avatar: currentUser.avatar || ""}) 
       
     }
   }, [isOpen, currentUser]);
@@ -34,10 +34,11 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
     >
       <label
         className="modal__label"
-        htmlFor="name"
+        htmlFor="Name"
       >
         Name:
         <input
+        id="Name"
           name="name"
           type="text"
           className="change_data_input"
@@ -48,10 +49,11 @@ const ProfileEditModal = ({ isOpen, onCloseModal, handleProfileChange }) => {
       </label>
       <label
         className="modal__label"
-        htmlFor="avatar"
+        htmlFor="Avatar"
       >
         Avatar:
         <input
+        id="Avatar"
           name="avatar"
           type="url"
           className="change_data_input"

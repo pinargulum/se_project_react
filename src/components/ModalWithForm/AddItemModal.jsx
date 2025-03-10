@@ -42,14 +42,16 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
       modifierClass="add_item"
     >
       <label
-        htmlFor="Name"
+        htmlFor="garment"
         className="modal__add_item"
-      ></label>
-      Name
+      >
+        Name
+      </label>
       <input
         type="text"
         className="add_item_input"
-        id="name"
+        id="garment"
+        name="garment"
         value={name}
         onChange={handleNameChange}
         placeholder="Name"
@@ -65,6 +67,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal, isLoading }) => {
         type="text"
         className="add_item_input"
         id="imageURL"
+        name="imageUrl"
         placeholder="ImageURL"
         value={imageUrl}
         onChange={handleImageUrlChange}

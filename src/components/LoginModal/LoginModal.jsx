@@ -31,12 +31,12 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
     >
       <label
         className="modal__label"
-        htmlFor="email"
+        htmlFor="Email"
       >
         Email:
         <input
           type="email"
-          id="email"
+          id="Email"
           name="email"
           className="login_input"
           placeholder="Email"
@@ -47,13 +47,13 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
       </label>
       <label
         className="modal__label"
-        htmlFor="password"
+        htmlFor="Password"
       >
         Password:
         <input
           type="password"
           name="password"
-          id="password"
+          id="Password"
           onChange={handleChange}
           className="login_input"
           placeholder="Password"
