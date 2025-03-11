@@ -11,7 +11,7 @@ function Main({
   clothingItems,
   onCardLike,
   isLoggedIn,
-  isLiked
+  //isLiked
 
 
 }) {
@@ -36,7 +36,7 @@ function Main({
                 item={item}
                 onCardClick={handleCardClick}
                 onCardLike={onCardLike}
-                isLiked={isLiked}
+                //isLiked={isLiked}
                 isLoggedIn={isLoggedIn}
                
               

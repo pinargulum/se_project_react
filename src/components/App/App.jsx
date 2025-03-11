@@ -125,8 +125,14 @@ function App() {
     };
     handleSubmit(makeRequest);
   }
-  const [isLiked, setIsLiked] = useState(false);
+
+
+  
+  
+ 
   // like && dislike cards
+  const [isLiked, setIsLiked] = useState(false);
+
   const handleCardLike = (item, isLiked) => {
     const token = localStorage.getItem("token");
     if (!isLiked) {
@@ -239,7 +245,7 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    isLiked={isLiked}
+                    //isLiked={isLiked}
                     isLoggedIn={isLoggedIn}
                   />
                 }

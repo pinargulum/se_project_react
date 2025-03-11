@@ -35,8 +35,8 @@ function deleteItem(_id, token) {
     //body: JSON.stringify({ _id })
   }).then(checkResponse);
 }
-function addCardLike(_id, token) {
-  return fetch(`${baseUrl}/items/${_id}/likes`, {
+function addCardLike(item, token) {
+  return fetch(`${baseUrl}/items/${item}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/Json",
