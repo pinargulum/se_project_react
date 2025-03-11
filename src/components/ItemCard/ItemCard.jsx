@@ -6,7 +6,7 @@ import "../ItemCard/ItemCard.css";
 
 function ItemCard({ item, onCardLike, onCardClick, isLoggedIn, isLiked }) {
   const currentUser = useContext(CurrentUserContext);
-  isLiked === currentUser._id;
+ 
   const handleLikes = () => {
    
     onCardLike(item._id, isLiked);
@@ -20,10 +20,10 @@ function ItemCard({ item, onCardLike, onCardClick, isLoggedIn, isLiked }) {
     <li className="card">
       <div className="card__info">
         <h2 className="image__text">{item.name}</h2>
-        {isLoggedIn && (
+        {currentUser._id && (
           <button
             type="button"
-            className={isLiked ? "like__button_active" : "like__button"}
+            className={`like__button ${isLiked ? "like__button_active" : ""}`}
             onClick={handleLikes}
           ></button>
         )}

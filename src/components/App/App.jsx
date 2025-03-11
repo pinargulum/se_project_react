@@ -136,7 +136,7 @@ function App() {
           setIsLiked(true);
           setClothingItems((prevItems) =>
             prevItems.map((prevItem) =>
-              prevItem._id === updatedItem._id ? updatedItem : prevItem,
+              item._id === updatedItem._id ? updatedItem : prevItem,
             ),
           );
         })
@@ -148,7 +148,7 @@ function App() {
           setIsLiked(false);
           setClothingItems((prevItems) =>
             prevItems.map((prevItem) =>
-              prevItem._id === updatedItem._id ? updatedItem : prevItem,
+              item._id === updatedItem._id ? updatedItem : prevItem,
             ),
           );
         })
