@@ -41,7 +41,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [likedItems, setLikedItems] = useState(new Set());
 
   ///////////////////////////////// HEADER /////////////////////////////////
 
@@ -96,19 +95,11 @@ function App() {
 
   useEffect(() => {
     Api.getClothingItems()
-      .then((items) => {
-        setClothingItems(items);
-        setLikedItems(
-          new Set(
-            items
-              .filter((item) => item.likes.includes(currentUser._id))
-              .map((item) => item._id),
-          ),
-        );
+      .then((cardData) => {
+        setClothingItems(cardData);
       })
       .catch(console.error);
-  }, [currentUser]);
-
+  }, []);
   // delete a card
   function handleCardDelete() {
     const token = localStorage.getItem("token");
@@ -134,25 +125,34 @@ function App() {
     };
     handleSubmit(makeRequest);
   }
+  const [isLiked, setIsLiked] = useState(false);
   // like && dislike cards
-  const handleCardLike = (itemId, isLiked) => {
+  const handleCardLike = (item, isLiked) => {
     const token = localStorage.getItem("token");
     if (!isLiked) {
-      Api.addCardLike(itemId, token)
-        .then(() => {
-          setLikedItems((prev) => new Set(prev).add(itemId));
+      Api.addCardLike(item, token)
+
+        .then((updatedItem) => {
+          setIsLiked(true);
+          setClothingItems((prevItems) =>
+            prevItems.map((prevItem) =>
+              prevItem._id === updatedItem._id ? updatedItem : prevItem,
+            ),
+          );
         })
-        .catch(console.error);
+        .catch((err) => console.log(err));
     } else {
-      Api.removeCardLike(itemId, token)
-        .then(() => {
-          setLikedItems((prev) => {
-            const newSet = new Set(prev);
-            newSet.delete(itemId);
-            return newSet;
-          });
+      Api.removeCardLike(item, token)
+
+        .then((updatedItem) => {
+          setIsLiked(false);
+          setClothingItems((prevItems) =>
+            prevItems.map((prevItem) =>
+              prevItem._id === updatedItem._id ? updatedItem : prevItem,
+            ),
+          );
         })
-        .catch(console.error);
+        .catch((err) => console.log(err));
     }
   };
 
@@ -206,7 +206,7 @@ function App() {
   const handleCreateUser = (email, password, name, avatar) => {
     auth.registerUser(email, password, name, avatar).then((userData) => {
       handleLogin(email, password);
-      closeActiveModal("");
+      closeActiveModal();
     });
   };
   const navigate = useNavigate();
@@ -238,9 +238,9 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    handleCardLike={handleCardLike}
+                    onCardLike={handleCardLike}
+                    isLiked={isLiked}
                     isLoggedIn={isLoggedIn}
-                    likedItems={likedItems}
                   />
                 }
               />
@@ -256,7 +256,6 @@ function App() {
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}
                       isLoggedIn={isLoggedIn}
-                      likedItems={likedItems}
                       handleLogout={handleLogout}
                     />
                   </ProtectedRoute>
