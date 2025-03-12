@@ -12,7 +12,10 @@ const LoginModal = ({ isOpen, onCloseModal, handleLogin, registerModal }) => {
 
   useEffect(() => {
     if (isOpen) {
-      setValues("");
+      setValues({
+        email: "",
+        password: "",
+      });
     }
   }, [isOpen]);
 

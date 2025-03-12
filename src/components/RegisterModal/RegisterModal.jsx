@@ -19,7 +19,12 @@ const RegisterModal = ({
 
   useEffect(() => {
     if (isOpen) {
-      setValues("");
+      setValues({
+        email: "",
+        password: "",
+        name: "",
+        avatar: "",
+      });
     }
   }, [isOpen]);
 
