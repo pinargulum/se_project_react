@@ -234,7 +234,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    //isLiked={isLiked}
                     isLoggedIn={isLoggedIn}
                   />
                 }
@@ -246,7 +245,7 @@ function App() {
                     <Profile
                       isOpen={activeModal === "profile"}
                       handleCardClick={handleCardClick}
-                      handleCardLike={handleCardLike}
+                      onCardLike={handleCardLike}
                       clothingItems={clothingItems}
                       handleProfileAddItem={handleAddClick}
                       handleEditClick={handleEditClick}

@@ -5,15 +5,15 @@ import ItemCard from "../ItemCard/ItemCard.jsx";
 import "/src/utils/weatherApi.js";
 
 function ClothesSection({
-  handleCardLike,
+ onCardLike,
   handleCardClick,
   isLoggedIn,
   clothingItems,
   handleProfileAddItem,
-  likedItems,
+  
 }) {
   const currentUser = useContext(CurrentUserContext);
-
+  //const isLiked = item.likes.some(_id => _id === currentUser._id);
   return (
     <div className="clothes-section">
        {currentUser._id && (
@@ -31,7 +31,9 @@ function ClothesSection({
       </div>
   )}
       <div className="profile__clothes-list">
+      {currentUser._id && (
         <ul className="your__clothes-list">
+      
           {clothingItems
             .filter((item) => item.owner === currentUser._id)
             .map((item) => (
@@ -39,12 +41,14 @@ function ClothesSection({
                 key={item._id}
                 item={item}
                 onCardClick={handleCardClick}
-                handleCardLike={handleCardLike}
+                onCardLike={onCardLike}
                 isLoggedIn={isLoggedIn}
-                isLiked={likedItems.has(item._id)}
+                
               />
             ))}
+        
         </ul>
+      )}
       </div>
     </div>
   );

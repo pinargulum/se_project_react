@@ -10,9 +10,8 @@ function Profile({
   handleProfileAddItem,
   handleEditClick,
   isLoggedIn,
-  handleCardLike,
-  likedItems,
-  handleLogout
+  handleLogout,
+  onCardLike,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -33,8 +32,7 @@ function Profile({
               handleCardClick={handleCardClick}
               clothingItems={clothingItems}
               handleProfileAddItem={handleProfileAddItem}
-              handleCardLike={handleCardLike}
-              likedItems={likedItems}
+              onCardLike={onCardLike}
             />
           </section>
         </div>
