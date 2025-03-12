@@ -126,36 +126,25 @@ function App() {
     handleSubmit(makeRequest);
   }
 
-
-  
-  
- 
   // like && dislike cards
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleCardLike = (item, isLiked) => {
+  const handleCardLike = (id, isLiked) => {
     const token = localStorage.getItem("token");
     if (!isLiked) {
-      Api.addCardLike(item, token)
+      Api.addCardLike(id, token)
 
         .then((updatedItem) => {
-          setIsLiked(true);
-          setClothingItems((prevItems) =>
-            prevItems.map((prevItem) =>
-              item._id === updatedItem._id ? updatedItem : prevItem,
-            ),
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? updatedItem : item)),
           );
         })
         .catch((err) => console.log(err));
     } else {
-      Api.removeCardLike(item, token)
-
+      Api.removeCardLike(id, token)
         .then((updatedItem) => {
-          setIsLiked(false);
-          setClothingItems((prevItems) =>
-            prevItems.map((prevItem) =>
-              item._id === updatedItem._id ? updatedItem : prevItem,
-            ),
+          setClothingItems((cards) =>
+            cards.map((item) => (item._id === id ? updatedItem : item)),
           );
         })
         .catch((err) => console.log(err));
