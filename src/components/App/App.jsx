@@ -127,8 +127,6 @@ function App() {
   }
 
   // like && dislike cards
-  const [isLiked, setIsLiked] = useState(false);
-
   const handleCardLike = (id, isLiked) => {
     const token = localStorage.getItem("token");
     if (!isLiked) {
