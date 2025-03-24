@@ -1,6 +1,8 @@
 import { checkResponse } from "./Api";
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://api.wtwr.sitaci.com"
+  : "http://localhost:3001";
 
 export const getCurrentUser = (token) => {
   return fetch(`${baseUrl}/users/me`, {
