@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "wtwr",
+  "homepage": "https://wtwr.sitaci.com",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
