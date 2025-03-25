@@ -1,7 +1,8 @@
 .swich {
   display: flex;
   position: relative;
-  left: 560px;
+  left: 700px;
+  top: -2px;
 }
 .checkbox {
   border-radius: 25px;
