@@ -10,7 +10,7 @@
     "build": "vite build",
     "lint": "eslint --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy": "npm run build && scp -r ./dist/* pinargulum30@wtwr.sitaci.com:/home/pinargulum30/frontend"
+    "deploy": "npm run build && scp -r dist/* pinargulum30@wtwr.sitaci.com:/home/pinargulum30/frontend"
   },
   "dependencies": {
     "package": "^1.0.1",
