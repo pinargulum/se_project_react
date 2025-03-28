@@ -1,9 +1,15 @@
-.swich {
+.switch-default {
   display: flex;
   position: relative;
-  left: 720px;
+
   top: -2px;
 }
+.switch-logged {
+  left: 20px;
+  position: relative;
+  top: -2px;
+}
+
 .checkbox {
   border-radius: 25px;
   border: 2px solid black;

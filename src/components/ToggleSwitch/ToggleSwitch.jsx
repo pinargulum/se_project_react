@@ -2,13 +2,13 @@ import { useContext, useState } from "react";
 import "./ToggleSwitch.css";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContext.js";
 
-const ToggleSwitch = () => {
+const ToggleSwitch = ({ isLoggedIn }) => {
   const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
-    CurrentTemperatureUnitContext
+    CurrentTemperatureUnitContext,
   );
 
   return (
-    <label className="swich">
+    <label className={`swich ${isLoggedIn? "swiched-logged" : "switch-default"}`}>
       <input
         className="checkbox"
         type="checkbox"
@@ -38,4 +38,4 @@ const ToggleSwitch = () => {
     </label>
   );
 };
-export default ToggleSwitch
+export default ToggleSwitch;

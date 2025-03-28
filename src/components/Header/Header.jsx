@@ -37,9 +37,10 @@ const Header = ({
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <ToggleSwitch />
+
       {isLoggedIn ? (
         <div className="header__user-container">
+          <ToggleSwitch />
           <button
             onClick={handleAddClick}
             type="button"
@@ -59,6 +60,7 @@ const Header = ({
         </div>
       ) : (
         <div className="header__buttons">
+          <ToggleSwitch />
           <button
             onClick={registerModal}
             type="button"
