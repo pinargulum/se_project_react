@@ -37,17 +37,19 @@
 }
 .swich__temp-F {
   position: absolute;
-  top: -7px;
+  top: -11px;
   left: 38px;
   color: white;
 }
+
 .swich__temp-C {
-  top: -7px;
+  top: -11px;
   left: 14px;
   position: absolute;
   color: white;
 }
 .swich__active {
+  top: -7px;
   font-size: 16px;
   color: white;
 }
