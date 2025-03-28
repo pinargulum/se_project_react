@@ -1,7 +1,7 @@
 .switch-default {
   display: flex;
   position: relative;
-
+margin-left: auto;
   top: -2px;
 }
 .switch-logged {
