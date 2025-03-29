@@ -35,7 +35,7 @@
 
 .header__buttons {
   display: flex;
- 
+ left: 720px;
   align-items: center;
   position: relative;
  
@@ -96,15 +96,26 @@
   width: 40px;
   border-radius: 50%;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .header__buttons {
     left: 10px;
     flex-wrap: wrap;
+  }
+    .header__user-container {
+      position: relative;
+      margin-left: auto;
+      left: 60px;
+    }
 
   }
-}
+
 @media screen and (max-width: 1024px) {
- 
+  .header__user-container {
+    position:absolute;
+    margin-left: auto;
+    left: 760px;
+   
+  }
   .header__buttons {
     left: 420px;
     gap: 20px;
