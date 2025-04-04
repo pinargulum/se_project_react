@@ -58,3 +58,11 @@ margin-left: auto;
     left: 10px;
   }
 }
+.swich-default {
+  position: static;
+  flex-direction: column;
+  margin-left: 20px;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
